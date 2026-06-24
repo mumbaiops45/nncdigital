@@ -162,7 +162,7 @@ export const industries = [
 
 export const blogs = [
   {
-    image: "/hero1.png",
+    image: "/crmdeve1.jpg",
     category: "CRM Development",
     date: "March 5, 2026",
     readTime: "5 min read",
@@ -172,7 +172,7 @@ export const blogs = [
       "Salesforce and HubSpot work until they don't. Here's why scaling businesses hit a wall with generic CRM tools.",
   },
   {
-    image: "/hero1.png",
+    image: "/7stpesbus.png",
     category: "Automation",
     date: "February 20, 2026",
     readTime: "6 min read",
@@ -182,7 +182,7 @@ export const blogs = [
       "Before expanding headcount, smart operators automate. Discover the workflows delivering the fastest ROI.",
   },
   {
-    image: "/hero1.png",
+    image: "/gpr.jpg",
     category: "Digital Growth",
     date: "February 8, 2026",
     readTime: "7 min read",
