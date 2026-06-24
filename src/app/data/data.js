@@ -4,73 +4,73 @@ export const services = [
     tag: "STRATEGY",
     title: "CRM Consulting",
     desc: "Expert CRM consulting tailored for your North American and UK market.",
-    img: "hero1.png"
+    img: "CRMConsulting.png"
   },
   {
     tag: "SETUP",
     title: "CRM Implementation",
     desc: "End-to-end CRM setup, configuration, and launch aligned to your business goals.",
-    img: "hero1.png"
+    img: "crmimplementation.png"
   },
   {
     tag: "CUSTOM",
     title: "CRM Customization",
     desc: "Custom CRM solutions tailored for your exact workflow and data model.",
-    img: "hero1.png"
+    img: "crmmcustomization.png"
   },
   {
     tag: "DEVELOPMENT",
     title: "CRM Portal Development",
     desc: "Build client-facing portals and self-service dashboards integrated with your CRM.",
-    img: "hero1.png"
+    img: "partnerportal.png"
   },
   {
     tag: "DEPLOYMENT",
     title: "CRM Deployment",
     desc: "Administer technology, people, and processes for CRM success.",
-    img: "hero1.png"
+    img: "crmdevelopment.png"
   },
   {
     tag: "MOBILE",
     title: "CRM Mobile App Development",
     desc: "Native and cross-platform CRM apps for field and remote teams.",
-    img: "hero1.png"
+    img: "crmmobile.png"
   },
   {
     tag: "DESIGN",
     title: "CRM UI/UX Design",
     desc: "User-friendly interfaces designed for modern customer expectations.",
-    img: "hero1.png"
+    img: "crmuiuxdesign.png"
   },
   {
     tag: "INTEGRATION",
     title: "CRM Integration Services",
     desc: "Connect your CRM with ERP, marketing, and third-party business tools.",
-    img: "hero1.png"
+    img: "crmintegration.png"
   },
   {
     tag: "MIGRATION",
     title: "CRM Migration Services",
     desc: "Securely transfer data from legacy systems with zero loss.",
-    img: "hero1.png"
+    img: "crmdatamig.png"
   },
   {
     tag: "CONSULTING",
     title: "IT Management Consulting",
     desc: "Strategic IT management and advisory services for growing businesses.",
-    img: "hero1.png"
+    img: "itmanagement.png"
   },
   {
     tag: "TRANSFORMATION",
     title: "Digital Transformation",
     desc: "End-to-end execution of your digital transformation roadmap.",
-    img: "hero1.png"
+    img: "digitaltransformation.png"
   },
   {
     tag: "AUTOMATION",
     title: "Marketing Automation",
     desc: "Automate lead nurturing, campaigns, and customer journeys at scale.",
-    img: "hero1.png"
+    img: "marketingautomation.png"
   },
 ];
 
@@ -80,34 +80,42 @@ export const data = [
   {
     title: "Email Integration",
     desc: "Sync your inbox directly with your CRM — track every email, automate follow-ups, and never lose a conversation thread with a client.",
+    image: "emailint.jpg"
   },
   {
     title: "Workflow and Approvals",
     desc: "Automate multi-step approval workflows across sales, finance, and operations. Reduce manual handoffs and speed up decision-making.",
+    image: "workflowp.png"
   },
   {
     title: "Reports and Dashboards",
     desc: "Build real-time dashboards and custom reports to monitor KPIs, pipeline health, and team performance at a glance.",
+    image: "report.png"
   },
   {
     title: "Sales Forecasting",
     desc: "Use historical data and AI-driven models to predict revenue, identify risks, and plan resources with confidence.",
+    image: "aihistori.png"
   },
   {
     title: "Fields Services",
     desc: "Equip field teams with mobile CRM tools, job scheduling, and real-time updates to deliver exceptional on-site service.",
+    image: "mobile-crm.webp"
   },
   {
     title: "CPQ Billing",
     desc: "Configure, price, and quote accurately every time. Streamline billing cycles and eliminate pricing errors across your sales team.",
+    image: "cpqbilling.png"
   },
   {
     title: "Lead Scoring & Prioritisation",
     desc: "Automatically score and rank leads based on behaviour and fit so your sales team always focuses on the highest-value opportunities.",
+    image: "leadgeneration.png"
   },
   {
     title: "WhatsApp Integration",
     desc: "Connect WhatsApp Business to your CRM for seamless customer communication, automated responses, and conversation tracking.",
+    image: "whatsappintegration.png"
   },
 ];
 

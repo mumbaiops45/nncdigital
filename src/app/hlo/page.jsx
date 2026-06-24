@@ -1,88 +1,315 @@
-"use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { services } from "../data/data";
 
-const Page = () => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
+
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+
+const crmSlides = [
+
+  {
+    category: "CRM Mobile App System",
+
+    items: [
+      {
+        title: "Custom CRM Development",
+        desc: "Fully bespoke CRM built around your exact business workflows.",
+        image: "/crmdevelopment.png",
+      },
+
+      {
+        title: "Cloud-Based CRM Services",
+        desc: "Scalable and secure cloud CRM infrastructure for growing teams.",
+        image: "/Cloud-Based.jpg",
+      },
+
+      {
+        title: "Real-Time Dashboards",
+        desc: "Live analytics and reporting dashboards for instant insights.",
+        image: "/Real-Time.png",
+      }
+    ]
+  },
+  {
+    category: "User Role & Permission Mgmt",
+    items: [
+      {
+        title: "Advanced User Permissions",
+        desc: "Control every user's access level with smart permission rules.",
+        image: "/generate.jpg",
+      },
+
+      {
+        title: "Data Quality Management",
+        desc: "Keep your customer database clean and accurate.",
+        image: "/DataQuality.jpg",
+      },
+
+      {
+        title: "Workflow Automation",
+        desc: "Automate approvals, notifications and daily tasks.",
+        image: "/workflow.jpg",
+      }
+    ]
+  },
+  {
+    category: "Performance Tuning",
+    items: [
+      {
+        title: "Performance Optimization",
+        desc: "Improve CRM speed and application performance.",
+        image: "/improvecrm.jpg",
+      },
+
+      {
+        title: "AI Powered Insights",
+        desc: "Use intelligent analytics to discover opportunities.",
+        image: "/aiinsight.webp",
+      },
+
+      {
+        title: "CRM Health Checks",
+        desc: "Identify problems and optimize your CRM system.",
+        image: "/healthcheck.png",
+      }
+    ]
+  }
+
+];
+
+
+
+export default function Page() {
+  const [active, setActive] = useState(0);
+  const [feature, setFeature] = useState(0);
+  const current = crmSlides[active].items[feature];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFeature((prev) => {
+        const total = crmSlides[active].items.length;
+        if (prev === total - 1) {
+          setActive((old) => {
+            if (old === crmSlides.length - 1) {
+              return 0;
+            }
+            return old + 1;
+          });
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 4000);
+
+    return () => clearInterval(timer);
+
+  }, [active]);
+
+
+
+
+
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-sky-50/40 to-white">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-200/30 blur-[120px]" />
+    <section
+      className="relative overflow-hidden px-6 py-28">
+      <div className="relative max-w-7xl">
+        <div className="text-left mx-6">
+          <p
+            className="text-sm uppercase tracking-[0.4em] text-[#1ab191]">
+            Why Choose Us
+          </p>
+          <h2
+            className="mt-5 text-5xl font-bold md:text-5xl">
+            Custom CRM Development
+            <span
+              className="block text-[#00A883]">
+              Solutions
+            </span>
+          </h2>
+          <p
+            className=" mt-5 max-w-2xl text-black" >
+            Powerful CRM solutions designed to automate workflows,
+            improve productivity and grow your business.
+          </p>
+        </div>
+        <div
+          className="mt-12 flex flex-wrap justify-left gap-4">
+          {
+            crmSlides.map((item, index) => (
+              <motion.button
+                key={item.category}
+                onClick={() => {
+                  setActive(index);
+                  setFeature(0);
+                }}
+                whileHover={{
+                  y: -3
+                }}
+                className={`rounded-full px-7 py-3 text-sm transition-all${active === index ?
+                  "bg-[#00A883] text-white shadow-lg bg-green-700"
+                  :
+                  "border border-white/10 bg-[#00A883] text-white/70"
+                  }`}
+              >
+                {item.category}
+              </motion.button>
+            ))
+          }
+        </div>
+        <div
+          className="mt-20 grid items-center gap-14 lg:grid-cols-2 ">
+          <div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.title}
+                initial={{
+                  opacity: 0,
+                  y: 30
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0
+                }}
 
-      <div ref={container} className="relative">
-        {services.map((a, i) => (
-          <Card
-            key={a.k}
-            data={a}
-            index={i}
-            progress={scrollYProgress}
-            range={[i * (1 / services.length), 1]}
-          />
-        ))}
+                exit={{
+                  opacity: 0,
+                  y: -20
+                }}
+
+                transition={{
+                  duration: .5
+                }}
+
+              >
+                <h2
+                  className="text-4xl font-bold md:text-5xl " >
+                  {current.title}
+                </h2>
+                <p
+                  className="mt-5 text-lg text-black">
+                  {current.desc}
+                </p>
+
+                <div
+                  className="mt-10 space-y-5">
+                  {
+                    crmSlides[active].items.map((item, index) => (
+                      <div
+                        key={item.title}
+                        onClick={() => setFeature(index)}
+                        className={`
+                        cursor-pointer rounded-2xl border p-5 transition-all ${feature === index
+                            ?
+                            "border-[#00A883] bg-[#00A883]/10"
+                            :
+                            "border-white/10 bg-gray-200"
+                          }`}
+                      >
+                        <h3 className="text-xl font-semibold">
+                          {item.title}
+                        </h3>
+                        <p
+                          className="mt-2 text-sm text-black">
+                          {item.desc}
+                        </p>
+                      </div>
+                    ))
+                  }
+                </div>
+                <button
+                  className="mt-10 rounded-full bg-gradient-to-r from-[#00A883] to-cyan-500 px-9 py-4 font-semibold shadow-xl shadow-[#00A883]/30">
+                  Book Free Strategy Call
+                </button>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+          <div>
+            <div
+              className="rounded-[40px] border border-white/10 bg-white/5 p-5 backdrop-blur-xl shadow-[0_0_80px_rgba(0,168,131,.25)]">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current.image}
+                  src={current.image}
+                  alt={current.title}
+                  initial={{
+                    opacity: 0,
+                    x: 80
+                  }}
+
+                  animate={{
+                    opacity: 1,
+                    x: 0
+                  }}
+
+                  exit={{
+                    opacity: 0,
+                    x: -80
+                  }}
+
+                  transition={{
+                    duration: .6,
+                    ease: "easeInOut"
+                  }}
+                  className="rounded-[30px] w-full" />
+              </AnimatePresence>
+              <div
+                className="mt-6 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                <motion.div
+                  key={current.image}
+                  className="h-full bg-gradient-to-r from-[#00A883] to-cyan-400"
+                  initial={{
+                    width: "0%"
+                  }}
+
+                  animate={{
+                    width: "100%"
+                  }}
+
+                  transition={{
+                    duration: 3,
+                    ease: "linear"
+                  }}
+
+                />
+
+              </div>
+
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+
+                key={current.title}
+
+                initial={{
+                  opacity: 0,
+                  y: 20
+                }}
+
+                animate={{
+                  opacity: 1,
+                  y: 0
+                }}
+
+                exit={{
+                  opacity: 0
+                }}
+
+                className="mt-8 text-center">
+                <h3
+                  className="text-3xl font-bold">
+                  {current.title}
+                </h3>
+                <p
+                  className="mt-3 text-black">
+                  {current.desc}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
-  );
-};
-
-function Card({ data, index, progress, range }) {
-  return (
-    <div className="sticky top-0 flex h-screen items-center justify-center px-4 md:px-8">
-      <motion.div className="group relative w-full max-w-6xl overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-[#060b18] ">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
-        <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-cyan-500/20 blur-3xl" />
-
-        <div className="flex flex-col md:flex-row">
-          <div className="flex w-full flex-col justify-center p-8 md:w-[55%] md:p-12">
-            <span className="font-mono text-sm font-semibold tracking-widest text-green-400">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-green-300/80">
-              {data.tag}
-            </p>
-
-            <h3 className="mt-3 text-3xl font-bold leading-tight text-white md:text-4xl">
-              {data.title}
-            </h3>
-
-            <p className="mt-4 max-w-md text-base leading-relaxed text-slate-300/90">
-              {data.desc}
-            </p>
-
-            <div className="mt-8 h-[3px] w-12 rounded-full bg-gradient-to-r from-green-400 to-green-500 transition-all duration-500 group-hover:w-32" />
-          </div>
-
-         
-          {data.img && (
-            <div className="w-full p-6 md:w-[45%] md:p-8">
-              <CardImage src={data.img} alt={data.k} progress={progress} range={range} />
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </div>
-  );
+  )
 }
-
-function CardImage({ src, alt, progress, range }) {
-  const imageScale = useTransform(progress, range, [1.18, 1]);
-  return (
-    <div className="relative h-[260px] overflow-hidden rounded-3xl ring-1 ring-white/10 md:h-[400px]">
-      <motion.img
-        src={src}
-        alt={alt}
-        style={{ scale: imageScale }}
-        className="h-full w-full object-cover will-change-transform"
-      />
-      
-      
-    </div>
-  );
-}
-
-export default Page;

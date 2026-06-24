@@ -24,7 +24,7 @@ const Footer = () => {
               systems.
             </p>
 
-            <button className="mt-6 bg-cyan-500 hover:bg-cyan-400 transition px-5 py-3 rounded-xl font-medium">
+            <button className="mt-6 bg-[#00A883] hover:bg-green-400 transition px-5 py-3 rounded-xl font-medium">
               Book a Free Call →
             </button>
           </div>
@@ -89,7 +89,7 @@ const Footer = () => {
                   className="w-full bg-white/5 border border-white/10 rounded-l-xl px-4 py-3 outline-none"
                 />
 
-                <button className="bg-cyan-500 px-5 rounded-r-xl hover:bg-cyan-400 transition">
+                <button className="bg-[#00A883] px-5 rounded-r-xl hover:bg-green-500 transition">
                   Join
                 </button>
               </div>
@@ -102,28 +102,28 @@ const Footer = () => {
           <div className="flex gap-4 mb-5 md:mb-0">
             <a
               href="#"
-              className="w-11 h-11 rounded-full bg-white/5 hover:bg-cyan-500 flex items-center justify-center transition"
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaLinkedinIn />
             </a>
 
             <a
               href="#"
-              className="w-11 h-11 rounded-full bg-white/5 hover:bg-cyan-500 flex items-center justify-center transition"
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaInstagram />
             </a>
 
             <a
               href="#"
-              className="w-11 h-11 rounded-full bg-white/5 hover:bg-cyan-500 flex items-center justify-center transition"
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaFacebookF />
             </a>
 
             <a
               href="#"
-              className="w-11 h-11 rounded-full bg-white/5 hover:bg-cyan-500 flex items-center justify-center transition"
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaXTwitter />
             </a>

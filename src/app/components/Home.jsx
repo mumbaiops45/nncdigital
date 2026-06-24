@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { data, industries, blogs } from "../data/data";
 import Offers from "./Offers";
+import Choose from "./Choose";
 
 const heroImages = [
   "/hero1.png",
@@ -39,7 +40,7 @@ function IndustryCard({ industry }) {
         {industry.title}
       </h3>
 
-      <div className="mt-4 h-[2px] w-12 bg-sky-500 transition-all duration-300 group-hover:w-20" />
+      <div className="mt-4 h-[2px] w-12 bg-green-500 transition-all duration-300 group-hover:w-20" />
     </div>
   );
 }
@@ -47,44 +48,39 @@ function IndustryCard({ industry }) {
 
 function BlogCard({ blog }) {
   return (
-    <div className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
-      <div className="relative overflow-hidden">
-        <img
-          src={blog.image}
-          alt={blog.title}
-          className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+    <div className="group relative h-[440px] overflow-hidden rounded-[28px] border border-slate-200 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+      <img
+        src={blog.image}
+        alt={blog.title}
+        className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:blur-sm"
+      />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-      </div>
 
-      <div className="p-8">
-
-        <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-700">
-          {blog.category}
-        </span>
-
-        <div className="mt-4 flex gap-3 text-sm text-slate-500">
-          <span>{blog.date}</span>
-          <span>•</span>
-          <span>{blog.readTime}</span>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/50" />
+      <div className="absolute inset-x-0 bottom-0 p-7 transition-transform duration-500 group-hover:-translate-y-3">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="rounded-full bg-[#00A883] px-3 py-1 text-xs font-medium text-white backdrop-blur">
+            {blog.category}
+          </span>
+          <div className="flex items-center gap-2 text-sm text-white/80">
+            <span>{blog.date}</span>
+            <span>•</span>
+            <span>{blog.readTime}</span>
+          </div>
         </div>
 
-        <h3 className="mt-5 text-2xl font-bold leading-tight text-slate-900">
+        <h3 className="mt-4 text-2xl font-bold leading-tight text-white">
           {blog.title}
         </h3>
 
-        <p className="mt-4 text-slate-600">
-          {blog.desc}
-        </p>
 
-        <button className="mt-6 flex items-center gap-2 font-semibold text-sky-600">
-          Read Article
-          <span className="transition-transform duration-300 group-hover:translate-x-2">
-            →
-          </span>
-        </button>
-
+        <div className="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
+          <div className="overflow-hidden">
+            <p className="mt-4 text-sm leading-relaxed text-white/85 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              {blog.desc}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -93,6 +89,7 @@ function BlogCard({ blog }) {
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
   const [open, setOpen] = useState(0);
+  const active = data[open];
 
   const row1 = industries.slice(0, 5);
   const row2 = industries.slice(5);
@@ -132,79 +129,81 @@ export default function Hero() {
         <div className="relative z-10 px-6 lg:px-12 py-12 min-h-[750px] flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
 
-            <div className="text-white">
-              <h1 className="text-5xl lg:text-5xl mt-8 font-bold leading-tight">
-                Build Once.
-                <span className="block text-green-400">
-                  Scale Everywhere.
-                </span>
-                <span className="block text-blue-400">
-                  Automate Everything.
-                </span>
-              </h1>
-
-              <p className="mt-8 text-lg text-gray-300 max-w-2xl leading-relaxed">
-                We design and develop custom CRM, ERP, Web, and Mobile
-                applications that automate operations and accelerate growth
-                across Canada, USA, and the UK.
-              </p>
-
-              <p className="mt-4 text-green-300 font-medium">
-                10+ Years of Enterprise Software Expertise
-              </p>
-
-
-              <div className="hidden lg:flex gap-4 mt-10">
-                <button className="px-8 py-2 rounded-xl bg-green-500 hover:bg-green-600 font-semibold transition-all">
-                  Book Free Strategy
-                </button>
-
-                <button className="px-8 py-2 rounded-xl border border-white/30 hover:bg-white/10 transition-all">
-                  Explore Solutions
-                </button>
-              </div>
-
-
-
-              <div className="flex flex-wrap gap-3 mt-10">
-                {[
-                  "Google Partner",
-                  "ISO Certified",
-                  "GDPR Compliant",
-                  "PIPEDA Compliant",
-                  "Clutch Top Agency",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm"
-                  >
-                    {item}
+            <div className=" inset-0 bg-black/20 w-full">
+              <div className="text-white">
+                <h1 className="text-5xl lg:text-5xl mt-8 font-bold ">
+                  Build Once.
+                  <span className="block text-[#ffffff]">
+                    Scale Everywhere.
                   </span>
-                ))}
-              </div>
+                  <span className="block text-[#00A883]">
+                    Automate Everything.
+                  </span>
+                </h1>
+
+                <p className="mt-8 text-lg text-white max-w-2xl ">
+                  We design and develop custom CRM, ERP, Web, and Mobile
+                  applications that automate operations and accelerate growth
+                  across Canada, USA, and the UK.
+                </p>
+
+                <p className="mt-4 text-[#00A883] font-medium">
+                  10+ Years of Enterprise Software Expertise
+                </p>
 
 
-              <div className="grid grid-cols-3 gap-8 mt-12 max-w-xl">
-                <div>
-                  <h3 className="text-3xl font-bold text-green-400">250+</h3>
-                  <p className="text-gray-300">Projects</p>
+                <div className="hidden lg:flex gap-4 mt-4">
+                  <button className="px-8 py-2 rounded-xl bg-[#00A883] hover:bg-green-600 font-semibold transition-all">
+                    Book Free Strategy
+                  </button>
+
+                  <button className="px-8 py-2 rounded-xl border border-white/30 hover:bg-white/10 transition-all">
+                    Explore Solutions
+                  </button>
                 </div>
 
-                <div>
-                  <h3 className="text-3xl font-bold text-green-400">98%</h3>
-                  <p className="text-gray-300">Client Retention</p>
+
+
+                <div className="flex flex-wrap gap-3 mt-5">
+                  {[
+                    "Google Partner",
+                    "ISO Certified",
+                    "GDPR Compliant",
+                    "PIPEDA Compliant",
+                    "Clutch Top Agency",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
 
-                <div>
-                  <h3 className="text-3xl font-bold text-green-400">10+</h3>
-                  <p className="text-gray-300">Years Experience</p>
+
+                <div className="grid grid-cols-3 gap-8 mt-6 max-w-xl">
+                  <div>
+                    <h3 className="text-3xl font-bold text-[#00A883]">250+</h3>
+                    <p className="text-gray-300">Projects</p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-3xl font-bold text-[#00A883]">98%</h3>
+                    <p className="text-gray-300">Client Retention</p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-3xl font-bold text-[#00A883]">10+</h3>
+                    <p className="text-gray-300">Years Experience</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="flex justify-end">
               <div className="bg-white rounded-3xl shadow-2xl p-2 px-8 w-full h-[550px] max-w-md">
-                <p className="text-green-600 mt-4 font-semibold">
+                <p className="text-[#00A883] mt-4 font-semibold">
                   Free Strategy Consultation
                 </p>
 
@@ -221,7 +220,7 @@ export default function Hero() {
                     <input
                       type="text"
                       placeholder="First Name"
-                      className="border rounded-xl p-2 w-full"
+                      className="border rounded-xl p-3 w-full"
                     />
 
                     <input
@@ -263,7 +262,7 @@ export default function Hero() {
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold transition-all"
+                    className="w-full py-4 rounded-xl bg-[#00A883] hover:bg-green-600 text-white font-semibold transition-all"
                   >
                     Get Free Consultation
                   </button>
@@ -281,7 +280,7 @@ export default function Hero() {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-16 px-6"
       >
         <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <h3 className="text-4xl font-bold text-green-600">
+          <h3 className="text-4xl font-bold text-[#00A883]">
             {inView && <CountUp end={100} duration={2.5} />}+
           </h3>
           <b className="block mt-2">Projects Delivered</b>
@@ -289,7 +288,7 @@ export default function Hero() {
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <h3 className="text-4xl font-bold text-blue-600">
+          <h3 className="text-4xl font-bold text-[#00A883]">
             {inView && <CountUp end={10} duration={2.5} />}+
           </h3>
           <b className="block mt-2">Years of Combined Expertise</b>
@@ -297,7 +296,7 @@ export default function Hero() {
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <h3 className="text-4xl font-bold text-purple-600">
+          <h3 className="text-4xl font-bold text-[#00A883]">
             {inView && <CountUp end={50} duration={2.5} />}+
           </h3>
           <b className="block mt-2">Clients Globally</b>
@@ -305,7 +304,7 @@ export default function Hero() {
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <h3 className="text-4xl font-bold text-orange-600">
+          <h3 className="text-4xl font-bold text-[#00A883]">
             {inView && <CountUp end={98} duration={2.5} />}%
           </h3>
           <b className="block mt-2">Client Retention Rate</b>
@@ -314,313 +313,148 @@ export default function Hero() {
       </section>
 
       <Offers />
+      <Choose />
 
 
-      <section className="relative overflow-hidden bg-[#06070b] px-6 py-24 text-white">
+
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-6 py-24">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-[-200px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-sky-500/20 blur-[140px]" />
           <div className="absolute bottom-[-200px] right-[-100px] h-[400px] w-[400px] rounded-full bg-indigo-500/10 blur-[140px]" />
         </div>
 
-        <div className="mx-auto max-w-7xl">
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <motion.p
-              custom={1}
-              variants={fadeUp}
-              className="text-sm tracking-[0.35em] text-green-400 uppercase"
-            >
-              Why Choose Us
-            </motion.p>
-
-            <motion.h2
-              custom={2}
-              variants={fadeUp}
-              className="mt-5 text-4xl font-bold leading-tight md:text-5xl"
-            >
-              Your Best Custom CRM{" "}
-              <span className="text-green-400">Development Company</span>
-            </motion.h2>
-
-            <motion.p
-              custom={3}
-              variants={fadeUp}
-              className="mx-auto mt-5 max-w-2xl text-white/60"
-            >
-              Here's wat we bring to the table in terms of custom CRM development.
-            </motion.p>
-          </motion.div>
-
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mt-12 flex flex-wrap justify-center gap-4"
-          >
-            {[
-              "Custom CRM Solutions",
-              "CRM Software Management",
-              "CRm Software Optimization",
-            ].map((btn, i) => (
-              <motion.button
-                key={btn}
-                custom={i}
-                variants={fadeUp}
-                whileHover={{ y: -2, scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white/80 backdrop-blur-xl transition hover:border-sky-400/40 hover:bg-sky-500/10"
-              >
-                {btn}
-              </motion.button>
-            ))}
-          </motion.div>
-
-
-          <div className="mt-20 text-center">
-            <p className="text-sm text-green-400 tracking-widest">
-              Our Track Record
-            </p>
-
-            <h3 className="mt-3 text-2xl font-semibold md:text-3xl">
-              Numbers That Define Our Expertise
-            </h3>
-
-            <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
-              {[
-                ["Web Projects", "1500+"],
-                ["Mobile Apps", "500+"],
-                ["Years", "10+"],
-                ["Industries", "25+"],
-              ].map((item, i) => (
-                <motion.div
-                  key={item[0]}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md hover:border-sky-400/30 transition"
-                >
-                  <p className="text-sm text-white/50">{item[0]}</p>
-                  <b className="mt-2 block text-3xl text-green-400">
-                    {item[1]}
-                  </b>
-                </motion.div>
-              ))}
-            </div>
-
-            <button className="mt-10 rounded-full bg-gradient-to-r from-green-500 to-green-500 px-8 py-4 text-sm font-semibold shadow-lg shadow-sky-500/20 transition hover:shadow-sky-500/40">
-              Book a frre Strategy Call
-            </button>
-          </div>
-
-
-          <div className="mt-24 grid gap-8 md:grid-cols-3">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl hover:border-sky-400/30 transition">
-              <h2 className="text-xl font-semibold text-green-400">
-                CRM Mobile App System
-              </h2>
-
-              <p className="mt-2 text-sm text-white/60">
-                Native mobile CRM for iOS & Andriod to manage customers on the go.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Custom CRM Development
-              </h2>
-              <p className="text-sm text-white/60">
-                Fully bespoke CRM built around your exact business workflows.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Cloud-Based CRM Services
-              </h2>
-              <p className="text-sm text-white/60">
-                Scalable, secure cloud CRM infrastructure for growing teams.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Real-Time Dashboards
-              </h2>
-              <p className="text-sm text-white/60">
-                Live analytics and reporting dashboards for instant business insights.
-              </p>
-            </div>
-
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl hover:border-indigo-400/30 transition">
-              <h2 className="text-xl font-semibold text-green-400">
-                USer Role & Permission Mgmt
-              </h2>
-              <p className="text-sm text-white/60">
-                Granular access control to keep your data safe and teams efficient.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Data Quality & Deduplication
-              </h2>
-              <p className="text-sm text-white/60">
-                Clean, consistent data with automated dedup and validation rules.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Workflow Automation Mgmt
-              </h2>
-              <p className="text-sm text-white/60">
-                Streamline approvals, notifications, and task assignments automatically.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Third-Party App Management
-              </h2>
-              <p className="text-sm text-white/60">
-                Manage integrations with 50+ tools from one central CRM hub.
-              </p>
-            </div>
-
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl hover:border-emerald-400/30 transition">
-              <h2 className="text-xl font-semibold text-emerald-400">
-                Performance Tuning
-              </h2>
-              <p className="text-sm text-white/60">
-                Optimize CRM speed , load times, and query performance at scale.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Conversion Optimization
-              </h2>
-              <p className="text-sm text-white/60">
-                Refine pipelines and processes to maximize lead-to-customer rates.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                AI-Powered Insights
-              </h2>
-              <p className="text-sm text-white/60">
-                Leerage machine learning to predict churn and surface opportunities.
-              </p>
-
-              <h2 className="mt-6 text-xl font-semibold">
-                Audit & Health Checks
-              </h2>
-              <p className="text-sm text-white/60">
-                Regular CRM audits to identify gaps, risks, and improvement areas.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-
-      <section className="relative overflow-hidden bg-gray-100 px-6 py-24 ">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-[-200px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-sky-500/20 blur-[140px]" />
-          <div className="absolute bottom-[-200px] right-[-100px] h-[400px] w-[400px] rounded-full bg-indigo-500/10 blur-[140px]" />
-        </div>
-
-        <div className="mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="text-sm tracking-[0.35em] text-green-400 uppercase">
+            <p className="text-sm uppercase tracking-[0.35em] text-[#00A883]">
               CRM Capabilities
             </p>
-
-            <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
               A Good CRM Software Always Allows You to Do More
             </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl text-black">
-              Explore the key capabilities that make our CRM solutions stand out for businesses in Canada, USA & UK.
+            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+              Explore the key capabilities that make our CRM solutions stand out
+              for businesses in Canada, USA & UK.
             </p>
           </div>
 
-
-          <div className="mt-16 space-y-4">
-
-            {data.map((item, i) => {
-              const isOpen = open === i;
-
-              return (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-white/10 bg-gray-200 backdrop-blur-xl transition"
-                >
-                  <button
-                    onClick={() => setOpen(isOpen ? -1 : i)}
-                    className="flex w-full items-center justify-between px-6 py-5 text-left"
-                  >
-                    <h3 className="text-lg font-medium">
-                      {item.title}
-                    </h3>
-
-                    <span className="text-xl text-black">
-                      {isOpen ? "−" : "+"}
-                    </span>
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
+          <div className="mt-16 grid items-start gap-10 lg:grid-cols-2">
+            <div className="space-y-3">
+              {data.map((item, i) => {
+                const isOpen = open === i;
+                return (
+                  <div key={item.title}>
+                    {isOpen ? (
                       <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
+                        layout
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.35 }}
-                        className="overflow-hidden"
+                        className="rounded-3xl border border-cyan-500/20 bg-white/[0.04] p-6 backdrop-blur-xl"
                       >
-                        <p className="px-6 pb-6 text-sm leading-relaxed text-black">
-                          {item.desc}
-                        </p>
+                        <h3 className="text-lg font-semibold text-white">
+                          <span className="text-[#00A883]">{item.title}.</span>{" "}
+                          <span className="font-normal text-slate-300">
+                            {item.desc}
+                          </span>
+                        </h3>
                       </motion.div>
+                    ) : (
+                      <button
+                        onClick={() => setOpen(i)}
+                        className="group flex w-full items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-6 py-4 text-left transition-all hover:border-cyan-500/30 hover:bg-white/[0.06]"
+                      >
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-lg text-slate-300 transition group-hover:border-cyan-400 group-hover:text-cyan-400">
+                          +
+                        </span>
+                        <span className="font-medium text-white">
+                          {item.title}
+                        </span>
+                      </button>
                     )}
-                  </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
 
-                </div>
-              );
-            })}
-
+            <div className="relative h-[400px] overflow-hidden rounded-[28px] border border-white/10 bg-slate-900 lg:h-[560px] lg:sticky lg:top-24">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={active.image}
+                  src={`/${active.image}`}
+                  alt={active.title}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.4 }}
+                  className="h-full w-full object-cover"
+                />
+              </AnimatePresence>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
+            </div>
           </div>
         </div>
       </section>
 
 
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
+
+
+      <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0">
           <img
             src="/hero1.png"
-            alt="hero background"
+            alt="CRM Solutions"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+
+          <div className="absolute inset-0 bg-gradient-to-b  from-black/80  via-black/60  to-black" />
+          <div className="absolute -left-40 top-20 h-96 w-96 rounded-full  bg-green-500/20 blur-[120px]" />
+
+          <div className="absolute -right-40 bottom-10 h-96 w-96 rounded-full   bg-green-400/20 blur-[120px]" />
         </div>
-        <div className="relative z-10 mx-auto max-w-7xl px-6 text-center text-white">
-          <h1 className="text-3xl font-semibold leading-tight md:text-5xl lg:text-6xl">
-            Want CRM solutions that take your business to the{" "}
-            <span className="relative inline-block">
-              next level?
-              <span className="absolute left-0 -bottom-2 h-[3px] w-full bg-sky-400/70"></span>
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-white/80 md:text-lg">
-            Connect with NNC Digital today.
-          </p>
-          <div className="mt-10 flex justify-center">
-            <button className="group relative rounded-full bg-white px-8 py-4 text-sm font-semibold text-black shadow-lg transition hover:scale-105 hover:shadow-white/20">
-              Connect Now
-              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
-                →
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+
+          <div className=" mx-auto max-w-4xl  rounded-3xl  border border-white/10 bg-white/[0.05] backdrop-blur-xl px-6 py-12 text-center shadow-2xl md:px-12 md:py-16">
+
+            <div className=" mx-auto mb-6 flex w-fit items-center gap-2  rounded-full  border border-green-400/30 bg-green-400/10  px-5 py-2 text-sm  text-green-300 ">
+              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+              Premium CRM Solutions
+            </div>
+
+            <h1
+              className=" text-4xl  font-bold leading-tight text-white md:text-5xl lg:text-5xl " >
+              Want CRM solutions that take your business to the{" "}
+              <span
+                className=" relative   text-[#00A883]  ">
+                next level?
               </span>
-            </button>
+            </h1>
+            <p
+              className=" mx-auto mt-8 max-w-2xl text-base  leading-relaxed text-gray-300  md:text-xl " >
+              Connect with NNC Digital today and transform your business
+              with intelligent CRM solutions built for growth.
+            </p>
+            <div className="mt-10 flex justify-center">
+              <button
+                className=" group relative overflow-hidden rounded-full bg-[#00A883] px-10 py-4 text-sm  font-semibold  text-black shadow-lg shadow-green-500/30 transition-all duration-300 hover:scale-105 hover:shadow-green-400/50">
+                <span className="relative z-10 flex items-center gap-2">
+                  Connect Now
+
+                  <span
+                    className="  transition-transform  duration-300  group-hover:translate-x-2  " >
+                    →
+                  </span>
+                </span>
+                <span
+                  className=" absolute inset-0 -translate-x-full bg-white/30 transition-transform  duration-700  group-hover:translate-x-full " />
+              </button>
+            </div>
           </div>
 
         </div>
 
+        <div
+          className=" absolute  bottom-0  h-32  w-full  bg-gradient-to-t  from-black to-transparent " />
       </section>
 
       <section className="relative overflow-hidden bg-[#d8d9db] py-24 text-black">
@@ -702,37 +536,52 @@ export default function Hero() {
 
 
 
-      <section className="relative overflow-hidden bg-slate-50 py-24">
+
+      <section className="relative overflow-hidden bg-black py-28">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-100px] top-0 h-[400px] w-[400px] rounded-full bg-sky-500/10 blur-[120px]" />
-          <div className="absolute right-[-150px] bottom-0 h-[500px] w-[500px] rounded-full bg-indigo-500/10 blur-[140px]" />
+          <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-green-500/15 blur-[180px]" />
+          <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" />
+          <div
+            className=" absolute  inset-0  opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)]   [background-size:50px_50px] " />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+
         </div>
 
-        <div className="mx-auto max-w-7xl px-6">
-
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.35em] text-sky-500">
-              Built for Your World
-            </p>
 
-            <h2 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl">
-              Helping Businesses Across Industries
+            <div
+              className="  inline-flex  items-center  gap-2   rounded-full border border-green-500/30 bg-green-500/10 px-5 py-2 " >
+              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+
+              <span className="text-sm font-medium text-green-300">
+                Industries We Serve
+              </span>
+            </div>
+
+            <h2 className="mt-8 text-4xl font-bold text-white md:text-5xl">
+              CRM Solutions Built For
+              <span
+                className=" mt-2 block text-[#00A883]   ">
+                Every Industry
+              </span>
             </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-slate-600">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-400">
               Purpose-built CRM solutions tailored for diverse industries,
-              helping organizations streamline operations and accelerate growth.
+              helping organizations streamline operations, automate workflows,
+              and accelerate growth.
             </p>
           </div>
-
-
           <div className="relative mt-20 overflow-hidden">
+            <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-black to-transparent" />
+            <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-black to-transparent" />
             <motion.div
               animate={{
                 x: ["0%", "-50%"],
               }}
               transition={{
-                duration: 25,
+                duration: 40,
                 repeat: Infinity,
                 ease: "linear",
               }}
@@ -746,15 +595,16 @@ export default function Hero() {
               ))}
             </motion.div>
           </div>
+          <div className="relative mt-10 overflow-hidden">
+            <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-black to-transparent" />
+            <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-black to-transparent" />
 
-
-          <div className="relative mt-8 overflow-hidden">
             <motion.div
               animate={{
                 x: ["-50%", "0%"],
               }}
               transition={{
-                duration: 25,
+                duration: 40,
                 repeat: Infinity,
                 ease: "linear",
               }}
@@ -767,10 +617,13 @@ export default function Hero() {
                 />
               ))}
             </motion.div>
+
           </div>
 
         </div>
+
       </section>
+
 
 
 
@@ -780,7 +633,7 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-6">
 
           <div className="text-center">
-            <p className="font-medium uppercase tracking-[0.3em] text-sky-500">
+            <p className="font-medium uppercase tracking-[0.3em] text-[#00A883]">
               From the Blog
             </p>
 
@@ -806,6 +659,234 @@ export default function Hero() {
 
         </div>
       </section>
+
+
+
+      <section className="relative overflow-hidden bg-black py-28">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-green-500/10 blur-[180px]" />
+          <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" />
+          <div
+            className="  absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px transparent_1px)] [background-size:50px_50px]"/>
+        </div>
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+            <div>
+              <span
+                className="  inline-flex  rounded-full  border border-green-500/30  bg-green-500/10 px-5  py-2 text-sm font-medium text-[#00A883] " >
+                AI-Powered CRM
+              </span>
+
+              <h2
+                className=" mt-6 text-4xl  font-bold  leading-tight text-white md:text-6xl  "   >
+                Leverage{" "}
+                <span
+                  className="  text-[#00A883]  " >
+                  AI-Powered CRM
+                </span>{" "}
+                Solutions
+              </h2>
+
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-400">
+                Our AI-driven CRM solutions streamline operations, automate
+                repetitive tasks, and deliver actionable insights that help
+                businesses increase productivity, improve customer engagement,
+                and accelerate growth.
+              </p>
+
+              {/* Stats */}
+              <div className="mt-10 flex flex-wrap gap-8">
+
+                <div>
+                  <h3 className="text-3xl font-bold text-[#00A883]">95%</h3>
+                  <p className="mt-1 text-sm text-gray-400">
+                    Automation Accuracy
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-3xl font-bold text-[#00A883]">24/7</h3>
+                  <p className="mt-1 text-sm text-gray-400">
+                    AI Assistance
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-3xl font-bold text-[#00A883]">3X</h3>
+                  <p className="mt-1 text-sm text-gray-400">
+                    Faster Lead Conversion
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="space-y-6">
+              <div
+                className="
+      group
+      rounded-3xl
+      border
+      border-white/10
+      bg-white/[0.04]
+      p-7
+      backdrop-blur-xl
+      transition-all
+      duration-500  hover:-translate-y-2  hover:border-green-500/40  hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]  "  >
+
+                <div className="flex items-start gap-4">
+
+                  <div
+                    className="
+          flex
+          h-14
+          w-14
+          items-center
+          justify-center
+          rounded-2xl
+          bg-green-500/15
+          text-2xl
+          "
+                  >
+                    📊
+                  </div>
+
+                  <div>
+
+                    <h3 className="text-xl font-semibold text-white">
+                      Data Analysis
+                    </h3>
+
+                    <p className="mt-3 leading-relaxed text-gray-400">
+                      AI analyses customer interactions across emails,
+                      social media, purchases, and engagement channels,
+                      surfacing insights that help teams make smarter
+                      business decisions.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Card 2 */}
+              <div
+                className="
+      group
+      rounded-3xl
+      border
+      border-white/10
+      bg-white/[0.04]
+      p-7
+      backdrop-blur-xl
+      transition-all
+      duration-500
+      hover:-translate-y-2
+      hover:border-green-500/40
+      hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]
+      "
+              >
+
+                <div className="flex items-start gap-4">
+
+                  <div
+                    className="
+          flex
+          h-14
+          w-14
+          items-center
+          justify-center
+          rounded-2xl
+          bg-green-500/15
+          text-2xl
+          "
+                  >
+                    🎯
+                  </div>
+
+                  <div>
+
+                    <h3 className="text-xl font-semibold text-white">
+                      Predictive Lead Scoring
+                    </h3>
+
+                    <p className="mt-3 leading-relaxed text-gray-400">
+                      Automatically score and prioritize leads based on
+                      engagement, behavior, and purchase intent, helping
+                      sales teams focus on opportunities with the highest
+                      conversion potential.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Card 3 */}
+              <div
+                className="
+      group
+      rounded-3xl
+      border
+      border-white/10
+      bg-white/[0.04]
+      p-7
+      backdrop-blur-xl
+      transition-all
+      duration-500
+      hover:-translate-y-2
+      hover:border-green-500/40
+      hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]
+      "
+              >
+
+                <div className="flex items-start gap-4">
+
+                  <div
+                    className="
+          flex
+          h-14
+          w-14
+          items-center
+          justify-center
+          rounded-2xl
+          bg-green-500/15
+          text-2xl
+          "
+                  >
+                    🤖
+                  </div>
+
+                  <div>
+
+                    <h3 className="text-xl font-semibold text-white">
+                      AI Chatbot & WhatsApp Automation
+                    </h3>
+
+                    <p className="mt-3 leading-relaxed text-gray-400">
+                      Deploy intelligent chatbots and WhatsApp workflows
+                      that engage prospects, answer questions, qualify
+                      leads, and schedule appointments around the clock.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
 
     </>
   );

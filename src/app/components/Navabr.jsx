@@ -31,7 +31,7 @@ function HoverDropdown({ label, children, panelClass = "" }) {
     >
       <button
         className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
-          open ? "text-green-400" : "text-white/90 hover:text-white"
+          open ? "text-[#00A883]" : "text-white/90 hover:text-white"
         }`}
       >
         {label}
@@ -68,15 +68,16 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#050816]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/30"
-          : "bg-[#050816]/40 backdrop-blur-md border-b border-transparent"
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all bg-black duration-300 `}
+      // className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      //   scrolled
+      //     ? "bg-[#050816]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/30"
+      //     : "bg-[#050816]/40 backdrop-blur-md border-b border-transparent"
+      // }`}
     >
       {({ open }) => (
         <>
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-500/40 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-px bg-[#00A883]" />
 
           <div className="max-w-7xl mx-auto px-5 lg:px-8">
             <div
@@ -96,7 +97,7 @@ export default function Navbar() {
               <div className="hidden lg:flex items-center gap-7">
                 <a href="/" className="relative group text-sm font-medium text-white/90 hover:text-white transition-colors">
                   Home
-                  <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-green-400 to-green-500 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-[#00A883] transition-all duration-300 group-hover:w-full" />
                 </a>
                 <HoverDropdown
                   label="Solutions"
@@ -105,8 +106,8 @@ export default function Navbar() {
                   <div className="grid grid-cols-4 gap-7">
                     {solutions.map((col) => (
                       <div key={col.title}>
-                        <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-green-400 mb-5">
-                          <span className="h-3 w-1 rounded-full bg-gradient-to-b from-green-400 to-green-500" />
+                        <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#00A883] mb-5">
+                          <span className="h-3 w-1 rounded-full bg-[#00A883]" />
                           {col.title}
                         </h3>
                         <div className="space-y-1">
@@ -125,19 +126,19 @@ export default function Navbar() {
                     ))}
                     <div className="relative overflow-hidden rounded-2xl border border-green-500/20 bg-gradient-to-br from-green-500/10 to-green-600/5 p-6">
                       <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-green-500/20 blur-2xl" />
-                      <span className="inline-block rounded-full bg-green-500/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-green-300">
+                      <span className="inline-block rounded-full bg-green-500/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#00A883]">
                         Case Study
                       </span>
                       <h4 className="mt-4 text-lg font-bold leading-snug text-white">
                         Manufacturing CRM Overhaul
                       </h4>
-                      <div className="mt-4 bg-gradient-to-r from-green-400 to-green-400 bg-clip-text text-4xl font-bold text-transparent">
+                      <div className="mt-4 bg-[#00A883] bg-clip-text text-4xl font-bold text-transparent">
                         35%
                       </div>
                       <p className="mt-2 text-xs text-gray-400">
                         Efficiency gain in 90 days for a mid-size manufacturer.
                       </p>
-                      <a href="#" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-green-400 hover:gap-2 transition-all">
+                      <a href="#" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#00A883] hover:gap-2 transition-all">
                         Read More →
                       </a>
                     </div>
@@ -166,12 +167,12 @@ export default function Navbar() {
                     className="relative group text-sm font-medium text-white/90 hover:text-white transition-colors"
                   >
                     {link}
-                    <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-green-400 to-green-500 transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-[#00A883] transition-all duration-300 group-hover:w-full" />
                   </a>
                 ))}
               </div>
               <div className="hidden lg:block">
-                <button className="relative rounded-xl bg-gradient-to-r from-green-500 to-green-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-green-500/30 transition-all duration-300 hover:scale-105 hover:shadow-green-500/50">
+                <button className="relative rounded-xl bg-[#00A883] px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-green-500/30 transition-all duration-300 hover:scale-105 hover:shadow-green-500/50">
                   Book Free Call
                 </button>
               </div>
@@ -193,9 +194,9 @@ export default function Navbar() {
                     <Disclosure.Panel className="space-y-3 px-4 pb-3 pt-1">
                       {solutions.map((col) => (
                         <div key={col.title}>
-                          <p className="px-2 text-xs font-semibold uppercase tracking-wider text-green-400">{col.title}</p>
+                          <p className="px-2 text-xs font-semibold uppercase tracking-wider text-[#00A883]">{col.title}</p>
                           {col.items.map((item) => (
-                            <a key={item} href="#" className="block rounded-lg px-2 py-2 text-sm text-gray-300 hover:text-green-400">
+                            <a key={item} href="#" className="block rounded-lg px-2 py-2 text-sm text-gray-300 hover:text-[#00A883]">
                               {item}
                             </a>
                           ))}
@@ -228,7 +229,7 @@ export default function Navbar() {
                 </a>
               ))}
 
-              <button className="mt-2 w-full rounded-xl bg-gradient-to-r from-green-500 to-green-600 py-3 font-semibold text-white shadow-lg shadow-green-500/30">
+              <button className="mt-2 w-full rounded-xl bg-[#00A883] py-3 font-semibold text-white shadow-lg shadow-green-500/30">
                 Book Free Call
               </button>
             </div>
