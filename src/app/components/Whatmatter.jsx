@@ -6,32 +6,32 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const benefits = [
   {
-    image: "/hero1.png",
+    image: "/cloudconnect.webp",
     title: "Secure Data",
     description: "Cloud-connected system. GDPR / PIPEDA / CCPA compliance built-in.",
     tags: ["GDPR", "PIPEDA", "CCPA"],
   },
   {
-    image: "/hero2.png",
+    image: "/leadmanagement.webp",
     title: "Lead Management",
     description: "Priority pipelines with intelligent scoring and automation.",
     tags: ["Pipeline", "Scoring", "Automation"],
   },
   {
-    image: "/hero2.png",
+    image: "/apiintegration.jpg",
     title: "Easy Integration",
     description: "Seamless plugins and API integrations across departments.",
     tags: ["Plugins", "API", "No Silos"],
   },
   {
-    image: "/hero2.png",
+    image: "/24_7.jpeg",
     title: "Relentless Support",
     description: "24/7 support, training, and go-live assistance.",
     tags: ["24/7", "Training", "Go-Live"],
   },
 ];
 
-export default function Page() {
+export default function Whatmatter() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     loop: true,
@@ -64,15 +64,15 @@ export default function Page() {
   }, [selectedIndex, emblaApi]);
 
   return (
-    <section className="bg-black text-white py-20 overflow-hidden">
+    <section className="bg-gray-100  py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="uppercase text-zinc-400 tracking-[3px] mb-3">Why It Matters</p>
+        <p className="uppercase text-black tracking-[3px] mb-3">Why It Matters</p>
 
         <h2 className="text-5xl font-bold mb-4">
           Key Benefits of <span className="text-[#00A883]">CRM Development</span>
         </h2>
 
-        <p className="text-zinc-400 mb-12">
+        <p className="text-black mb-12">
           Here's what you gain with advanced CRM development services.
         </p>
 

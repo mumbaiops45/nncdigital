@@ -192,3 +192,46 @@ export const blogs = [
       "Learn how to architect privacy and compliance into your systems from the ground up.",
   },
 ];
+
+
+
+export const businessCards = [
+  {
+    title: "Enterprises",
+    image: "/enterprises.png",
+    description:
+      "Digital CRM built for vendors, suppliers, and partners with complex permission hierarchies and enterprise-grade integrations.",
+  },
+  {
+    title: "Agencies",
+    image: "/Agencies.png",
+    description:
+      "Client pipelines, retainer billing, and performance dashboards designed for agency growth.",
+  },
+  {
+    title: "Start-ups",
+    image: "/Start-ups.png",
+    description:
+      "CRM that scales with your company without requiring costly migrations.",
+  },
+   {
+    title: "Analytical CRM",
+    image: "/Analyticalcrm.png",
+    description:
+      "Turn customer data into business intelligence and actionable insights.",
+  },
+  {
+    title: "Collaborative CRM",
+    image: "/Collaborativecrm.png",
+    description:
+      "Connect sales, marketing, support, and operations on one platform.",
+  },
+  {
+    title: "Operational CRM",
+    image: "/operationalcrm.png",
+    description:
+      "Automate repetitive sales and service workflows efficiently.",
+  },
+];
+
+

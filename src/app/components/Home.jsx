@@ -1,11 +1,15 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { data, industries, blogs } from "../data/data";
+import { data, industries, blogs, businessCards } from "../data/data";
+import "swiper/css";
 import Offers from "./Offers";
 import Choose from "./Choose";
+import Whatmatter from "./Whatmatter";
+import TechStack from "./TechStack";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const heroImages = [
   "/hero1.png",
@@ -14,19 +18,6 @@ const heroImages = [
 ];
 
 
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.08,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
 
 
 function IndustryCard({ industry }) {
@@ -90,6 +81,11 @@ export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
   const [open, setOpen] = useState(0);
   const active = data[open];
+  const [activeTab, setActiveTab] = useState("business");
+  const sliderRef = useRef(null);
+
+
+
 
   const row1 = industries.slice(0, 5);
   const row2 = industries.slice(5);
@@ -107,6 +103,20 @@ export default function Hero() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const scrollLeft = () => {
+    sliderRef.current?.scrollBy({
+      left: -400,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    sliderRef.current?.scrollBy({
+      left: 400,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -537,7 +547,7 @@ export default function Hero() {
 
 
 
-      <section className="relative overflow-hidden bg-black py-28">
+      <section className="relative overflow-hidden bg-black py-8">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-green-500/15 blur-[180px]" />
           <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" />
@@ -625,10 +635,7 @@ export default function Hero() {
       </section>
 
 
-
-
-
-      <section className="relative overflow-hidden bg-slate-50 py-24">
+      <section className="relative overflow-hidden bg-slate-50  py-24">
 
         <div className="mx-auto max-w-7xl px-6">
 
@@ -648,26 +655,24 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="mt-14 text-center">
+          {/* <div className="mt-14 text-center">
             <button className="group rounded-full border border-slate-300 px-8 py-4 font-semibold transition hover:bg-slate-900 hover:text-white">
               View All Articles
               <span className="ml-2 inline-block transition-transform group-hover:translate-x-2">
                 →
               </span>
             </button>
-          </div>
+          </div> */}
 
         </div>
       </section>
 
-
-
-      <section className="relative overflow-hidden bg-black py-28">
+      <section className="relative overflow-hidden bg-black px-6 py-18">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-green-500/10 blur-[180px]" />
           <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" />
           <div
-            className="  absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px transparent_1px)] [background-size:50px_50px]"/>
+            className="  absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px transparent_1px)] [background-size:50px_50px]" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -886,6 +891,69 @@ export default function Hero() {
         </div>
 
       </section>
+
+      <TechStack />
+
+      
+
+      <section className="relative overflow-hidden   px-8  md:px-16 md:py-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{
+            backgroundImage: "url('/itmanagement.png')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#02111F]/90 via-[#081C34]/80 to-[#02111F]/90" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[180px]" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[180px]" />
+
+        <div className="relative z-10 max-w-6xl mx-auto  px-6">
+
+          <div className="rounded-[32px]  border border-white/10 bg-white/[0.04] backdrop-blur-xl px-8 py-4 md:px-16 md:py-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+            <div className="flex justify-center">
+              <div className="inline-flex items-center  px-5 py-0 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-sm font-medium backdrop-blur-md">
+                CRM Development Specialists
+              </div>
+            </div>
+            <h2 className="mt-6 text-center text-4xl md:text-5xl lg:text-5xl font-bold  text-white">
+              Want CRM Solutions That
+              <span className="block  bg-gradient-to-r from-cyan-400 via-teal-300 to-[#00A883] bg-clip-text text-transparent">
+                Take Your Business
+              </span>
+              To The Next Level?
+            </h2>
+
+            <p className="mt-6 text-center text-lg md:text-lg text-slate-50 max-w-3xl mx-auto leading-relaxed">
+              Build scalable CRM systems, automate workflows, improve customer
+              experiences, and unlock growth with expert CRM development tailored
+              to your business.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-5 mt-8">
+              <button
+                className=" group px-10 py-4 rounded-full bg-gradient-to-r from-cyan-500  to-[#00A883]  text-white font-semibold  shadow-[0_10px_40px_rgba(0,168,131,0.35)]  hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,168,131,0.55)]  transition-all duration-300" >
+                <span className="flex items-center gap-3">
+                  Connect Now
+                  <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </button>
+
+              <button
+                className=" px-10 py-4 rounded-full border border-white/20 bg-white/10  backdrop-blur-md  text-white  font-semibold  hover:bg-white/20  hover:border-white/40  transition-all duration-300" >
+                Book Free Consultation
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <Whatmatter />
+
 
 
     </>
