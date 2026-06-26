@@ -111,7 +111,7 @@ export default function Hero() {
         ))}
 
         {/* Brand duotone tint — unifies the busy image into our palette */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/30 via-blue-700/25 to-emerald-600/20 mix-blend-color" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/90 via-blue-700/95 to-emerald-600/20 mix-blend-color" />
         <div className="absolute inset-0 bg-[#020617]/35" />
 
         {/* Directional gradient — left dark (text), right breathes (image) */}
@@ -293,84 +293,6 @@ export default function Hero() {
 
 
 
-      {/* <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-6 py-24">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/2 top-[-200px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-sky-500/20 blur-[140px]" />
-          <div className="absolute bottom-[-200px] right-[-100px] h-[400px] w-[400px] rounded-full bg-indigo-500/10 blur-[140px]" />
-        </div>
-
-        <div className="relative mx-auto max-w-6xl">
-          <div className="text-center">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#00A883]">
-              CRM Capabilities
-            </p>
-            <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
-              A Good CRM Software Always Allows You to Do More
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-              Explore the key capabilities that make our CRM solutions stand out
-              for businesses in Canada, USA & UK.
-            </p>
-          </div>
-
-          <div className="mt-16 grid items-start gap-10 lg:grid-cols-2">
-            <div className="space-y-3">
-              {data.map((item, i) => {
-                const isOpen = open === i;
-                return (
-                  <div key={item.title}>
-                    {isOpen ? (
-                      <motion.div
-                        layout
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.35 }}
-                        className="rounded-3xl border border-cyan-500/20 bg-white/[0.04] p-6 backdrop-blur-xl"
-                      >
-                        <h3 className="text-lg font-semibold text-white">
-                          <span className="text-[#00A883]">{item.title}.</span>{" "}
-                          <span className="font-normal text-slate-300">
-                            {item.desc}
-                          </span>
-                        </h3>
-                      </motion.div>
-                    ) : (
-                      <button
-                        onClick={() => setOpen(i)}
-                        className="group flex w-full items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-6 py-4 text-left transition-all hover:border-cyan-500/30 hover:bg-white/[0.06]"
-                      >
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-lg text-slate-300 transition group-hover:border-cyan-400 group-hover:text-cyan-400">
-                          +
-                        </span>
-                        <span className="font-medium text-white">
-                          {item.title}
-                        </span>
-                      </button>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="relative h-[400px] overflow-hidden rounded-[28px] border border-white/10 bg-slate-900 lg:h-[560px] lg:sticky lg:top-24">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={active.image}
-                  src={`/${active.image}`}
-                  alt={active.title}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4 }}
-                  className="h-full w-full object-cover"
-                />
-              </AnimatePresence>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <section className="relative overflow-hidden bg-[#020617] px-6 py-28">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-[-200px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[140px]" />
@@ -501,95 +423,27 @@ export default function Hero() {
 
 
 
-
-      {/* <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden bg-black">
-        <div className="absolute inset-0">
-          <img
-            src="/hero1.png"
-            alt="CRM Solutions"
-            className="h-full w-full object-cover"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-b  from-black/80  via-black/60  to-black" />
-          <div className="absolute -left-40 top-20 h-96 w-96 rounded-full  bg-green-500/20 blur-[120px]" />
-
-          <div className="absolute -right-40 bottom-10 h-96 w-96 rounded-full   bg-green-400/20 blur-[120px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-
-          <div className=" mx-auto max-w-4xl  rounded-3xl  border border-white/10 bg-white/[0.05] backdrop-blur-xl px-6 py-12 text-center shadow-2xl md:px-12 md:py-16">
-
-            <div className=" mx-auto mb-6 flex w-fit items-center gap-2  rounded-full  border border-green-400/30 bg-green-400/10  px-5 py-2 text-sm  text-green-300 ">
-              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-              Premium CRM Solutions
-            </div>
-
-            <h1
-              className=" text-4xl  font-bold leading-tight text-white md:text-5xl lg:text-5xl " >
-              Want CRM solutions that take your business to the{" "}
-              <span
-                className=" relative   text-[#00A883]  ">
-                next level?
-              </span>
-            </h1>
-            <p
-              className=" mx-auto mt-8 max-w-2xl text-base  leading-relaxed text-gray-300  md:text-xl " >
-              Connect with NNC Digital today and transform your business
-              with intelligent CRM solutions built for growth.
-            </p>
-            <div className="mt-10 flex justify-center">
-              <button
-                className=" group relative overflow-hidden rounded-full bg-[#00A883] px-10 py-4 text-sm  font-semibold  text-black shadow-lg shadow-green-500/30 transition-all duration-300 hover:scale-105 hover:shadow-green-400/50">
-                <span className="relative z-10 flex items-center gap-2">
-                  Connect Now
-
-                  <span
-                    className="  transition-transform  duration-300  group-hover:translate-x-2  " >
-                    →
-                  </span>
-                </span>
-                <span
-                  className=" absolute inset-0 -translate-x-full bg-white/30 transition-transform  duration-700  group-hover:translate-x-full " />
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        <div
-          className=" absolute  bottom-0  h-32  w-full  bg-gradient-to-t  from-black to-transparent " />
-      </section> */}
-
       <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden bg-[#020617]">
-        {/* Ambient background image */}
         <div className="absolute inset-0">
           <img
             src="/hero1.png"
             alt="CRM Solutions"
             className="h-full w-full scale-110 object-cover blur-[2px]"
           />
-          {/* brand duotone + darken */}
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/25 via-blue-700/20 to-emerald-600/15 mix-blend-color" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/90 via-[#020617]/75 to-[#020617]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(2,6,23,0.6)_100%)]" />
         </div>
-
-        {/* Animated glow orbs */}
         <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-500/20 blur-[120px] animate-[ctaFloat_10s_ease-in-out_infinite]" />
         <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px] animate-[ctaFloat_12s_ease-in-out_infinite_reverse]" />
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/15 blur-[130px] animate-[ctaFloat_11s_ease-in-out_infinite]" />
-
-        {/* Subtle grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="relative mx-auto max-w-4xl">
-            {/* spinning gradient ring */}
             <div className="absolute -inset-[2px] rounded-3xl bg-[conic-gradient(from_0deg,#34d399,#22d3ee,#3b82f6,#22d3ee,#34d399)] bg-[length:300%_300%] opacity-40 blur-[10px] animate-[ringSpin_8s_linear_infinite]" />
 
             <div className="relative rounded-3xl border border-white/10 bg-white/[0.05] px-6 py-12 text-center shadow-2xl backdrop-blur-xl md:px-12 md:py-16">
-              {/* Badge */}
               <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-sm text-cyan-200">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping" />
@@ -623,10 +477,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* bottom fade into next section */}
         <div className="pointer-events-none absolute bottom-0 h-32 w-full bg-gradient-to-t from-[#020617] to-transparent" />
 
-        {/* keyframes */}
         <style>{`
     @keyframes ctaFloat {
       0%, 100% { transform: translate(0, 0) scale(1); }
@@ -759,83 +611,93 @@ export default function Hero() {
 
 
       <section className="relative overflow-hidden bg-[#020617] py-8">
-  <div className="pointer-events-none absolute inset-0">
-    <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/15 blur-[180px]" />
-    <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[180px]" />
-    <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[150px]" />
-    <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-    <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#020617] to-transparent" />
-    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#020617] to-transparent" />
-  </div>
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/15 blur-[180px]" />
+          <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[180px]" />
+          <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[150px]" />
+          <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#020617] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#020617] to-transparent" />
+        </div>
 
-  <div className="relative z-10  max-w-7xl px-6">
-    <div className="text-left px-6">
-      <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 backdrop-blur-md">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
-        </span>
-        <span className="text-sm font-medium text-cyan-200">
-          Industries We Serve
-        </span>
-      </div>
+        <div className="relative z-10  max-w-7xl px-6">
+          <div className="text-left px-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
+              </span>
+              <span className="text-sm font-medium text-cyan-200">
+                Industries We Serve
+              </span>
+            </div>
 
-      <h2 className="mt-8 text-4xl font-bold text-white md:text-5xl">
-        CRM Solutions Built For
-        <span className="mt-2 block bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-          Every Industry
-        </span>
-      </h2>
+            <h2 className="mt-8 text-4xl font-bold text-white md:text-5xl">
+              CRM Solutions Built For
+              <span className="mt-2 block bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                Every Industry
+              </span>
+            </h2>
 
-      <p className=" mt-6 max-w-3xl text-lg leading-relaxed text-slate-400">
-        Purpose-built CRM solutions tailored for diverse industries, helping
-        organizations streamline operations, automate workflows, and accelerate
-        growth.
-      </p>
-    </div>
-    <div className="relative mt-20 overflow-hidden">
-      <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#020617] to-transparent" />
-      <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#020617] to-transparent" />
-      <motion.div
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="flex w-max"
-      >
-        {[...row1, ...row1].map((industry, index) => (
-          <IndustryCard key={`${industry.title}-${index}`} industry={industry} />
-        ))}
-      </motion.div>
-    </div>
-    <div className="relative mt-10 overflow-hidden">
-      <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#020617] to-transparent" />
-      <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#020617] to-transparent" />
-      <motion.div
-        animate={{ x: ["-50%", "0%"] }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="flex w-max"
-      >
-        {[...row2, ...row2, ...row2].map((industry, index) => (
-          <IndustryCard key={`${industry.title}-${index}`} industry={industry} />
-        ))}
-      </motion.div>
-    </div>
-  </div>
-</section>
-
-      
-
-
-      {/* <section className="relative overflow-hidden bg-slate-50  py-24">
-
-        <div className="mx-auto max-w-7xl px-6">
-
-          <div className="text-center">
-            <p className="font-medium uppercase tracking-[0.3em] text-[#00A883]">
-              From the Blog
+            <p className=" mt-6 max-w-3xl text-lg leading-relaxed text-slate-400">
+              Purpose-built CRM solutions tailored for diverse industries, helping
+              organizations streamline operations, automate workflows, and accelerate
+              growth.
             </p>
+          </div>
+          <div className="relative mt-20 overflow-hidden">
+            <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#020617] to-transparent" />
+            <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#020617] to-transparent" />
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className="flex w-max"
+            >
+              {[...row1, ...row1].map((industry, index) => (
+                <IndustryCard key={`${industry.title}-${index}`} industry={industry} />
+              ))}
+            </motion.div>
+          </div>
+          <div className="relative mt-10 overflow-hidden">
+            <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#020617] to-transparent" />
+            <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#020617] to-transparent" />
+            <motion.div
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className="flex w-max"
+            >
+              {[...row2, ...row2, ...row2].map((industry, index) => (
+                <IndustryCard key={`${industry.title}-${index}`} industry={industry} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-            <h2 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl">
-              Insights on Technology, Automation & Digital Growth
+
+
+
+      <section className="relative overflow-hidden bg-[#020617] py-28">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
+          <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
+        </div>
+
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          {/* Heading */}
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.3em] text-cyan-300/80 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              From the Blog
+            </span>
+
+            <h2 className="mt-6 text-3xl font-bold leading-tight text-white md:text-5xl">
+              Insights on Technology, Automation &{" "}
+              <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                Digital Growth
+              </span>
             </h2>
           </div>
 
@@ -845,56 +707,18 @@ export default function Hero() {
             ))}
           </div>
 
-          
-
+          <div className="mt-14 text-center">
+            <button className="group relative overflow-hidden rounded-full border border-white/15 bg-white/5 px-9 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-white/10">
+              <span className="relative z-10 inline-flex items-center gap-2">
+                View All Articles
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">
+                  →
+                </span>
+              </span>
+            </button>
+          </div>
         </div>
-      </section> */}
-      <section className="relative overflow-hidden bg-[#020617] py-28">
-  {/* Ambient glows */}
-  <div className="pointer-events-none absolute inset-0">
-    <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
-    <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
-  </div>
-
-  {/* Subtle grid */}
-  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-
-  <div className="relative mx-auto max-w-7xl px-6">
-    {/* Heading */}
-    <div className="text-center">
-      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.3em] text-cyan-300/80 backdrop-blur-md">
-        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-        From the Blog
-      </span>
-
-      <h2 className="mt-6 text-3xl font-bold leading-tight text-white md:text-5xl">
-        Insights on Technology, Automation &{" "}
-        <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-          Digital Growth
-        </span>
-      </h2>
-    </div>
-
-    {/* Blog grid */}
-    <div className="mt-16 grid gap-8 lg:grid-cols-3">
-      {blogs.map((blog) => (
-        <BlogCard key={blog.title} blog={blog} />
-      ))}
-    </div>
-
-    {/* View All */}
-    <div className="mt-14 text-center">
-      <button className="group relative overflow-hidden rounded-full border border-white/15 bg-white/5 px-9 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-white/10">
-        <span className="relative z-10 inline-flex items-center gap-2">
-          View All Articles
-          <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">
-            →
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
-</section>
+      </section>
 
       <section className="relative overflow-hidden bg-black px-6 py-18">
         <div className="absolute inset-0 overflow-hidden">
