@@ -1,148 +1,124 @@
-"use client";
 
-import { useEffect, useState, useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+"use client"
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Noto_Sans } from "next/font/google";
 
-const benefits = [
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const cards = [
   {
-    image: "/hero1.png",
-    title: "Secure Data",
-    description: "Cloud-connected system. GDPR / PIPEDA / CCPA compliance built-in.",
-    tags: ["GDPR", "PIPEDA", "CCPA"],
+    id: "01",
+    text: "Riverside modular living, Mumbai Thane",
   },
   {
-    image: "/hero2.png",
-    title: "Lead Management",
-    description: "Priority pipelines with intelligent scoring and automation.",
-    tags: ["Pipeline", "Scoring", "Automation"],
+    id: "02",
+    text: "Northline family home, Bozeman Montana",
   },
   {
-    image: "/hero2.png",
-    title: "Easy Integration",
-    description: "Seamless plugins and API integrations across departments.",
-    tags: ["Plugins", "API", "No Silos"],
-  },
-  {
-    image: "/hero2.png",
-    title: "Relentless Support",
-    description: "24/7 support, training, and go-live assistance.",
-    tags: ["24/7", "Training", "Go-Live"],
+    id: "03",
+    text: "Driftwood micro home, Cannon Beach Oregon",
   },
 ];
 
-export default function Page() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "center",
-    loop: true,
-    duration: 30,
-    containScroll: false,
-  });
+const page = () => {
+  const images = [
+    '/workflow.jpg',
+    '/workflowp.png',
+    '/hero1.png',
+  ];
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
 
   useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi, onSelect]);
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
 
-  useEffect(() => {
-    if (!emblaApi) return;
-    const t = setTimeout(() => emblaApi.reInit(), 720);
-    return () => clearTimeout(t);
-  }, [selectedIndex, emblaApi]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="bg-black text-white py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="uppercase text-zinc-400 tracking-[3px] mb-3">Why It Matters</p>
+    <div className="relative h-screen w-full overflow-hidden">
 
-        <h2 className="text-5xl font-bold mb-4">
-          Key Benefits of <span className="text-[#00A883]">CRM Development</span>
-        </h2>
 
-        <p className="text-zinc-400 mb-12">
-          Here's what you gain with advanced CRM development services.
-        </p>
-
-        <div className="relative px-2">
-          <button
-            onClick={() => emblaApi?.scrollPrev()}
-            aria-label="Previous"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-[#00A883] transition"
-          >
-            <ChevronLeft size={24} />
-          </button>
-
-          <button
-            onClick={() => emblaApi?.scrollNext()}
-            aria-label="Next"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-[#00A883] transition"
-          >
-            <ChevronRight size={24} />
-          </button>
-
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-5">
-              {benefits.map((item, index) => {
-                const active = selectedIndex === index;
-
-                return (
-                  <div
-                    key={index}
-                    onClick={() => emblaApi?.scrollTo(index)} 
-                    className={`flex-none cursor-pointer transition-all duration-700 ease-in-out ${
-                      active ? "w-[65%]" : "w-[22%]"
-                    }`}
-                  >
-                    <div
-                      className={`bg-[#111] rounded-[30px] overflow-hidden transition-all duration-700 ${
-                        active ? "scale-100 opacity-100" : "scale-90 opacity-40"
-                      }`}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={`w-full object-cover transition-all duration-700 ${
-                          active ? "h-[380px]" : "h-[300px]"
-                        }`}
-                      />
-
-                      <div className={`p-6 transition-opacity duration-500 ${active ? "opacity-100" : "opacity-0"}`}>
-                        <h3 className="text-2xl font-semibold mb-3 whitespace-nowrap">
-                          {item.title}
-                        </h3>
-                        <p className="text-zinc-400 mb-5">{item.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-4 py-2 rounded-full bg-[#00A883]/15 text-[#00A883] text-sm"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100 z-0' : 'opacity-0'
+            }`}
+        >
+          <div
+            key={currentIndex}
+            className="w-full h-full bg-cover bg-center animate-zoom"
+            style={{
+              backgroundImage: `url(${img})`,
+            }}
+          ></div>
         </div>
+      ))}
+
+
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
+
+
+      <div className="relative z-20 flex flex-col justify-center h-full text-white px-6 lg:px-16">
+
+        <div className="w-full lg:w-1/2">
+          <h1 className={`${notoSans.className} text-4xl md:text-4xl lg:text-4xl font-bold text-center lg:text-left leading-tight`}>
+            Find Your Dream Home
+            in Mumbai & Navi Mumbai
+          </h1>
+        </div>
+
+
+        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start mt-6 gap-4">
+
+          <Link href="/about">
+            <button className="px-6 py-3 bg-gray-700 hover:bg-white/40 rounded-full transition cursor-pointer">
+              Explore our homes
+            </button>
+          </Link>
+
+          <p className={`${notoSans.className}text-lg md:text-xl text-center lg:text-left uppercase `}>
+            Welcome Realty LLP — Trusted Real Estate Experts helping you Buy, Sell, and Rent with complete confidence since 2009.
+          </p>
+
+        </div>
+
+
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>
+          {cards.map((card, index) => {
+            const isActive = index === currentIndex;
+
+            return (
+              <div
+                key={card.id}
+                className={`${notoSans.className} bg-black/30 shadow-md rounded-xl p-6 transition relative`}
+              >
+                <p className="text-white text-lg font-semibold">{card.id}</p>
+
+                <p className="mt-2 text-white font-medium uppercase">
+                  {card.text}
+                </p>
+
+
+                <div
+                  className={`absolute left-6 bottom-4 h-[2px] bg-white transition-all duration-500 ${isActive ? "w-24 opacity-100" : "w-0 opacity-0"
+                    }`}
+                />
+              </div>
+            );
+          })}
+        </div>
+
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default page;

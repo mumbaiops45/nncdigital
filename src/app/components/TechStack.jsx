@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useRef } from "react";
@@ -32,19 +33,29 @@ export default function TechStack() {
 
   return (
     <>
-      <section className="py-24 bg-gradient-to-b from-white via-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+      <section className="relative overflow-hidden bg-[#020617] py-28">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
+          <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
+        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="uppercase tracking-[0.25em] text-[#00A883] font-semibold text-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
                 Our Tech Stack
               </p>
-              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                Leading CRM Platform Tools <span className="text-[#00A883]">That We Use</span>
+              <h2 className="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
+                Leading CRM Platform Tools{" "}
+                <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  That We Use
+                </span>
               </h2>
-              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-                Here is a closer look at the CRM technologies we leverage to build scalable,
-                efficient, and growth-focused customer relationship systems.
+              <p className="mt-6 text-lg leading-relaxed text-slate-400">
+                Here is a closer look at the CRM technologies we leverage to
+                build scalable, efficient, and growth-focused customer
+                relationship systems.
               </p>
             </div>
 
@@ -52,14 +63,14 @@ export default function TechStack() {
               <button
                 onClick={scrollLeft}
                 aria-label="Scroll left"
-                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-[#00A883] hover:text-white hover:border-[#00A883] transition-all duration-300 shadow-sm"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-500/20 hover:text-cyan-300"
               >
                 <FiArrowLeft size={20} />
               </button>
               <button
                 onClick={scrollRight}
                 aria-label="Scroll right"
-                className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-[#00A883] hover:text-white hover:border-[#00A883] transition-all duration-300 shadow-sm"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-500/20 hover:text-cyan-300"
               >
                 <FiArrowRight size={20} />
               </button>
@@ -67,12 +78,12 @@ export default function TechStack() {
           </div>
 
           <div className="relative">
-            <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#020617] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#020617] to-transparent" />
 
             <div
               ref={sliderRef}
-              className="flex gap-6 overflow-x-auto scroll-smooth pb-4 no-scrollbar"
+              className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth pb-4"
             >
               {crmTools.map((tool, index) => {
                 const Icon = tool.icon;
@@ -81,40 +92,55 @@ export default function TechStack() {
                 return (
                   <div
                     key={index}
-                    className={`group relative overflow-hidden rounded-3xl border p-7 flex-shrink-0 w-[320px] min-h-[280px] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+                    className={`group relative w-[320px] min-h-[280px] flex-shrink-0 overflow-hidden rounded-3xl border p-7 transition-all duration-500 hover:-translate-y-2 ${
                       tool.featured
-                        ? "bg-[#00A883] border-[#00A883] text-white"
-                        : "bg-gray-200 border-slate-200 hover:border-[#00A883]/30"
+                        ? "border-cyan-400/40 bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-blue-600/20 text-white hover:shadow-[0_25px_60px_-12px_rgba(6,182,212,0.5)]"
+                        : "border-white/10 bg-white/[0.04] backdrop-blur-md hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_25px_60px_-12px_rgba(6,182,212,0.35)]"
                     }`}
                   >
-                    {!tool.featured && (
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#00A883]/0 via-[#00A883]/0 to-[#00A883]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    {tool.featured && (
+                      <span className="absolute top-0 left-8 right-8 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500" />
                     )}
 
                     <div
-                      className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
-                        tool.featured ? "bg-white/20" : `${tool.bg} group-hover:bg-[#00A883]`
+                      className={`relative z-10 mb-6 flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 ${
+                        tool.featured
+                          ? "bg-white/15 backdrop-blur-md"
+                          : `${tool.bg} group-hover:scale-110`
                       }`}
                     >
                       {hasImage ? (
-                        <Image src={tool.image} alt={tool.name} width={40} height={40} className="object-contain" />
+                        <Image
+                          src={tool.image}
+                          alt={tool.name}
+                          width={40}
+                          height={40}
+                          className="object-contain"
+                        />
                       ) : (
                         <Icon
                           size={32}
                           className={`transition-all duration-300 ${
-                            tool.featured ? "text-white" : `${tool.color} group-hover:text-white`
+                            tool.featured ? "text-white" : tool.color
                           }`}
                         />
                       )}
                     </div>
 
                     <div className="relative z-10">
-                      <h3 className="text-xl font-bold mb-3">{tool.name}</h3>
-                      <p className={`text-sm leading-relaxed ${tool.featured ? "text-white/90" : "text-slate-600"}`}>
+                      <h3 className="mb-3 text-xl font-bold text-white">
+                        {tool.name}
+                      </h3>
+                      <p
+                        className={`text-sm leading-relaxed ${
+                          tool.featured ? "text-white/90" : "text-slate-400"
+                        }`}
+                      >
                         {tool.desc}
                       </p>
                       {tool.featured && (
-                        <span className="inline-flex mt-5 px-4 py-2 rounded-full bg-white text-[#00A883] text-xs font-semibold uppercase tracking-wider">
+                        <span className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#020617]">
                           Fully Bespoke
                         </span>
                       )}
@@ -126,43 +152,52 @@ export default function TechStack() {
           </div>
         </div>
       </section>
+      <section className="relative overflow-hidden bg-[#020617] px-6 py-20">
+        <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
+        <div className="pointer-events-none absolute left-0 bottom-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-[130px]" />
 
-      <section className="py-8 px-6 bg-green-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="uppercase tracking-[0.3em] text-sm font-semibold text-[#00A883]">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
               Hire CRM Developers
             </p>
-            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-              CRM Solutions <span className="text-[#00A883]">Built For Every Business</span>
+            <h2 className="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
+              CRM Solutions{" "}
+              <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                Built For Every Business
+              </span>
             </h2>
-            <p className="mt-5 text-lg text-slate-600">
-              Choose the right CRM development approach for enterprises, agencies, and growing businesses.
+            <p className="mt-5 text-lg text-slate-400">
+              Choose the right CRM development approach for enterprises,
+              agencies, and growing businesses.
             </p>
           </div>
 
-          <div className="flex justify-end gap-3 mt-12 mb-8">
+          <div className="mt-12 mb-8 flex justify-end gap-3">
             <button
               onClick={scrollLeft2}
               aria-label="Scroll left"
-              className="group w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:bg-[#00A883] hover:border-[#00A883] transition"
+              className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-md transition hover:border-cyan-400/50 hover:bg-cyan-500/20"
             >
-              <FiArrowLeft size={22} className="group-hover:text-white transition" />
+              <FiArrowLeft size={22} className="text-white transition group-hover:text-cyan-300" />
             </button>
             <button
               onClick={scrollRight2}
               aria-label="Scroll right"
-              className="group w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:bg-[#00A883] hover:border-[#00A883] transition"
+              className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-md transition hover:border-cyan-400/50 hover:bg-cyan-500/20"
             >
-              <FiArrowRight size={22} className="group-hover:text-white transition" />
+              <FiArrowRight size={22} className="text-white transition group-hover:text-cyan-300" />
             </button>
           </div>
 
-          <div ref={sliderRef2} className="flex gap-7 overflow-x-auto scroll-smooth pb-8 no-scrollbar">
+          <div
+            ref={sliderRef2}
+            className="no-scrollbar flex gap-7 overflow-x-auto scroll-smooth pb-8"
+          >
             {businessCards.map((card, index) => (
               <div
                 key={index}
-                className="group relative min-w-[330px] md:min-w-[360px] bg-white rounded-3xl border border-slate-200 overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_70px_rgba(0,168,131,0.18)]"
+                className="group relative min-w-[330px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/40 hover:shadow-[0_25px_70px_-12px_rgba(6,182,212,0.4)] md:min-w-[360px]"
               >
                 <div className="relative h-56 overflow-hidden">
                   <Image
@@ -171,25 +206,18 @@ export default function TechStack() {
                     fill
                     className="object-cover transition duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/30 to-transparent" />
                 </div>
 
                 <div className="p-7">
-                  <h3 className="text-2xl font-bold text-slate-900">{card.title}</h3>
-                  <p className="mt-4 text-slate-600 leading-relaxed text-sm">{card.description}</p>
+                  <h3 className="text-2xl font-bold text-white">{card.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-400">
+                    {card.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* <div className="flex justify-center gap-5 mt-16 flex-wrap">
-            <button className="px-8 py-4 rounded-full bg-[#00A883] text-white font-semibold shadow-lg shadow-[#00A883]/30 hover:bg-[#008f70] transition">
-              Hire CRM Developer
-            </button>
-            <button className="px-8 py-4 rounded-full border border-slate-300 font-semibold hover:border-[#00A883] hover:text-[#00A883] transition">
-              View Pricing
-            </button>
-          </div> */}
         </div>
       </section>
 
