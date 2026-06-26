@@ -42,36 +42,36 @@ export const services = [
     desc: "User-friendly interfaces designed for modern customer expectations.",
     img: "crmuiuxdesign.png"
   },
-  {
-    tag: "INTEGRATION",
-    title: "CRM Integration Services",
-    desc: "Connect your CRM with ERP, marketing, and third-party business tools.",
-    img: "crmintegration.png"
-  },
-  {
-    tag: "MIGRATION",
-    title: "CRM Migration Services",
-    desc: "Securely transfer data from legacy systems with zero loss.",
-    img: "crmdatamig.png"
-  },
-  {
-    tag: "CONSULTING",
-    title: "IT Management Consulting",
-    desc: "Strategic IT management and advisory services for growing businesses.",
-    img: "itmanagement.png"
-  },
-  {
-    tag: "TRANSFORMATION",
-    title: "Digital Transformation",
-    desc: "End-to-end execution of your digital transformation roadmap.",
-    img: "digitaltransformation.png"
-  },
-  {
-    tag: "AUTOMATION",
-    title: "Marketing Automation",
-    desc: "Automate lead nurturing, campaigns, and customer journeys at scale.",
-    img: "marketingautomation.png"
-  },
+  // {
+  //   tag: "INTEGRATION",
+  //   title: "CRM Integration Services",
+  //   desc: "Connect your CRM with ERP, marketing, and third-party business tools.",
+  //   img: "crmintegration.png"
+  // },
+  // {
+  //   tag: "MIGRATION",
+  //   title: "CRM Migration Services",
+  //   desc: "Securely transfer data from legacy systems with zero loss.",
+  //   img: "crmdatamig.png"
+  // },
+  // {
+  //   tag: "CONSULTING",
+  //   title: "IT Management Consulting",
+  //   desc: "Strategic IT management and advisory services for growing businesses.",
+  //   img: "itmanagement.png"
+  // },
+  // {
+  //   tag: "TRANSFORMATION",
+  //   title: "Digital Transformation",
+  //   desc: "End-to-end execution of your digital transformation roadmap.",
+  //   img: "digitaltransformation.png"
+  // },
+  // {
+  //   tag: "AUTOMATION",
+  //   title: "Marketing Automation",
+  //   desc: "Automate lead nurturing, campaigns, and customer journeys at scale.",
+  //   img: "marketingautomation.png"
+  // },
 ];
 
 

@@ -1,85 +1,120 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+
+import React, { useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { services } from "../data/data";
 
-const Offers = () => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
+export default function Offers() {
+  const [index, setIndex] = useState(0);
+  const controls = useAnimation();
+
+  const length = services.length;
+
+  const moveTo = (i) => {
+    const next = Math.max(0, Math.min(i, length - 1));
+
+    setIndex(next);
+
+    controls.start({
+      x: `-${next * 100}vw`,
+      transition: { type: "spring", stiffness: 80, damping: 20 },
+    });
+  };
+
+
+  const onDragEnd = (e, info) => {
+    const threshold = 80;       
+    const power = 500;       
+
+    const { offset, velocity } = info;
+
+    if (offset.x < -threshold || velocity.x < -power) {
+      moveTo(index + 1);         
+    } else if (offset.x > threshold || velocity.x > power) {
+      moveTo(index - 1);       
+    } else {
+      moveTo(index);             
+    }
+  };
 
   return (
-    <section className="relative bg-[#020617]">
-  
-      <div ref={container} className="relative">
-        {services.map((a, i) => (
-          <Card
-            key={a.k}
-            data={a}
-            index={i}
-            progress={scrollYProgress}
-            range={[i * (1 / services.length), 1]}
+    <section className="relative h-screen overflow-hidden bg-[#1A2343] group">
+
+      <button
+        onClick={() => moveTo(index - 1)}
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-50
+        opacity-0 group-hover:opacity-100 transition
+        bg-white/20 backdrop-blur text-white w-12 h-12 rounded-full"
+      >
+        ←
+      </button>
+      <button
+        onClick={() => moveTo(index + 1)}
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-50
+        opacity-0 group-hover:opacity-100 transition
+        bg-white/20 backdrop-blur text-white w-12 h-12 rounded-full"
+      >
+        →
+      </button>
+
+      <motion.div
+        animate={controls}
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.2}
+        dragMomentum={false}
+        onDragEnd={onDragEnd}
+        className="flex h-full w-full cursor-grab active:cursor-grabbing"
+        style={{ touchAction: "pan-y" }}
+      >
+        {services.map((item, i) => (
+          <div
+            key={i}
+            className="w-screen h-screen flex-shrink-0 flex items-center justify-center px-6"
+          >
+            <div className="w-full max-w-6xl bg-white rounded-[30px] overflow-hidden shadow-2xl flex flex-col md:flex-row">
+
+              <div className="p-10 md:w-1/2">
+                <span className="text-[#00A884] font-bold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+
+                <h2 className="text-4xl font-bold mt-4">
+                  {item.title}
+                </h2>
+
+                <p className="mt-4 text-gray-600">
+                  {item.desc}
+                </p>
+
+                <div className="mt-6 w-16 h-1 bg-[#00A884]" />
+              </div>
+
+              <div className="md:w-1/2 h-[400px] md:h-[400px]">
+                <img
+                  src={item.img}
+                  className="w-full h-full object-cover"
+                  alt=""
+                  draggable={false}
+                />
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </motion.div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+        {services.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => moveTo(i)}
+            className={`h-2 rounded-full transition-all ${
+              i === index ? "w-8 bg-[#00A884]" : "w-2 bg-white/40"
+            }`}
           />
         ))}
       </div>
     </section>
   );
-};
-
-function Card({ data, index, progress, range }) {
-  return (
-    <div className="sticky top-0 flex h-screen items-center justify-center px-4 md:px-8">
-      <motion.div className="group relative w-full max-w-6xl overflow-hidden rounded-[28px] border border-white/10 bg-gray-100 ">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
-        <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-cyan-500/20 blur-3xl" />
-
-        <div className="flex flex-col md:flex-row">
-          <div className="flex w-full flex-col justify-center p-8 md:w-[55%] md:p-12">
-            <span className="font-mono text-sm font-semibold tracking-widest text-[#00A883]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#00A883]">
-              {data.tag}
-            </p>
-
-            <h3 className="mt-3 text-3xl font-bold leading-tight text-black md:text-4xl">
-              {data.title}
-            </h3>
-
-            <p className="mt-4 max-w-md text-base leading-relaxed text-black">
-              {data.desc}
-            </p>
-
-            <div className="mt-8 h-[3px] w-12 rounded-full bg-[#00A883] transition-all duration-500 group-hover:w-32" />
-          </div>
-
-         
-          {data.img && (
-            <div className="w-full p-6 md:w-[45%] md:p-8">
-              <CardImage src={data.img} alt={data.k} progress={progress} range={range} />
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </div>
-  );
 }
-
-function CardImage({ src, alt, progress, range }) {
-  const imageScale = useTransform(progress, range, [1.18, 1]);
-  return (
-    <div className="relative h-[260px] overflow-hidden rounded-3xl ring-1 ring-white/10 md:h-[400px]">
-      <motion.img
-        src={src}
-        alt={alt}
-        style={{ scale: imageScale }}
-        className="h-full w-full object-cover will-change-transform"
-      /> 
-    </div>
-  );
-}
-
-export default Offers;

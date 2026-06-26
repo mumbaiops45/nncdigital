@@ -69,11 +69,6 @@ export default function Navbar() {
     <Disclosure
       as="nav"
       className={`fixed top-0 inset-x-0 z-50 transition-all bg-black duration-300 `}
-      // className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-      //   scrolled
-      //     ? "bg-[#050816]/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/30"
-      //     : "bg-[#050816]/40 backdrop-blur-md border-b border-transparent"
-      // }`}
     >
       {({ open }) => (
         <>
