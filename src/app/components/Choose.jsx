@@ -207,7 +207,7 @@ export default function Choose() {
             duration: 8,
             repeat: Infinity,
           }}
-          className="absolute left-20 top-24 h-80 w-80 rounded-full bg-blue-500 blur-[160px]"
+          className="absolute left-20 top-24 h-80 w-80 rounded-full bg-green-500 blur-[160px]"
         />
 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -222,7 +222,7 @@ export default function Choose() {
 
             <motion.p
               variants={item}
-              className="inline-block rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-green-400 backdrop-blur-xl"
+              className="inline-block rounded-full border border-white/20  px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em]  backdrop-blur-xl "
             >
               Why Choose NNC Digital
             </motion.p>
@@ -234,7 +234,7 @@ export default function Choose() {
               CRM Software
               <br />
               Development
-              <span className="block text-blue-400">
+              <span className="block bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text bg-clip-text text-transparent">
                 Agency
               </span>
             </motion.h1>

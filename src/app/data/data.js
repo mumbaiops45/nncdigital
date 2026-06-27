@@ -214,7 +214,7 @@ export const businessCards = [
     description:
       "CRM that scales with your company without requiring costly migrations.",
   },
-   {
+  {
     title: "Analytical CRM",
     image: "/Analyticalcrm.png",
     description:
@@ -232,6 +232,40 @@ export const businessCards = [
     description:
       "Automate repetitive sales and service workflows efficiently.",
   },
+];
+
+
+export const successStories = [
+  { 
+  category: "Operations", 
+  title: "Operations",
+  solution: "We built a custom CRM integrated with their ERP, automating workflows from lead to delivery.", 
+  },
+  {
+     category: "Operations", 
+     title: "challenge",
+     solution: "Manual data entry across 3 legacy systems was causing delays and costly errors in production scheduling.",
+  },
+  {
+  category: "Healthcare",
+  title: "Challenge",
+  solution: "A multi-location clinic was losing patients due to manual appointment processes and poor follow-up systems"
+  },
+  {
+      category: "Healthcare",
+    title: "Solution",
+    solution: "NNC deployed a Sales Health Cloud CRM with automated WhatsApp reminders and a patient self-service portal.",
+  },
+    { 
+      category: "E-Commerce",
+      title: "Solution",
+      solution: "We integrated HubSpot CRM with Klaviyo and Shopify, enabling full-funnel visibility and AI-powered segmentation."
+    },
+    {
+      category: "E-Commerce",
+      title: "Challenge",
+      solution: "A direct-to-consumer brand had no unified view of customer behaviour across email, social, and checkout."
+    },
 ];
 
 

@@ -3,20 +3,35 @@ import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { data, industries, blogs } from "../data/data";
+import { data, industries, blogs, successStories } from "../data/data";
 import "swiper/css";
 import Offers from "./Offers";
 import Choose from "./Choose";
 import Whatmatter from "./Whatmatter";
 import TechStack from "./TechStack";
+import Faq from "./Faq";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
+import { HeartPulse, Home, ShoppingCart, Factory, GraduationCap, Hotel, Truck, Landmark, Briefcase } from "lucide-react";
+
 
 const heroImages = [
   "/hero1.png",
   "/emailint.jpg",
   "/hero2.png",
 ];
+
+const industriess = [
+  { name: "Healthcare", icon: HeartPulse },
+  { name: "Real Estate", icon: Home },
+  { name: "E-Commerce", icon: ShoppingCart },
+  { name: "Manufacturing", icon: Factory },
+  { name: "Education", icon: GraduationCap },
+  { name: "Hospitality", icon: Hotel },
+  { name: "Logistics", icon: Truck },
+  { name: "Finance", icon: Landmark },
+  { name: "Professional Services", icon: Briefcase },
+]
 
 
 function IndustryCard({ industry }) {
@@ -49,7 +64,6 @@ function BlogCard({ blog }) {
             {blog.desc}
           </p>
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
@@ -68,7 +82,7 @@ export default function Hero() {
   const scroll = (dir) => {
     if (!scrollRef.current) return;
 
-    const width = 320; // card scroll distance
+    const width = 320; 
     scrollRef.current.scrollBy({
       left: dir === "left" ? -width : width,
       behavior: "smooth",
@@ -550,9 +564,6 @@ export default function Hero() {
         </div>
       </section>
 
-
-
-
       <section className="relative overflow-hidden bg-[#020617] py-18">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
@@ -592,7 +603,6 @@ export default function Hero() {
         </div>
       </section>
 
-
       <section className="relative overflow-hidden  bg-[#1A2343] px-6 py-8">
         <div
           className="relative min-h-screen flex w-full bg-cover bg-center bg-no-repeat"
@@ -611,7 +621,7 @@ export default function Hero() {
             </span>
 
             <h2 className="mt-6 text-4xl font-bold leading-tight text-white md:text-6xl">
-              Leverage <span className="text-[#00A883]">AI-Powered <br/> CRM</span> Solutions
+              Leverage <span className="text-[#00A883]">AI-Powered <br /> CRM</span> Solutions
             </h2>
 
             <p className="mt-6 text-left max-w-2xl text-lg leading-relaxed text-gray-300">
@@ -703,13 +713,13 @@ export default function Hero() {
             backgroundImage: "url('/itmanagement.png')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#02111F]/90 via-[#081C34]/80 to-[#02111F]/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#02111F]/20 via-[#081C34]/20 to-[#02111F]/20" />
         <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[180px]" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[180px]" />
 
         <div className="relative z-10 max-w-6xl mx-auto  px-6">
 
-          <div className="rounded-[32px]  border border-white/10 bg-white/[0.04] backdrop-blur-xl px-8 py-4 md:px-16 md:py-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+          <div className="rounded-[32px]  border border-white/10  px-8 py-4 md:px-16 md:py-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
             <div className="flex justify-center">
               <div className="inline-flex items-center  px-5 py-0 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-sm font-medium backdrop-blur-md">
                 CRM Development Specialists
@@ -755,6 +765,170 @@ export default function Hero() {
       <Whatmatter />
 
 
+      <section
+        className="relative overflow-hidden py-14 px-6 lg:px-16 bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero1.png')" }}
+      >
+        <div className="absolute inset-0 bg-slate-950/40" />
+        <div className="absolute top-20 left-10 h-72 w-72 bg-cyan-500/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-10 right-10 h-72 w-72 bg-blue-600/20 blur-[120px] rounded-full" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="inline-block px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 uppercase tracking-[4px] text-sm">
+              Proven Results
+            </span>
+
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Success <span className="bg-gradient-to-r  from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Stories</span>
+            </h2>
+
+            <p className="mt-6 text-lg text-slate-300 leading-8">
+              Real results for real businesses across Canada, USA & UK.
+            </p>
+          </div>
+          <div className="mt-20 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-8 w-max px-2 snap-x snap-mandatory">
+              {successStories.map((item, index) => (
+                <div
+                  key={index}
+                  className="group relative w-[380px] shrink-0 snap-start rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-[0_25px_80px_rgba(6,182,212,.25)]"
+                >
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-cyan-500/10 to-transparent" />
+                  <div className="relative">
+                    <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs tracking-[3px] uppercase text-cyan-300">
+                      {item.category}
+                    </span>
+                    <h3 className="mt-8 text-2xl font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-5 text-slate-300 leading-8">
+                      {item.solution}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section
+        className="relative bg-cover bg-center py-24 px-6 lg:px-16"
+        style={{ backgroundImage: "url('/hero1.png')" }}
+      >
+        <div className="absolute inset-0 bg-slate-950/50" />
+        <div className="absolute top-10 left-10 h-72 w-72 bg-cyan-500/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-10 right-10 h-72 w-72 bg-blue-600/20 blur-[120px] rounded-full" />
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="inline-block px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 uppercase tracking-[4px] text-sm">
+              Why Choose Us
+            </span>
+            <h1 className="mt-6 text-4xl md:text-5xl font-bold text-white leading-tight">
+              Why Choose Us as Your{" "}
+              <span className="text-cyan-400">CRM Software Development</span> Agency?
+            </h1>
+            <p className="mt-6 text-lg text-slate-300 leading-8">
+              NNC Digital Solutions is backed by{" "}
+              <span className="text-white font-semibold">
+                Nakshatra Namaha Creations Pvt. Ltd.
+              </span>{" "}
+              one of Bangalore's most respected digital studios with{" "}
+              <span className="text-cyan-300 font-semibold">8+ years of experience</span>{" "}
+              and{" "}
+              <span className="text-cyan-300 font-semibold">565+ projects delivered</span>{" "}
+              across India. To serve growing businesses in North America and the United Kingdom,
+              we launched NNC Digital as our international arm, bringing the same proven technical expertise
+              and client-first culture to global markets.
+            </p>
+            <div className="mt-8">
+              <button className="px-6 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-cyan-400 transition">
+                Get Free Consultation
+              </button>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+
+            {[
+              { value: "1500+", label: "Web Projects" },
+              { value: "500+", label: "Mobile Apps" },
+              { value: "1800+", label: "IT Talents" },
+              { value: "25+", label: "Industries" },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 text-center transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-[0_20px_60px_rgba(6,182,212,.25)]"
+              >
+
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-cyan-500/10 to-transparent" />
+
+                <div className="relative">
+                  <h2 className="text-3xl font-bold text-white">
+                    {item.value}
+                  </h2>
+                  <p className="mt-2 text-slate-300 text-sm tracking-wide uppercase">
+                    {item.label}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      <section className="py-24 px-6 lg:px-16 bg-[#1A2343] text-white overflow-hidden">
+        <div className="text-center max-w-3xl mx-auto">
+          <p className="uppercase tracking-[4px] bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text bg-clip-text text-transparent text-sm">
+            Built for your world
+          </p>
+
+          <h2 className="mt-4 text-4xl md:text-5xl font-bold">
+            Helping Businesses{" "}
+            <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text bg-clip-text text-transparent">Across Industries</span>
+          </h2>
+        </div>
+        <div className="mt-20 space-y-8">
+          <div className="overflow-hidden">
+            <div className="flex w-max gap-6 animate-marquee-right">
+              {[...industriess, ...industriess].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-md whitespace-nowrap hover:border-cyan-400 transition-all duration-300"
+                  >
+                    <Icon className="text-cyan-400" size={20} />
+                    <span>{item.name}</span>
+                  </div>
+                );
+              })}
+
+            </div>
+          </div>
+          <div className="overflow-hidden">
+            <div className="flex w-max gap-6 animate-marquee-left">
+              {[...industriess, ...industriess].map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-md whitespace-nowrap hover:border-cyan-400 transition-all duration-300"
+                  >
+                    <Icon className="text-cyan-400" size={20} />
+                    <span>{item.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Faq/>
 
     </>
   );

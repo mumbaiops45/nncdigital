@@ -33,7 +33,7 @@ export default function Whatmatter() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-[#020617] py-28">
+    <section className="relative overflow-hidden bg-[#020617] px-6 py-28">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
         <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
