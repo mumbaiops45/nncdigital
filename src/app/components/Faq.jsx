@@ -250,7 +250,7 @@ const Faq = () => {
                                 Salesforce and HubSpot work until they don't. Here's why scaling businesses hit a wall with generic CRM tools and how custom-built systems eliminate friction.
                             </p>
                             <img
-                                src="/hero1.png"
+                                src="/gdpr.webp"
                                 alt="blog"
                                 className="mt-6 h-48 w-full rounded-xl object-cover"
                             />
@@ -266,7 +266,7 @@ const Faq = () => {
                                 Compliance retrofitted after launch is expensive and fragile. Learn how to architect data privacy into systems from the ground up.
                             </p>
                             <img
-                                src="/hero1.png"
+                                src="/whyoff.jpg"
                                 alt="blog"
                                 className="mt-6 h-48 w-full rounded-xl object-cover"
                             />
@@ -282,7 +282,7 @@ const Faq = () => {
                                 Before expanding headcount, smart operators automate. We break down workflows where automation delivers the fastest ROI.
                             </p>
                             <img
-                                src="/hero1.png"
+                                src="/7business.png"
                                 alt="blog"
                                 className="mt-6 h-48 w-full rounded-xl object-cover"
                             />

@@ -767,7 +767,7 @@ export default function Hero() {
 
       <section
         className="relative overflow-hidden py-14 px-6 lg:px-16 bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero1.png')" }}
+        style={{ backgroundImage: "url('/success.png')" }}
       >
         <div className="absolute inset-0 bg-slate-950/40" />
         <div className="absolute top-20 left-10 h-72 w-72 bg-cyan-500/20 blur-[120px] rounded-full" />
@@ -815,7 +815,7 @@ export default function Hero() {
 
       <section
         className="relative bg-cover bg-center py-24 px-6 lg:px-16"
-        style={{ backgroundImage: "url('/hero1.png')" }}
+        style={{ backgroundImage: "url('/choosecrm.png')" }}
       >
         <div className="absolute inset-0 bg-slate-950/50" />
         <div className="absolute top-10 left-10 h-72 w-72 bg-cyan-500/20 blur-[120px] rounded-full" />
