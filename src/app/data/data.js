@@ -105,7 +105,7 @@ export const data = [
   {
     title: "CPQ Billing",
     desc: "Configure, price, and quote accurately every time. Streamline billing cycles and eliminate pricing errors across your sales team.",
-    image: "cpqbilling.png"
+    image: "cpqbilling.jpg"
   },
   {
     title: "Lead Scoring & Prioritisation",

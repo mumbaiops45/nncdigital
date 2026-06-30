@@ -270,9 +270,11 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <Link href="/contact" className="mt-2 block w-full rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 py-3 text-center font-semibold text-white shadow-[0_8px_30px_-8px_rgba(6,182,212,0.6)]">
+              <a 
+               href="tel:+919900566466"
+               className="mt-2 block w-full rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 py-3 text-center font-semibold text-white shadow-[0_8px_30px_-8px_rgba(6,182,212,0.6)]">
                 Book Free Call
-              </Link>
+              </a>
             </div>
           </Disclosure.Panel>
         </>

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { services } from "../data/data";
@@ -42,17 +41,13 @@ export default function Offers() {
 
       <button
         onClick={() => moveTo(index - 1)}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-50
-        opacity-0 group-hover:opacity-100 transition
-        bg-white/20 backdrop-blur text-white w-12 h-12 rounded-full"
+        className={"absolute left-5 top-1/2 -translate-y-1/2 z-50 opacity-0 group-hover:opacity-100 transition  bg-white/20 backdrop-blur text-white w-12 h-12 rounded-full"}
       >
         ←
       </button>
       <button
         onClick={() => moveTo(index + 1)}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-50
-        opacity-0 group-hover:opacity-100 transition
-        bg-white/20 backdrop-blur text-white w-12 h-12 rounded-full"
+       className={"absolute right-5 top-1/2 -translate-y-1/2 z-50 opacity-0 group-hover:opacity-100 transition  bg-white/20 backdrop-blur text-white w-12 h-12 rounded-full"}
       >
         →
       </button>

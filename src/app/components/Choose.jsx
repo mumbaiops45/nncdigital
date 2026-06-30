@@ -57,17 +57,17 @@ const tabs = [
   {
     title: "Cloud-Based CRM Services",
     desc: "Scalable and secure cloud CRM infrastructure for growing teams.",
-    img: "/Cloud-Based.jpg",
+    img: "/growcrm.jpg",
   },
   {
     title: "Real-Time Dashboards",
     desc: "Live analytics and reporting dashboards for instant insights.",
-    img: "/Real-Time.png",
+    img: "/Real-Time.jpg",
   },
   {
     title: "Advanced User Permissions",
     desc: "Control every user's access level with smart permission rules.",
-    img: "/generate.jpg",
+    img: "/advanceduser.jpg",
   },
   {
     title: "Data Quality Management",
@@ -77,7 +77,7 @@ const tabs = [
   {
     title: "Workflow Automation",
     desc: "Automate approvals, notifications and daily tasks.",
-    img: "/workflow.jpg",
+    img: "/automated.jpg",
   },
   {
     title: "Performance Optimization",
@@ -217,12 +217,12 @@ export default function Choose() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="max-w-3xl px-8 lg:px-20"
+            className="max-w-3xl px-8 "
           >
 
             <motion.p
               variants={item}
-              className="inline-block rounded-full border border-white/20  px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em]  backdrop-blur-xl "
+              className="inline-block rounded-full border border-white/20 text-white   px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em]  backdrop-blur-xl "
             >
               Why Choose NNC Digital
             </motion.p>

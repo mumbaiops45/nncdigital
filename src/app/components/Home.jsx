@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 import CountUp from "react-countup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -17,7 +18,7 @@ import { HeartPulse, Home, ShoppingCart, Factory, GraduationCap, Hotel, Truck, L
 
 const heroImages = [
   "/hero1.png",
-  "/emailint.jpg",
+  "/banner.avif",
   "/hero2.png",
 ];
 
@@ -82,7 +83,7 @@ export default function Hero() {
   const scroll = (dir) => {
     if (!scrollRef.current) return;
 
-    const width = 320; 
+    const width = 320;
     scrollRef.current.scrollBy({
       left: dir === "left" ? -width : width,
       behavior: "smooth",
@@ -112,7 +113,7 @@ export default function Hero() {
         {heroImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 bg-cover bg-center scale-110 blur-[2px] transition-opacity duration-[1500ms] animate-[kenBurns_24s_ease-in-out_infinite] ${currentImage === index ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 bg-cover bg-center scale-110 blur-[1px] transition-opacity duration-[1500ms] animate-[kenBurns_24s_ease-in-out_infinite] ${currentImage === index ? "opacity-100" : "opacity-0"
               }`}
             style={{ backgroundImage: `url(${img})` }}
           />
@@ -124,7 +125,7 @@ export default function Hero() {
 
         {/* Directional gradient — left dark (text), right breathes (image) */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/15 to-[#020617]/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]/20" />
 
         {/* Vignette for depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,transparent_30%,rgba(2,6,23,0.7)_100%)]" />
@@ -160,13 +161,19 @@ export default function Hero() {
 
 
               <div className="flex flex-wrap gap-4 mt-8 animate-[heroUp_0.7s_ease-out_0.4s_both]">
-                <button className="group relative px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] hover:bg-[position:100%_0] shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)] hover:-translate-y-0.5 transition-all duration-500">
-                  Book Free Strategy
-                </button>
+                <a
+                  href="tel:+919900566466"
+                  className="group relative px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] hover:bg-[position:100%_0] shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)] hover:-translate-y-0.5 transition-all duration-500 inline-flex items-center gap-3"
+                >
+                  <span> Book Free Strategy</span>
 
-                <button className="px-8 py-3.5 rounded-xl font-semibold text-white border border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-cyan-400/40 transition-all duration-300">
+                </a>
+
+                <Link 
+                href="/about"
+                className="px-8 py-3.5 rounded-xl font-semibold text-white border border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-cyan-400/40 transition-all duration-300">
                   Explore Solutions
-                </button>
+                </Link>
               </div>
 
 
@@ -603,10 +610,10 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden  bg-[#1A2343] px-6 py-8">
+      <section className="relative overflow-hidden  bg-[#1A2343] ">
         <div
           className="relative min-h-screen flex w-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/CRMConsulting.png')" }}
+          style={{ backgroundImage: "url('/AI-Powered.webp')" }}
         >
           <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 overflow-hidden">
@@ -615,7 +622,7 @@ export default function Hero() {
             <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:50px_50px]" />
           </div>
 
-          <div className="relative z-10 mt-5  px-6 text-left">
+          <div className="relative z-10 mt-5  px-10 text-left">
             <span className="inline-flex rounded-full border border-green-500/30 bg-green-500/10 px-5 py-2 text-sm font-medium text-[#00A883]">
               AI-Powered CRM
             </span>
@@ -624,7 +631,7 @@ export default function Hero() {
               Leverage <span className="text-[#00A883]">AI-Powered <br /> CRM</span> Solutions
             </h2>
 
-            <p className="mt-6 text-left max-w-2xl text-lg leading-relaxed text-gray-300">
+            <p className="mt-6 text-left max-w-2xl text-lg leading-relaxed text-gray-50">
               Our AI-driven CRM solutions streamline operations, automate repetitive tasks,
               and deliver actionable insights that help businesses increase productivity,
               improve customer engagement, and accelerate growth.
@@ -740,19 +747,20 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-5 mt-8">
-              <button
+              <a
+               href="tel:+919900566466"
                 className=" group px-10 py-4 rounded-full bg-gradient-to-r from-cyan-500  to-[#00A883]  text-white font-semibold  shadow-[0_10px_40px_rgba(0,168,131,0.35)]  hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,168,131,0.55)]  transition-all duration-300" >
                 <span className="flex items-center gap-3">
                   Connect Now
                   <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-              </button>
+              </a>
 
-              <button
+              <a
+                href="tel:+919900566466"
                 className=" px-10 py-4 rounded-full border border-white/20 bg-white/10  backdrop-blur-md  text-white  font-semibold  hover:bg-white/20  hover:border-white/40  transition-all duration-300" >
                 Book Free Consultation
-              </button>
-
+              </a>
             </div>
 
           </div>
@@ -815,7 +823,7 @@ export default function Hero() {
 
       <section
         className="relative bg-cover bg-center py-24 px-6 lg:px-16"
-        style={{ backgroundImage: "url('/choosecrm.png')" }}
+        style={{ backgroundImage: "url('/chose.png')" }}
       >
         <div className="absolute inset-0 bg-slate-950/50" />
         <div className="absolute top-10 left-10 h-72 w-72 bg-cyan-500/20 blur-[120px] rounded-full" />
@@ -843,9 +851,12 @@ export default function Hero() {
               and client-first culture to global markets.
             </p>
             <div className="mt-8">
-              <button className="px-6 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-cyan-400 transition">
+              <a
+                href="tel:+919900566466"
+                className="inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-cyan-400 transition"
+              >
                 Get Free Consultation
-              </button>
+              </a>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6">
@@ -928,7 +939,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <Faq/>
+      <Faq />
 
     </>
   );

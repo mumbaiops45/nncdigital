@@ -1,29 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  Calendar,
-  Rocket,
-  Users,
-  Globe2,
-  MapPin,
-  Code2,
-  Smartphone,
-  Megaphone,
-  Palette,
-  Film,
-  Video,
-  Briefcase,
-  Search,
-  Target,
-  ShieldCheck,
-  Eye,
-  HeartHandshake,
-  Clock,
-  Star,
-  Mail,
-} from "lucide-react";
+import { Calendar, Rocket, Users, Globe2, MapPin, Code2, Smartphone, Megaphone, Palette, Film, Video, Briefcase,Search, Target, ShieldCheck, Eye,  HeartHandshake, Clock, Star, Mail, Link2,} from "lucide-react";
 
 const heroStats = [
   { icon: Calendar, value: "8+", label: "Years of Excellence" },
@@ -171,12 +151,16 @@ export default function AboutPage() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-9 flex flex-wrap  gap-4"
           >
-            <button className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)]">
+            <a
+             href="tel:+919900566466"
+            className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)]">
               Book a Free Consultation
-            </button>
-            <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+            </a>
+            <Link
+            href="/blog"
+             className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
               View Our Work
-            </button>
+            </Link>
           </motion.div>
 
       
@@ -555,12 +539,16 @@ export default function AboutPage() {
               with honest, practical advice.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <button className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <a 
+              href="tel:+919900566466"
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation
-              </button>
-              <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+              </a>
+              <Link
+              href="/blog"
+               className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 View Our Work →
-              </button>
+              </Link>
             </div>
           </div>
         </motion.div>

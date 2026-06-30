@@ -33,7 +33,7 @@ export default function TechStack() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#020617] py-8 px-6">
+      <section className="relative overflow-hidden bg-[#020617] ">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
           <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
@@ -47,7 +47,7 @@ export default function TechStack() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/40" />
           <div className="absolute -top-40 left-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-emerald-500/20 blur-[140px]" />
-          <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-6 py-8 lg:px-8">
             <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
@@ -161,7 +161,7 @@ export default function TechStack() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#1A2343] px-6 py-24">
+      <section className="relative overflow-hidden bg-[#1A2343] ">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
         <div className="pointer-events-none absolute left-0 bottom-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-[130px]" />
         <div className="relative w-full overflow-hidden py-24  px-6 lg:px-8">
@@ -247,15 +247,7 @@ export default function TechStack() {
     
 
 
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+     
     </>
   );
 }

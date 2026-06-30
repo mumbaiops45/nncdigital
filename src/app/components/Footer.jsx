@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaFacebookF,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaInstagram,FaFacebookF, FaXTwitter,} from "react-icons/fa6";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -24,9 +20,11 @@ const Footer = () => {
               systems.
             </p>
 
-            <button className="mt-6 bg-[#00A883] hover:bg-green-400 transition px-5 py-3 rounded-xl font-medium">
+            <a 
+             href="tel:+919900566466"
+            className="mt-6 bg-[#00A883] hover:bg-green-400 transition px-5 py-3 rounded-xl font-medium">
               Book a Free Call →
-            </button>
+            </a>
           </div>
 
          
