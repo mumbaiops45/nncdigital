@@ -92,11 +92,12 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#020617]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)]"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 bg-black inset-x-0 z-50 transition-all duration-300 `}
+      // className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      //   scrolled
+      //     ? "bg-[#020617]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)]"
+      //     : "bg-transparent"
+      // }`}
     >
       {({ open }) => (
         <>

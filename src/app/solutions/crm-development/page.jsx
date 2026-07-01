@@ -410,6 +410,30 @@ export default function Page() {
           </div>
         </motion.div>
       </section>
+
+      <section>
+        <p>FAQS</p>
+        <h2>FAQs</h2>
+
+        <div>
+            q: "What is custom CRM software vs Off-the-shelf?"
+            a: "Detailed answer tailored for businesses in Canada, USA, and UK - converting timeline, cost, compliance, and process."
+            q: "What features can be customised?"
+            a: "Detailed answer tailored for businesses in Canada, USA, and UK covering timeline cost, compliance and process."
+            q: "How long does CRM development take?"
+            a: " Detailed answer tailored for businesses in Canada, USA, and UK covering timeline, cost , compliance, and process."
+            q: "What does CRM development cost in Canada or UK?"
+            a: "Detailed answer tailored for businesses in Canada, USA and UK covering timeline, const, complieance, and process."
+            q: "Do you offer post-launch support?"
+            a: "Detailed answer tailored for businesses in Canada, USA, and UK covering timeline, cost, compliance, and process."
+        </div>
+
+        <button>Ask Us Anythings</button>
+      </section>
+      <section>
+        <p>Get IN Touch</p>
+        <h1>Ready to Build</h1>
+      </section>
     </div>
   );
 }
