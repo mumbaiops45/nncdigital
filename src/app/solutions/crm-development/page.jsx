@@ -411,7 +411,7 @@ export default function Page() {
         </motion.div>
       </section>
 
-      <section>
+      {/* <section>
         <p>FAQS</p>
         <h2>FAQs</h2>
 
@@ -433,7 +433,7 @@ export default function Page() {
       <section>
         <p>Get IN Touch</p>
         <h1>Ready to Build</h1>
-      </section>
+      </section> */}
     </div>
   );
 }
