@@ -99,28 +99,28 @@ const Footer = () => {
 
           <div className="flex gap-4 mb-5 md:mb-0">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/nncdigital?_l=en_US"
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaLinkedinIn />
             </a>
 
             <a
-              href="#"
+              href="https://www.instagram.com/nncdigital"
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaInstagram />
             </a>
 
             <a
-              href="#"
+              href="https://www.facebook.com/nncdigital"
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaFacebookF />
             </a>
 
             <a
-              href="#"
+              href="https://x.com/nncdigital"
               className="w-11 h-11 rounded-full bg-white/5 hover:bg-green-500 flex items-center justify-center transition"
             >
               <FaXTwitter />
