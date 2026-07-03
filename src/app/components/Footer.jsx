@@ -14,7 +14,7 @@ const Footer = () => {
               className="h-14 mb-5"
             />
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed mb-6">
               Transforming businesses through innovative digital solutions,
               web development, mobile apps, CRM automation and AI-powered
               systems.
@@ -32,12 +32,12 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-5">Services</h3>
 
             <ul className="space-y-3 text-gray-400 ">
-              <li className="hover:text-green-300"><a href="#">CRM Development</a></li>
-              <li className="hover:text-green-300"><a href="#">ERP Development</a></li>
-              <li className="hover:text-green-300"><a href="#">Web Development </a></li>
-              <li className="hover:text-green-300"><a href="#">SEO & Marketing</a></li>
-              <li className="hover:text-green-300"><a href="#">Digital Transformation</a></li>
-              <li className="hover:text-green-300"><a href="#">Hire CRM Developers</a></li>
+              <li className="hover:text-green-300"><a href="/solutions/crm-development">CRM Development</a></li>
+              <li className="hover:text-green-300"><a href="/solutions/erp-development">ERP Development</a></li>
+              <li className="hover:text-green-300"><a href="/solutions/web-development">Web Development </a></li>
+              <li className="hover:text-green-300"><a href="/solutions/seo-digital-marketing">SEO & Marketing</a></li>
+              <li className="hover:text-green-300"><a href="/solutions/digital-transformation">Digital Transformation</a></li>
+              <li className="hover:text-green-300"><a href="/solutions/hire-crm-developers">Hire CRM Developers</a></li>
             </ul>
           </div>
 
@@ -45,11 +45,11 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-5">Industries</h3>
 
             <ul className="space-y-3 text-gray-400">
-              <li className="hover:text-green-300"><a href="#">HealthCare</a></li>
-              <li className="hover:text-green-300"><a href="#">Real Estate</a></li>
-              <li className="hover:text-green-300"><a href="#">E-Commerce </a></li>
-              <li className="hover:text-green-300"><a href="#">Manufacturing</a></li>
-              <li className="hover:text-green-300"><a href="#">Professional Service</a></li>
+              <li className="hover:text-green-300"><a href="/industries/healthcare">HealthCare</a></li>
+              <li className="hover:text-green-300"><a href="/industries/real-estate">Real Estate</a></li>
+              <li className="hover:text-green-300"><a href="/industries/e-commerce">E-Commerce </a></li>
+              <li className="hover:text-green-300"><a href="/industries/manufacturing">Manufacturing</a></li>
+              <li className="hover:text-green-300"><a href="/industries/professional-services">Professional Service</a></li>
             </ul>
           </div>
 
@@ -58,12 +58,12 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-5">Company</h3>
 
             <ul className="space-y-3 text-gray-400">
-              <li className="hover:text-green-300"><a href="#">About NNC Digital</a></li>
-              <li className="hover:text-green-300"><a href="#">About Nakshatra Namaha Creations</a></li>
-              <li className="hover:text-green-300"><a href="#">Case Studies</a></li>
-              <li className="hover:text-green-300"><a href="#">Blog</a></li>
-              <li className="hover:text-green-300"><a href="#">Pricing</a></li>
-              <li className="hover:text-green-300"><a href="#">Careers</a></li>
+              <li className="hover:text-green-300"><a href="/about">About NNC Digital</a></li>
+              <li className="hover:text-green-300"><a href="/https://www.nakshatranamahacreations.com/about-us">About Nakshatra Namaha Creations</a></li>
+              <li className="hover:text-green-300"><a href="/case-studies">Case Studies</a></li>
+              <li className="hover:text-green-300"><a href="/blog">Blog</a></li>
+              <li className="hover:text-green-300"><a href="/pricing">Pricing</a></li>
+              {/* <li className="hover:text-green-300"><a href="#">Careers</a></li> */}
             </ul>
           </div>
 
