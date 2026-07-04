@@ -7,7 +7,7 @@ import {
   Check, Plus, ArrowRight, Send, Lock,
 } from "lucide-react";
 
-/* ---------------- DATA ---------------- */
+
 const engagements = [
   {
     icon: Target,
@@ -73,7 +73,7 @@ const faqs = [
   { q: "What currencies do you work with?", a: "We quote and invoice in USD, CAD, and GBP for transparency with our North American and UK clients. Your proposal will be in your local currency." },
 ];
 
-/* ---------------- ANIM HELPERS ---------------- */
+
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
 const grad = "bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent";
@@ -108,7 +108,7 @@ function FaqItem({ item, isOpen, onClick }) {
   );
 }
 
-/* ---------------- PAGE ---------------- */
+
 export default function Page() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -146,7 +146,7 @@ export default function Page() {
       </section>
 
     
-      <section className="relative px-6 py-16">
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>How We Engage</SectionLabel>
@@ -192,8 +192,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== INVESTMENT TABLE ===== */}
-      <section className="relative px-6 py-16">
+     
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-4xl">
           <div className="text-center">
@@ -237,8 +237,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== COST FACTORS ===== */}
-      <section className="relative px-6 py-16">
+     
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Cost Factors</SectionLabel>
@@ -261,12 +261,11 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="relative overflow-hidden px-6 py-20">
+      
+      <section className="relative overflow-hidden px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            {/* left: image */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative">
               <div className="absolute -inset-[2px] rounded-[30px] bg-[conic-gradient(from_0deg,#34d399,#22d3ee,#3b82f6,#22d3ee,#34d399)] bg-[length:300%_300%] opacity-50 blur-[8px] animate-[ringSpin_8s_linear_infinite]" />
               <div className="relative h-[360px] overflow-hidden rounded-[28px] border border-white/10">
@@ -308,8 +307,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== QUOTE FORM ===== */}
-      <section className="relative px-6 py-20">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
           <div className="text-center">
@@ -362,8 +361,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="relative px-6 py-20">
+    
+      <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
           <div className="text-center">

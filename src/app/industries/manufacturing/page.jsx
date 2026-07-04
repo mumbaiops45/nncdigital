@@ -8,7 +8,8 @@ import {
   Send, Lock, Check, Plus, ArrowRight,
 } from "lucide-react";
 
-/* ---------------- DATA ---------------- */
+
+
 const caseStudies = [
   {
     sector: "Manufacturing", region: "Canada", image: "/manufacturingcrm.jpg",
@@ -79,7 +80,7 @@ const faqs = [
   { q: "Do you offer mobile apps for field service teams?", a: "Yes. We build native iOS and Android apps for field service technicians that work offline. Features include job scheduling, digital forms with signature capture, parts lookup, time tracking, and real-time sync when connection is restored. Managers get live dashboards of job status and technician performance." },
 ];
 
-/* ---------------- ANIM HELPERS ---------------- */
+
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 const grad = "bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent";
@@ -155,7 +156,7 @@ function FaqItem({ item, isOpen, onClick }) {
   );
 }
 
-/* ---------------- PAGE ---------------- */
+
 export default function Page() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -165,7 +166,7 @@ export default function Page() {
 
   return (
     <div className="bg-[#1A2343] text-white">
-      {/* ===== HERO + FORM ===== */}
+     
       <section ref={heroRef} className="relative overflow-hidden px-6 pt-32 pb-20">
         <motion.div style={{ y: orbY }} className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
@@ -214,8 +215,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SUCCESS STORIES ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Success Stories</SectionLabel>
@@ -227,8 +228,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SOLUTIONS ===== */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -252,8 +252,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== INTEGRATION & COMPLIANCE ===== */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Integration & Compliance</SectionLabel>
@@ -278,8 +277,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -316,7 +315,7 @@ export default function Page() {
           <div className="mt-6 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
             <div className="grid grid-cols-2 gap-6 rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md sm:grid-cols-4">
               {resultStats.map(([v, l]) => (
-                <div key={l} className="text-center">
+                <div key={l} className="flex flex-col items-center justify-center text-center">
                   <div className={`text-2xl font-bold lg:text-3xl ${grad}`}>{v}</div>
                   <p className="mt-1 text-xs text-slate-400">{l}</p>
                 </div>
@@ -347,8 +346,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== GLOBAL PRESENCE ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-5xl">
           <div className="text-center">
@@ -370,8 +369,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="relative px-6 py-24">
+   
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
           <div className="text-center">
@@ -386,8 +385,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA + FORM ===== */}
-      <section className="relative overflow-hidden px-6 py-28">
+      
+      <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl text-center">

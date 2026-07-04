@@ -8,7 +8,7 @@ import {
   Phone, Send, Lock, Check, Plus, ArrowRight,
 } from "lucide-react";
 
-/* ---------------- DATA ---------------- */
+
 const heroTech = [
   { icon: ShoppingBag, name: "Shopify" },
   { icon: Plug, name: "WooCommerce" },
@@ -62,7 +62,7 @@ const faqs = [
   { q: "Do you integrate with Google and Meta ads?", a: "Yes. We connect your CRM directly to Google Ads and Meta Ads Manager for closed-loop reporting. You'll see exactly which campaigns drive revenue, track ROAS at the customer level, and build custom audiences based on purchase behaviour — all automatically synced." },
 ];
 
-/* ---------------- ANIM HELPERS ---------------- */
+
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 const grad = "bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent";
@@ -97,7 +97,7 @@ function FaqItem({ item, isOpen, onClick }) {
   );
 }
 
-/* ---------------- PAGE ---------------- */
+
 export default function Page() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -107,7 +107,6 @@ export default function Page() {
 
   return (
     <div className="bg-[#1A2343] text-white">
-      {/* ===== HERO + FORM ===== */}
       <section ref={heroRef} className="relative overflow-hidden px-6 pt-32 pb-20">
         <motion.div style={{ y: orbY }} className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
@@ -117,7 +116,6 @@ export default function Page() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          {/* left */}
           <motion.div style={{ y: heroY }}>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <SectionLabel>E-Commerce Technology</SectionLabel>
@@ -140,7 +138,6 @@ export default function Page() {
             </motion.div>
           </motion.div>
 
-          {/* right: form */}
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative">
             <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
             <div className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-7 backdrop-blur-xl md:p-8">
@@ -168,8 +165,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SOLUTIONS ===== */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -193,8 +189,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== COMPLIANCE ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Compliance & Integration</SectionLabel>
@@ -214,8 +210,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="relative px-6 py-24">
+   
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -287,8 +283,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== GLOBAL PRESENCE ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-5xl">
           <div className="text-center">
@@ -310,8 +306,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
           <div className="text-center">
@@ -326,8 +322,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA + FORM ===== */}
-      <section className="relative overflow-hidden px-6 py-28">
+      
+      <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl text-center">

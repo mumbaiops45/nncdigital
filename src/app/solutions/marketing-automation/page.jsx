@@ -8,7 +8,7 @@ import {
   Brain, Zap, Sparkles, Check, ArrowRight,
 } from "lucide-react";
 
-/* ---------------- DATA ---------------- */
+
 const trustBadges = ["Google Partner", "ISO Certified", "GDPR Compliant", "PIPEDA Ready", "Clutch Top Agency"];
 
 const caseStudies = [
@@ -99,7 +99,7 @@ const whyPoints = [
 ];
 const whyStats = [["300+", "Automations Built"], ["50+", "Clients Served"], ["98%", "Retention Rate"], ["25+", "Industries"]];
 
-/* ---------------- ANIM HELPERS ---------------- */
+
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 const grad = "bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent";
@@ -170,7 +170,7 @@ function HireColumn({ label, items }) {
   );
 }
 
-/* ---------------- PAGE ---------------- */
+
 export default function Page() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -180,7 +180,7 @@ export default function Page() {
 
   return (
     <div className="bg-[#1A2343] text-white">
-      {/* ===== HERO ===== */}
+      
       <section ref={heroRef} className="relative flex min-h-[85vh] items-center overflow-hidden px-6 pt-32 pb-20">
         <motion.div style={{ y: orbY }} className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
@@ -211,8 +211,8 @@ export default function Page() {
         </motion.div>
       </section>
 
-      {/* ===== SUCCESS STORIES ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Proven Results</SectionLabel>
@@ -223,15 +223,15 @@ export default function Page() {
             {caseStudies.map((s, i) => <CaseCard key={s.title} study={s} index={i} />)}
           </motion.div>
           <div className="mt-10 text-center">
-            <button className="rounded-full border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-white/10">
+            <a href="/case-studies" className="rounded-full border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-white/10">
               View All Case Studies
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ===== SERVICES ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -257,8 +257,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== BENEFITS ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Why It Works</SectionLabel>
@@ -283,15 +283,15 @@ export default function Page() {
             })}
           </motion.div>
           <div className="mt-10 text-center">
-            <button className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            <a href="/contact" className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Build My Automation Stack <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ===== TECH STACK ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -309,8 +309,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== HIRE SPECIALISTS ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Hire Specialists</SectionLabel>
@@ -321,18 +321,18 @@ export default function Page() {
             <HireColumn label="By Focus Area" items={hireByType} />
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            {/* <button className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Hire a Specialist
-            </button>
-            <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+            </button> */}
+            <a href="/pricing" className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
               View Pricing
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ===== AI-POWERED ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -396,8 +396,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Our Story</SectionLabel>
@@ -427,8 +427,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA ===== */}
-      <section className="relative overflow-hidden px-6 py-28">
+     
+      <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto max-w-3xl text-center">
@@ -442,12 +442,12 @@ export default function Page() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <button className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <a href="/contact" className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Get Started Today <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+              </a>
+              <a href="/contact" className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 Book a Free Strategy Call
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>

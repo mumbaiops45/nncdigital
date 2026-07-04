@@ -151,12 +151,14 @@ export default function Page() {
               Capture every lead, respond in seconds, and close more deals. We build custom real-estate CRM and software that turns enquiries into transactions — for agencies, developers, and property managers.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mt-8 flex flex-wrap gap-4">
-              <button className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <a  href="/contact"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+              </a>
+              <a href="/case-studies"
+              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 See a Case Study
-              </button>
+              </a>
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.4 }} className="mt-8 flex flex-wrap gap-2.5">
               {trustBadges.map((b) => (
@@ -186,7 +188,7 @@ export default function Page() {
       </section>
 
       
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-18">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>The Problem</SectionLabel>
@@ -209,8 +211,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SOLUTIONS ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -235,8 +237,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SUCCESS STORY (parallax) ===== */}
-      <section ref={storyRef} className="relative overflow-hidden px-6 py-24">
+    
+      <section ref={storyRef} className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -278,8 +280,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== USE CASES ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-18">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Who We Serve</SectionLabel>
@@ -303,8 +305,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== BENEFITS ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -332,8 +334,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute right-1/4 top-0 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -361,8 +363,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== AI-POWERED ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -386,8 +388,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-18">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Our Story</SectionLabel>
@@ -417,8 +419,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
           <div className="text-center">
@@ -433,8 +435,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA ===== */}
-      <section className="relative overflow-hidden px-6 py-28">
+     
+      <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto max-w-3xl text-center">
@@ -443,12 +445,14 @@ export default function Page() {
             <h2 className="text-3xl font-bold md:text-4xl">Ready to Close <span className={grad}>More Deals?</span></h2>
             <p className="mx-auto mt-4 max-w-xl text-slate-300/90">Book a free consultation. We'll show you exactly how a custom real-estate CRM can 3x your lead conversion.</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <button className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <a href="/contact"
+               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+              </a>
+              <a href="case-studies"
+              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 View Case Studies
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>

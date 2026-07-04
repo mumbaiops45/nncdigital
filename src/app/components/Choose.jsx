@@ -186,7 +186,7 @@ export default function Choose() {
       </section>
 
 
-      <section className="relative h-[850px] overflow-hidden">
+      <section className="relative h-[850px] px-6 overflow-hidden">
         <motion.img
           src="/hero1.png"
           alt=""

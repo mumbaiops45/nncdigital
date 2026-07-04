@@ -231,7 +231,7 @@ export default function Page() {
       </section>
 
     
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Why It Matters</SectionLabel>
@@ -261,7 +261,7 @@ export default function Page() {
       </section>
 
   
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -293,7 +293,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Hire Developers</SectionLabel>
@@ -319,7 +319,7 @@ export default function Page() {
       </section>
 
       
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -343,7 +343,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden px-6 py-20">
+      <section className="relative overflow-hidden px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-72 w-72 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-72 w-72 rounded-full bg-blue-600/15 blur-[140px]" />
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto max-w-3xl text-center">
@@ -358,7 +358,7 @@ export default function Page() {
       </section>
 
    
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Our Story</SectionLabel>
@@ -394,7 +394,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden px-6 py-28">
+      <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto max-w-3xl text-center">
@@ -411,29 +411,7 @@ export default function Page() {
         </motion.div>
       </section>
 
-      {/* <section>
-        <p>FAQS</p>
-        <h2>FAQs</h2>
-
-        <div>
-            q: "What is custom CRM software vs Off-the-shelf?"
-            a: "Detailed answer tailored for businesses in Canada, USA, and UK - converting timeline, cost, compliance, and process."
-            q: "What features can be customised?"
-            a: "Detailed answer tailored for businesses in Canada, USA, and UK covering timeline cost, compliance and process."
-            q: "How long does CRM development take?"
-            a: " Detailed answer tailored for businesses in Canada, USA, and UK covering timeline, cost , compliance, and process."
-            q: "What does CRM development cost in Canada or UK?"
-            a: "Detailed answer tailored for businesses in Canada, USA and UK covering timeline, const, complieance, and process."
-            q: "Do you offer post-launch support?"
-            a: "Detailed answer tailored for businesses in Canada, USA, and UK covering timeline, cost, compliance, and process."
-        </div>
-
-        <button>Ask Us Anythings</button>
-      </section>
-      <section>
-        <p>Get IN Touch</p>
-        <h1>Ready to Build</h1>
-      </section> */}
+      
     </div>
   );
 }

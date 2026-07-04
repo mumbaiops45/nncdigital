@@ -31,7 +31,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-5">Services</h3>
 
-            <ul className="space-y-3 text-gray-400 ">
+            <ul className="space-y-3 text-gray-400 text-sm">
               <li className="hover:text-green-300"><a href="/solutions/crm-development">CRM Development</a></li>
               <li className="hover:text-green-300"><a href="/solutions/erp-development">ERP Development</a></li>
               <li className="hover:text-green-300"><a href="/solutions/web-development">Web Development </a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
            <div>
             <h3 className="font-semibold text-lg mb-5">Industries</h3>
 
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-gray-400 text-sm">
               <li className="hover:text-green-300"><a href="/industries/healthcare">HealthCare</a></li>
               <li className="hover:text-green-300"><a href="/industries/real-estate">Real Estate</a></li>
               <li className="hover:text-green-300"><a href="/industries/e-commerce">E-Commerce </a></li>
@@ -56,8 +56,7 @@ const Footer = () => {
     
           <div>
             <h3 className="font-semibold text-lg mb-5">Company</h3>
-
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-gray-400 text-sm">
               <li className="hover:text-green-300"><a href="/about">About NNC Digital</a></li>
               <li className="hover:text-green-300"><a href="/https://www.nakshatranamahacreations.com/about-us">About Nakshatra Namaha Creations</a></li>
               <li className="hover:text-green-300"><a href="/case-studies">Case Studies</a></li>
@@ -70,7 +69,7 @@ const Footer = () => {
         
           <div>
             <h3 className="font-semibold text-lg mb-5">Contact</h3>
-            <div className="space-y-3 text-gray-400">
+            <div className="space-y-3 text-gray-400 text-sm">
               <p>📍50 Philip Ave Guelph, ON N1E 1R4, Canada</p>
               <p><strong>CA</strong> Canada: +91 9900566466</p>
               <p><strong>US</strong> USA: +91 9900566466</p>

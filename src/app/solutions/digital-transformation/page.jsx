@@ -76,6 +76,7 @@ const hireByBusiness = [
   { title: "Mid-Market", desc: "Modernise operations, unify systems, and adopt cloud + AI without enterprise complexity or cost." },
   { title: "Scale-ups", desc: "Build future-proof foundations now — so rapid growth doesn't break your systems in 12 months." },
 ];
+
 const hireByFocus = [
   { title: "Cloud & Infrastructure", desc: "Migration, cloud-native architecture, and DevOps for scalable, resilient systems." },
   { title: "Data & AI", desc: "Data engineering, analytics platforms, and AI/ML integration for intelligent operations." },
@@ -87,6 +88,7 @@ const aiFeatures = [
   { icon: BarChart3, title: "Predictive Business Intelligence", desc: "Machine learning forecasts demand, cash flow, and risk — surfacing insights before problems happen so you lead instead of react." },
   { icon: Cpu, title: "AI-Augmented Decision Support", desc: "Embed AI copilots into your operations — recommending next-best actions, flagging anomalies, and accelerating every decision your team makes." },
 ];
+
 const aiMetrics = [
   ["Process automation coverage", 90],
   ["Forecast accuracy", 95],
@@ -105,7 +107,7 @@ const whyPoints = [
 ];
 const whyStats = [["565+", "Projects"], ["100+", "Team Members"], ["98%", "Retention"], ["25+", "Industries"]];
 
-/* ---------------- ANIM HELPERS ---------------- */
+
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 const grad = "bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent";
@@ -119,7 +121,7 @@ function SectionLabel({ children }) {
   );
 }
 
-/* ---------------- TRANSFORMATION TIMELINE (parallax fill) ---------------- */
+
 function TransformTimeline() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start center", "end center"] });
@@ -216,7 +218,7 @@ function HireColumn({ label, items }) {
   );
 }
 
-/* ---------------- PAGE ---------------- */
+
 export default function Page() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -239,7 +241,7 @@ export default function Page() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <SectionLabel>Digital Transformation · Canada, USA & UK</SectionLabel>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
             End-to-End <span className={grad}>Digital Transformation</span> for Modern Businesses
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className=" mt-6 max-w-2xl text-lg leading-relaxed text-slate-300/90">
@@ -256,7 +258,7 @@ export default function Page() {
       </section>
 
       
-      <section className="relative overflow-hidden px-6 py-24">
+      <section className="relative overflow-hidden px-6 py-14">
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/8 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -268,8 +270,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SUCCESS STORIES ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Proven Results</SectionLabel>
@@ -282,8 +284,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== SERVICES ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -309,8 +311,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== BENEFITS ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Why It Matters</SectionLabel>
@@ -337,8 +339,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== TECH STACK ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -356,8 +358,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== HIRE EXPERTS ===== */}
-      <section className="relative px-6 py-24">
+      
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Hire Experts</SectionLabel>
@@ -368,18 +370,17 @@ export default function Page() {
             <HireColumn label="By Focus Area" items={hireByFocus} />
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            {/* <button className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Hire an Expert
-            </button>
-            <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+            </button> */}
+            <a href="/pricing" className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
               View Pricing
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ===== AI-POWERED ===== */}
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -443,8 +444,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="relative px-6 py-24">
+     
+      <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Our Story</SectionLabel>
@@ -474,8 +475,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== FINAL CTA ===== */}
-      <section className="relative overflow-hidden px-6 py-28">
+     
+      <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto max-w-3xl text-center">
@@ -489,12 +490,13 @@ export default function Page() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <button className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <a href="/contact"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+              </a>
+              <a href="case-studies" className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 View Our Work
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>

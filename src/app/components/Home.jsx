@@ -19,7 +19,7 @@ import { HeartPulse, Home, ShoppingCart, Factory, GraduationCap, Hotel, Truck, L
 const heroImages = [
   "/hero1.png",
   "/banner.avif",
-  "/hero2.png",
+  "/aiinsight.webp",
 ];
 
 const industriess = [
@@ -107,77 +107,64 @@ export default function Hero() {
 
   return (
     <>
-
       <section className="relative overflow-hidden bg-[#1A2343]">
-
         {heroImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 bg-cover bg-center scale-110 blur-[1px] transition-opacity duration-[1500ms] animate-[kenBurns_24s_ease-in-out_infinite] ${currentImage === index ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 scale-110 bg-cover bg-center blur-[1px] transition-opacity duration-[1500ms] animate-[kenBurns_24s_ease-in-out_infinite] ${currentImage === index ? "opacity-100" : "opacity-0"
               }`}
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
-
-        {/* Brand duotone tint — unifies the busy image into our palette */}
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/90 via-blue-700/95 to-emerald-600/20 mix-blend-color" />
-        <div className="absolute inset-0 bg-[#020617]/35" />
-
-        {/* Directional gradient — left dark (text), right breathes (image) */}
+        <div className="absolute inset-0 bg-[#000000]/5" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/15 to-[#020617]/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]/20" />
-
-        {/* Vignette for depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,transparent_30%,rgba(2,6,23,0.7)_100%)]" />
-
-        {/* Animated glow orbs (logo colors) */}
         <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/25 blur-[130px] animate-[heroFloat_9s_ease-in-out_infinite]" />
         <div className="pointer-events-none absolute top-32 right-1/4 h-[26rem] w-[26rem] rounded-full bg-blue-600/20 blur-[150px] animate-[heroFloat_11s_ease-in-out_infinite_reverse]" />
         <div className="pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-emerald-500/20 blur-[130px] animate-[heroFloat_10s_ease-in-out_infinite]" />
-
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
 
-        <div className="relative z-10 px-6 lg:px-12 py-6  min-h-[750px] flex items-center">
-          <div className="grid lg:grid-cols-2 gap-14 items-center w-full">
+        <div className="relative z-10 flex min-h-[750px] items-center px-6 py-16 lg:px-12 lg:py-20">
+          <div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="text-white">
-
-
-              <h1 className="text-5xl lg:text-5xl font-bold leading-[1.08] mt-12 tracking-tight animate-[heroUp_0.7s_ease-out_0.1s_both]">
+              <p className="inline-flex items-center gap-2 font-medium text-cyan-300 animate-[heroUp_0.7s_ease-out_0.05s_both]">
+                <span className="h-px w-8 bg-gradient-to-r from-cyan-400 to-transparent" />
+                10+ Years of Enterprise Software Expertise
+              </p>
+              <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl animate-[heroUp_0.7s_ease-out_0.1s_both]">
                 Build Once.
-                <span className="hero-shimmer block">Scale Everywhere.</span>
-                <span className="hero-shimmer hero-shimmer-2 block">Automate Everything.</span>
+                <span className="block bg-gradient-to-r from-cyan-400 via-teal-300 to-[#00A883] bg-clip-text text-transparent">
+                  Scale Everywhere.
+                </span>
+                <span className="block bg-gradient-to-r from-cyan-400 via-teal-300 to-[#00A883] bg-clip-text text-transparent">
+                  Automate Everything.
+                </span>
               </h1>
 
-              <p className="mt-7 text-lg text-slate-50 max-w-xl leading-relaxed animate-[heroUp_0.7s_ease-out_0.2s_both]">
+              <p className="mt-6 max-w-xl lg:text-md  leading-relaxed text-slate-200 sm:text-md animate-[heroUp_0.7s_ease-out_0.2s_both]">
                 We design and develop custom CRM, ERP, Web, and Mobile applications
                 that automate operations and accelerate growth across Canada, USA,
                 and the UK.
               </p>
 
-              <p className="mt-4 inline-flex items-center gap-2 text-cyan-300 font-medium animate-[heroUp_0.7s_ease-out_0.3s_both]">
-                <span className="h-px w-8 bg-gradient-to-r from-cyan-400 to-transparent" />
-                10+ Years of Enterprise Software Expertise
-              </p>
-
-
-              <div className="flex flex-wrap gap-4 mt-8 animate-[heroUp_0.7s_ease-out_0.4s_both]">
+              <div className="mt-8 flex flex-wrap gap-4 animate-[heroUp_0.7s_ease-out_0.3s_both]">
                 <a
                   href="tel:+919900566466"
-                  className="group relative px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] hover:bg-[position:100%_0] shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)] hover:-translate-y-0.5 transition-all duration-500 inline-flex items-center gap-3"
+                  className="group relative inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)]"
                 >
-                  <span> Book Free Strategy</span>
-
+                  Book Free Strategy
                 </a>
-
-                <Link 
-                href="/about"
-                className="px-8 py-3.5 rounded-xl font-semibold text-white border border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-cyan-400/40 transition-all duration-300">
+                <Link
+                  href="/about"
+                  className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10"
+                >
                   Explore Solutions
                 </Link>
               </div>
 
-
-              <div className="flex flex-wrap gap-2.5 mt-8 animate-[heroUp_0.7s_ease-out_0.5s_both]">
+              <div className="mt-8 flex flex-wrap gap-2.5 animate-[heroUp_0.7s_ease-out_0.4s_both]">
                 {[
                   "Google Partner",
                   "ISO Certified",
@@ -187,60 +174,55 @@ export default function Hero() {
                 ].map((item) => (
                   <span
                     key={item}
-                    className="px-4 py-2 rounded-full bg-white/[0.04] backdrop-blur-md border border-white/10 text-sm text-slate-200/80 hover:border-cyan-400/40 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
+                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-slate-200/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:text-white"
                   >
                     {item}
                   </span>
                 ))}
               </div>
 
-
-              <div className="grid grid-cols-3 gap-6 mt-10 max-w-xl animate-[heroUp_0.7s_ease-out_0.6s_both]">
+              <div className="mt-10 grid max-w-xl grid-cols-3 gap-6 animate-[heroUp_0.7s_ease-out_0.5s_both]">
                 {[
                   { n: "250+", l: "Projects" },
                   { n: "98%", l: "Client Retention" },
                   { n: "10+", l: "Years Experience" },
                 ].map((s, i) => (
                   <div key={s.l} className={i !== 0 ? "border-l border-white/10 pl-6" : ""}>
-                    <h3 className="text-3xl lg:text-4xl font-bold bg-gradient-to-br from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                    <h3 className="bg-gradient-to-br from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-3xl font-bold text-transparent lg:text-4xl">
                       {s.n}
                     </h3>
-                    <p className="text-slate-400 text-sm mt-1">{s.l}</p>
+                    <p className="mt-1 text-sm text-slate-400">{s.l}</p>
                   </div>
                 ))}
               </div>
             </div>
+            <div className="flex justify-center lg:justify-end animate-[heroUp_0.8s_ease-out_0.25s_both]">
+              <div className="relative w-full max-w-sm">
+                <div className="absolute -inset-[2px] rounded-3xl bg-[conic-gradient(from_0deg,#34d399,#22d3ee,#3b82f6,#22d3ee,#34d399)] bg-[length:300%_300%] opacity-60 blur-[6px] animate-[ringSpin_6s_linear_infinite]" />
 
+                <div className="relative rounded-3xl bg-white p-6 shadow-2xl sm:p-7">
+                  <div className="absolute left-8 right-8 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
 
-            <div className="flex justify-end animate-[heroUp_0.8s_ease-out_0.25s_both]">
-              <div className="relative w-full max-w-md">
-                <div className="absolute -inset-[2px] rounded-3xl bg-[conic-gradient(from_0deg,#34d399,#22d3ee,#3b82f6,#22d3ee,#34d399)] bg-[length:300%_300%] blur-[6px] opacity-60 animate-[ringSpin_6s_linear_infinite]" />
-
-                <div className="relative bg-white rounded-3xl shadow-2xl p-8">
-                  <div className="absolute top-0 left-8 right-8 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
-
-                  <p className="text-cyan-600 mt-3 font-semibold text-sm tracking-wide uppercase">
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-cyan-600">
                     Free Strategy Consultation
                   </p>
-
-                  <h2 className="text-2xl lg:text-3xl font-bold mt-2 text-slate-900">
+                  <h2 className="mt-1.5 text-xl font-bold text-slate-900 sm:text-2xl">
                     Get a Free Consultation
                   </h2>
-
-                  <p className="text-slate-500 text-sm mt-1.5">
+                  <p className="mt-1 text-xs text-slate-500">
                     Response within 24 hours. No commitment required.
                   </p>
 
-                  <form className="mt-5 space-y-3">
-                    <div className="grid grid-cols-2 gap-3">
-                      <input type="text" placeholder="First Name" className="border border-slate-200 rounded-xl p-3 w-full text-slate-800 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition" />
-                      <input type="text" placeholder="Last Name" className="border border-slate-200 rounded-xl p-3 w-full text-slate-800 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition" />
+                  <form className="mt-4 space-y-2.5">
+                    <div className="grid grid-cols-2 gap-2.5">
+                      <input type="text" placeholder="First Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                      <input type="text" placeholder="Last Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                     </div>
 
-                    <input type="tel" placeholder="Phone Number" className="border border-slate-200 rounded-xl p-3 w-full text-slate-800 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition" />
-                    <input type="email" placeholder="Email Address" className="border border-slate-200 rounded-xl p-3 w-full text-slate-800 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition" />
+                    <input type="tel" placeholder="Phone Number" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                    <input type="email" placeholder="Email Address" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
 
-                    <select className="border border-slate-200 rounded-xl p-3 w-full text-slate-600 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition">
+                    <select className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-600 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20">
                       <option>Service of Interest</option>
                       <option>CRM Development</option>
                       <option>ERP Development</option>
@@ -249,12 +231,12 @@ export default function Hero() {
                       <option>Marketing Automation</option>
                       <option>Salesforce CRM</option>
                       <option>Digital Transformation</option>
-                      <option>SEO & Digital Marketing</option>
+                      <option>SEO &amp; Digital Marketing</option>
                     </select>
 
-                    <textarea rows="2" placeholder="Tell us about your project..." className="border border-slate-200 rounded-xl p-3 w-full text-slate-800 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition resize-none" />
+                    <textarea rows="2" placeholder="Tell us about your project..." className="w-full resize-none rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
 
-                    <button type="submit" className="group relative w-full py-3.5 rounded-xl text-white font-semibold bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] hover:bg-[position:100%_0] shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] hover:-translate-y-0.5 hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.75)] transition-all duration-500">
+                    <button type="submit" className="group relative w-full rounded-lg bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-3 text-sm font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.75)]">
                       Get Free Consultation
                     </button>
                   </form>
@@ -264,8 +246,6 @@ export default function Hero() {
 
           </div>
         </div>
-
-
       </section>
 
       <section
@@ -303,6 +283,26 @@ export default function Hero() {
         </div>
       </section>
 
+      <section className="relative  px-6 bg-[#1A2343] text-center overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#00A884] blur-[120px] rounded-full " />
+        </div>
+        <div className="relative max-w-4xl mx-auto">
+          <div className="inline-block px-4 py-1 mb-6 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs tracking-[0.3em] uppercase">
+            What we build
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">CRM Service {" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A884] to-[#38BDF8]">We Offer</span>
+          </h1>
+          <p className="mt-6 text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">We offer a comprehensive lineup of CRM and digital solutions for clients across <span className="text-white font-medium">Canada</span> ,{" "} <span className="text-white font-medium">USA</span>  &{" "}
+            <span className="text-white font-medium">UK</span>,
+          </p>
+
+        </div>
+
+
+
+      </section>
       <Offers />
       <Choose />
 
@@ -389,10 +389,7 @@ export default function Hero() {
               })}
             </div>
           </div>
-
         </div>
-
-
         <style>{`
     @keyframes ringSpin {
       0% { background-position: 0% 50%; }
@@ -712,66 +709,55 @@ export default function Hero() {
       <TechStack />
 
 
-
-      <section className="relative overflow-hidden   px-8  md:px-16 md:py-0">
+      <section className="relative overflow-hidden px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-12">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{
-            backgroundImage: "url('/itmanagement.png')",
-          }}
+          className="absolute inset-0 scale-105 bg-cover bg-center"
+          style={{ backgroundImage: "url('/itmanagement.png')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#02111F]/20 via-[#081C34]/20 to-[#02111F]/20" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[180px]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[180px]" />
-
-        <div className="relative z-10 max-w-6xl mx-auto  px-6">
-
-          <div className="rounded-[32px]  border border-white/10  px-8 py-4 md:px-16 md:py-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#02111F]/80 via-[#081C34]/70 to-[#02111F]/85" />
+        <div className="pointer-events-none absolute -top-20 left-0 h-96 w-96 rounded-full bg-cyan-500/20 blur-[160px]" />
+        <div className="pointer-events-none absolute -bottom-20 right-0 h-96 w-96 rounded-full bg-[#00A883]/20 blur-[160px]" />
+        <div className="relative z-10 mx-auto max-w-5xl">
+          <div className="px-6 py-10 sm:px-10 sm:py-12 md:px-16 md:py-14">
             <div className="flex justify-center">
-              <div className="inline-flex items-center  px-5 py-0 rounded-full bg-white/10 border border-white/20 text-cyan-300 text-sm font-medium backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-medium text-cyan-300 backdrop-blur-md sm:text-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
                 CRM Development Specialists
-              </div>
+              </span>
             </div>
-            <h2 className="mt-6 text-center text-4xl md:text-5xl lg:text-5xl font-bold  text-white">
+            <h2 className="mt-6 text-center text-3xl font-bold leading-[1.15] text-white sm:text-4xl lg:text-5xl">
               Want CRM Solutions That
-              <span className="block  bg-gradient-to-r from-cyan-400 via-teal-300 to-[#00A883] bg-clip-text text-transparent">
+              <span className="mt-1 block bg-gradient-to-r from-cyan-400 via-teal-300 to-[#00A883] bg-clip-text text-transparent">
                 Take Your Business
               </span>
               To The Next Level?
             </h2>
-
-            <p className="mt-6 text-center text-lg md:text-lg text-slate-50 max-w-3xl mx-auto leading-relaxed">
+            <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-slate-200 sm:mt-6 sm:text-lg">
               Build scalable CRM systems, automate workflows, improve customer
               experiences, and unlock growth with expert CRM development tailored
               to your business.
             </p>
-
-            <div className="flex flex-wrap justify-center gap-5 mt-8">
-              <a
-               href="tel:+919900566466"
-                className=" group px-10 py-4 rounded-full bg-gradient-to-r from-cyan-500  to-[#00A883]  text-white font-semibold  shadow-[0_10px_40px_rgba(0,168,131,0.35)]  hover:scale-105 hover:shadow-[0_15px_50px_rgba(0,168,131,0.55)]  transition-all duration-300" >
-                <span className="flex items-center gap-3">
-                  Connect Now
-                  <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </a>
-
+            <div className="mx-auto mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
               <a
                 href="tel:+919900566466"
-                className=" px-10 py-4 rounded-full border border-white/20 bg-white/10  backdrop-blur-md  text-white  font-semibold  hover:bg-white/20  hover:border-white/40  transition-all duration-300" >
+                className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-[#00A883] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_40px_rgba(0,168,131,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(0,168,131,0.55)] sm:w-auto sm:text-base"
+              >
+                Connect Now
+                <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+              <a
+                href="tel:+919900566466"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:bg-white/20 sm:w-auto sm:text-base"
+              >
                 Book Free Consultation
               </a>
             </div>
-
           </div>
-
         </div>
-
       </section>
 
 
       <Whatmatter />
-
 
       <section
         className="relative overflow-hidden py-14 px-6 lg:px-16 bg-cover bg-center"
