@@ -123,7 +123,7 @@ export default function Page() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
   const orbY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
-  
+
   const storyRef = useRef(null);
   const { scrollYProgress: sp } = useScroll({ target: storyRef, offset: ["start end", "end start"] });
   const storyImgY = useTransform(sp, [0, 1], ["-10%", "10%"]);
@@ -153,11 +153,11 @@ export default function Page() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mt-8 flex flex-wrap gap-4">
               <a href="/contact"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a href="/case-studies"
-              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+                className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 See a Case Study
               </a>
             </motion.div>
@@ -188,7 +188,7 @@ export default function Page() {
         </div>
       </section>
 
-     
+
       <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -199,12 +199,35 @@ export default function Page() {
             {challenges.map((c) => {
               const Icon = c.icon;
               return (
-                <motion.div key={c.title} variants={fadeUp} className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07]">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300 transition group-hover:scale-110">
-                    <Icon className="h-5 w-5" />
+                <motion.div
+                  key={c.title}
+                  variants={fadeUp}
+                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/50 hover:bg-white/[0.06] hover:shadow-[0_20px_60px_-20px_rgba(34,211,238,0.45)]"
+                >
+
+                  <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
+
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
                   </div>
-                  <h3 className="mt-4 font-bold text-white">{c.title}</h3>
-                  <p className="mt-2 text-sm text-slate-400">{c.desc}</p>
+
+
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-emerald-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                  <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.45)]">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="relative mt-5 text-lg font-bold text-white transition-all duration-300 group-hover:text-cyan-300">
+                    {c.title}
+                  </h3>
+
+                  <p className="relative mt-3 text-sm leading-7 text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+                    {c.desc}
+                  </p>
+
+
+                  <div className="absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-500 group-hover:w-4/5" />
+                  <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-cyan-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </motion.div>
               );
             })}
@@ -219,12 +242,20 @@ export default function Page() {
             <SectionLabel>What We Build</SectionLabel>
             <h2 className="mt-6 text-3xl font-bold md:text-4xl">Healthcare CRM Solutions <span className={grad}>We Deliver</span></h2>
           </div>
-          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}
+          
+          className="mt-14 flex gap-5  p-5 overflow-x-auto no-scrollbar "
+          >
+            
             {solutions.map((s) => {
               const Icon = s.icon;
               return (
-                <motion.div key={s.title} variants={fadeUp} className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]">
+                <motion.div key={s.title} variants={fadeUp} 
+                className="group relative w-[320px] shrink-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/50 hover:bg-white/[0.06] hover:shadow-[0_25px_60px_-15px_rgba(34,211,238,0.45)]"
+                >
+                  <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300 transition group-hover:scale-110">
+                  
                     <Icon className="h-5 w-5" />
                   </div>
                   <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-cyan-400">{s.tag}</p>
@@ -237,7 +268,7 @@ export default function Page() {
         </div>
       </section>
 
-    
+
       <section ref={storyRef} className="relative overflow-hidden px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
@@ -280,7 +311,7 @@ export default function Page() {
         </div>
       </section>
 
-      
+
       <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -292,7 +323,7 @@ export default function Page() {
               const Icon = u.icon;
               return (
                 <motion.div key={u.title} variants={fadeUp} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]">
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                   <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300">
                     <Icon className="h-6 w-6" />
                   </div>
@@ -305,7 +336,7 @@ export default function Page() {
         </div>
       </section>
 
-      
+
       <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
@@ -318,7 +349,8 @@ export default function Page() {
               const Icon = b.icon;
               return (
                 <motion.div key={b.title} variants={fadeUp} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]">
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  
+                   <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300">
                     <Icon className="h-6 w-6" />
                   </div>
@@ -334,7 +366,7 @@ export default function Page() {
         </div>
       </section>
 
-   
+
       <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-1/4 top-0 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
@@ -345,6 +377,7 @@ export default function Page() {
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-14 grid gap-6 lg:grid-cols-3">
             {testimonials.map((t) => (
               <motion.div key={t.name} variants={fadeUp} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40">
+                 <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                 <Quote className="h-8 w-8 text-cyan-400/40" />
                 <div className="mt-3 flex gap-0.5">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-cyan-400 text-cyan-400" />)}
@@ -363,7 +396,7 @@ export default function Page() {
         </div>
       </section>
 
-      
+
       <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-[40rem] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
@@ -376,6 +409,7 @@ export default function Page() {
               const Icon = f.icon;
               return (
                 <motion.div key={f.title} variants={fadeUp} className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07]">
+                   <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300 transition group-hover:scale-110">
                     <Icon className="h-6 w-6" />
                   </div>
@@ -388,7 +422,7 @@ export default function Page() {
         </div>
       </section>
 
-    
+
       <section className="relative px-6 py-14">
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -419,7 +453,7 @@ export default function Page() {
         </div>
       </section>
 
-     
+
       <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
@@ -435,7 +469,7 @@ export default function Page() {
         </div>
       </section>
 
-      
+
       <section className="relative overflow-hidden px-6 py-18">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/15 blur-[140px]" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/15 blur-[140px]" />
@@ -446,11 +480,11 @@ export default function Page() {
             <p className="mx-auto mt-4 max-w-xl text-slate-300/90">Book a free consultation. We'll show you exactly how a compliant healthcare CRM can grow your practice.</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a href="/contact"
-               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a href="/case-studies"
-              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+                className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 View Case Studies
               </a>
             </div>

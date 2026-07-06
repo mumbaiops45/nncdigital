@@ -334,12 +334,13 @@ export default function AboutPage() {
                 <motion.div
                   key={s.name}
                   variants={fadeUp}
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]"
+                  className="group flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-gray-200 p-6 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-gray-300 hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 transition group-hover:scale-110">
-                    <Icon className="h-6 w-6 text-cyan-300" />
+                  {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 transition group-hover:scale-110"> */}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl transition group-hover:scale-110">
+                    <Icon className="h-6 w-6 text-black" />
                   </div>
-                  <p className="text-sm font-medium text-slate-200">{s.name}</p>
+                  <p className="text-sm font-medium text-slate-900">{s.name}</p>
                 </motion.div>
               );
             })}
@@ -418,7 +419,7 @@ export default function AboutPage() {
 
       <section className="relative px-6 py-6">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-emerald-500/10 blur-[140px]" />
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-7xl">
           <div className="text-center">
             <SectionLabel>Our Values</SectionLabel>
             <h2 className="mt-6 text-3xl font-bold md:text-4xl">
@@ -434,7 +435,8 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            // className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-14 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4"
           >
             {values.map((v) => {
               const Icon = v.icon;
@@ -442,8 +444,9 @@ export default function AboutPage() {
                 <motion.div
                   key={v.title}
                   variants={fadeUp}
-                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
-                >
+                  // className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
+                 className="group relative shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-3rem)/3)] snap-start overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
+               >
                   <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
                     <Icon className="h-6 w-6 text-cyan-300" />

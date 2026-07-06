@@ -39,7 +39,7 @@ export default function TechStack() {
           <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-        <div className="relative w-full overflow-hidden py-24">
+        <div className="relative w-full overflow-hidden py-14">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/strategycrm.png')" }}
@@ -61,7 +61,7 @@ export default function TechStack() {
                   </span>
                 </h2>
 
-                <p className="mt-6 text-lg leading-relaxed text-slate-300 max-w-2xl">
+                <p className="mt-6 text-lg leading-relaxed text-slate-200 max-w-2xl">
                   Here is a closer look at the CRM technologies we leverage to build scalable,
                   efficient, and growth-focused customer relationship systems.
                 </p>
@@ -96,7 +96,7 @@ export default function TechStack() {
 
           <div
             ref={sliderRef}
-            className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth pb-4"
+            className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth my-4"
           >
             {crmTools.map((tool, index) => {
               const Icon = tool.icon;
@@ -143,7 +143,7 @@ export default function TechStack() {
                       {tool.name}
                     </h3>
                     <p
-                      className={`text-sm leading-relaxed ${tool.featured ? "text-white/90" : "text-slate-400"
+                      className={`text-sm leading-relaxed ${tool.featured ? "text-white/90" : "text-slate-200"
                         }`}
                     >
                       {tool.desc}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "../../utils/style.css";
 
 
 const container = {
@@ -128,7 +129,8 @@ export default function Choose() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
 
         <div className="relative mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-12 items-center gap-10">
-          <div className="md:col-span-4 space-y-4">
+          {/* <div className="md:col-span-4 h-screen overflow-y-auto hide-scrollbar pr-4 space-y-4" > */}
+          <div className="md:col-span-4 h-screen overflow-y-scroll hide-scrollbar pr-4 space-y-4">
             {tabs.map((item, i) => (
               <button
                 key={i}
@@ -261,7 +263,7 @@ export default function Choose() {
                 whileTap={{
                   scale: 0.97,
                 }}
-                className="rounded-xl bg-[var(--primery)] px-8 py-4 font-semibold text-white shadow-2xl transition-all"
+                className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-4 font-semibold text-white shadow-2xl transition-all hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_12px_40px_-8px_rgba(6,182,212,0.85)]"
               >
                 Get Started
               </motion.button>
@@ -270,7 +272,7 @@ export default function Choose() {
                 whileHover={{
                   backgroundColor: "rgba(255,255,255,.15)",
                 }}
-                className="rounded-xl border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-xl"
+                className="rounded-xl border border-white/20 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-4 font-semibold text-white backdrop-blur-xl  hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_12px_40px_-8px_rgba(6,182,212,0.85)]"
               >
                 View Portfolio
               </motion.button>

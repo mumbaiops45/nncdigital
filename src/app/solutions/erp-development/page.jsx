@@ -297,7 +297,7 @@ export default function Page() {
               const Icon = b.icon;
               return (
                 <motion.div key={b.title} variants={fadeUp} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]">
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                   <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
                     <Icon className="h-6 w-6 text-cyan-300" />
                   </div>
@@ -313,7 +313,7 @@ export default function Page() {
           <div className="mt-10 text-center">
             <a 
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            className="group inline-flex items-center gap-2 cursor-pointer rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Start Your ERP Journey <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
@@ -353,12 +353,12 @@ export default function Page() {
             <HireColumn label="By ERP Type" items={hireByType} />
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            <a href="/solutions/hire-an-erp-developer" className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 cursor-pointer bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Hire an ERP Developer
-            </button>
-            <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+            </a>
+            <a href="/pricing" className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white cursor-pointer backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
               View Pricing
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -454,7 +454,7 @@ export default function Page() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a href="tel:9900566466">
               <button
-            className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 cursor-pointer bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Book a Strategy Call
             </button>
             </a>
@@ -483,9 +483,9 @@ export default function Page() {
           </div>
           <div className="mt-10 text-center">
             <p className="text-slate-400">Still have questions? We respond within 24 hours.</p>
-            <button className="group mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            <a href="/contact" className="group mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Ask Us Anything <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
         </div>
       </section>

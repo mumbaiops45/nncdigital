@@ -72,14 +72,9 @@ function BlogCard({ blog }) {
 
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
-  const [open, setOpen] = useState(0);
-  const active = data[open];
   const row1 = industries.slice(0, 5);
   const row2 = industries.slice(5);
-
-
   const scrollRef = useRef(null);
-
   const scroll = (dir) => {
     if (!scrollRef.current) return;
 
@@ -637,23 +632,23 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap justify-left gap-8">
               <div>
                 <h3 className="text-3xl font-bold text-[#00A883]">95%</h3>
-                <p className="mt-1 text-sm text-gray-300">Automation Accuracy</p>
+                <p className="mt-1 text-sm text-gray-50">Automation Accuracy</p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold text-[#00A883]">24/7</h3>
-                <p className="mt-1 text-sm text-gray-300">AI Assistance</p>
+                <p className="mt-1 text-sm text-gray-50">AI Assistance</p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold text-[#00A883]">3X</h3>
-                <p className="mt-1 text-sm text-gray-300">Faster Lead Conversion</p>
+                <p className="mt-1 text-sm text-gray-50">Faster Lead Conversion</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+        <div className="mt-16 grid gap-6 md:grid-cols-3 max-w-6xl pb-6 mx-auto">
           <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-green-500/40 hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]">
             <div className="flex items-start gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/15 text-2xl">
@@ -661,7 +656,7 @@ export default function Hero() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-white">Data Analysis</h3>
-                <p className="mt-3 leading-relaxed text-gray-400">
+                <p className="mt-3 leading-relaxed text-gray-50">
                   AI analyses customer interactions across emails, social media, purchases,
                   and engagement channels, surfacing insights that help teams make smarter business decisions.
                 </p>
@@ -669,7 +664,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-green-500/40 hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]">
+          <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7  backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-green-500/40 hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]">
             <div className="flex items-start gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/15 text-2xl">
                 🎯
@@ -678,7 +673,7 @@ export default function Hero() {
                 <h3 className="text-xl font-semibold text-white">
                   Predictive Lead Scoring
                 </h3>
-                <p className="mt-3 leading-relaxed text-gray-400">
+                <p className="mt-3 leading-relaxed text-gray-50">
                   Automatically score and prioritize leads based on engagement, behavior,
                   and purchase intent, helping sales teams focus on high-conversion opportunities.
                 </p>
@@ -695,7 +690,7 @@ export default function Hero() {
                 <h3 className="text-xl font-semibold text-white">
                   AI Chatbot & WhatsApp Automation
                 </h3>
-                <p className="mt-3 leading-relaxed text-gray-400">
+                <p className="mt-3 leading-relaxed text-gray-50">
                   Deploy intelligent chatbots and WhatsApp workflows that engage prospects,
                   answer questions, qualify leads, and schedule appointments 24/7.
                 </p>

@@ -191,7 +191,6 @@ export default function Page() {
         </motion.div>
       </section>
 
-    
       <section className="relative px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -206,7 +205,7 @@ export default function Page() {
       </section>
 
     
-      <section className="relative px-6 py-24">
+      <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
@@ -242,7 +241,7 @@ export default function Page() {
               const Icon = b.icon;
               return (
                 <motion.div key={b.title} variants={fadeUp} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]">
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                   <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
                     <Icon className="h-6 w-6 text-cyan-300" />
                   </div>
@@ -308,12 +307,12 @@ export default function Page() {
             ))}
           </motion.div>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            <a href="/solutions/hire-an-erp-developer" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Hire a CRM Developer
-            </button>
-            <button className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+            </a>
+            <a href="/pricing" className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
               View Pricing
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -351,9 +350,11 @@ export default function Page() {
             Want CRM Solutions that take your business to the <span className={grad}>next level?</span>
           </h2>
           <p className="mt-4 text-slate-300/90">Connect with NNC Digital today.</p>
-          <button className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-9 py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+          <a href="tel: +919900566466">
+          <button className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-9 py-4 cursor-pointer font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
             Connect Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
+          </a>
         </motion.div>
       </section>
 
@@ -404,9 +405,9 @@ export default function Page() {
             <p className="mx-auto mt-4 max-w-xl text-slate-300/90">
               Join 1500+ businesses that have streamlined their operations with our custom CRM solutions.
             </p>
-            <button className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-9 py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+            <a href="/contact" className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-9 py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
               Get Started Today <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
         </motion.div>
       </section>

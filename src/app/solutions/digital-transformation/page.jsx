@@ -293,11 +293,16 @@ export default function Page() {
             <h2 className="mt-6 text-3xl font-bold md:text-4xl">Transformation Services <span className={grad}>We Offer</span></h2>
             <p className="mt-3 text-slate-400">Every capability you need to modernise, automate, and scale.</p>
           </div>
-          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}
+          // className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 flex gap-5 overflow-x-auto no-scrollbar p-5 scroll-smooth">
             {servicesOffered.map((s) => {
               const Icon = s.icon;
               return (
-                <motion.div key={s.title} variants={fadeUp} className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]">
+                <motion.div key={s.title} variants={fadeUp}
+                // className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]"
+                className="group relative w-[320px] shrink-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/50 hover:bg-white/[0.06] hover:shadow-[0_25px_60px_-15px_rgba(34,211,238,0.45)]"
+                >
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 text-cyan-300 transition group-hover:scale-110">
                     <Icon className="h-5 w-5" />
                   </div>
@@ -323,7 +328,7 @@ export default function Page() {
               const Icon = b.icon;
               return (
                 <motion.div key={b.title} variants={fadeUp} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]">
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                   <span className="absolute left-0 top-0 h-[3px] w-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
                     <Icon className="h-6 w-6 text-cyan-300" />
                   </div>
