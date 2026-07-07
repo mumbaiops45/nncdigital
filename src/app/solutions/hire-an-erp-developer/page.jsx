@@ -66,6 +66,16 @@ const offices = [
   { flag: "🇮🇳", city: "Bangalore HQ", phone: "+91 99005 66466" },
 ];
 
+const projectTypes = [
+  "ERP Development",
+  "CRM Development",
+  "Web Development",
+  "Mobile App Development",
+  "UI/UX Design",
+  "AI Solutions",
+  "Digital Transformation",
+];
+
 
 const dialCodes = ["🇺🇸 +1", "🇨🇦 +1", "🇬🇧 +44", "🇮🇳 +91"];
 
