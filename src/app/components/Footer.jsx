@@ -131,8 +131,10 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-5 text-sm text-gray-400 mt-4 md:mt-0">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+            <a  href="https://www.nakshatranamahacreations.com/" target="_blank" rel="nooper noreferrer" className="group inline-flex items-center gap-2 text-sm text-slate-400 transition-all duration-300 hover:text-cyan-400">
+            <span>Developed by</span>
+            <span className="font-semibold text-white transition-all">Nakshatra Namaha Creations</span>
+            </a>
           </div>
         </div>
       </div>

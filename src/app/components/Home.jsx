@@ -14,12 +14,13 @@ import Faq from "./Faq";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import { HeartPulse, Home, ShoppingCart, Factory, GraduationCap, Hotel, Truck, Landmark, Briefcase } from "lucide-react";
+import useContact from "@/hooks/useContact";
 
 
 const heroImages = [
   "/hero1.png",
   "/banner.avif",
-  "/aiinsight.webp",
+  "/original.jpg",
 ];
 
 const industriess = [
@@ -52,29 +53,49 @@ function IndustryCard({ industry }) {
 }
 
 
-function BlogCard({ blog }) {
-  return (
-    <div className="group relative h-[240px] overflow-hidden  shadow-sm transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/50" />
-      <h3 className="mt-4 text-2xl font-bold leading-tight text-white">
-        {blog.title}
-      </h3>
-      <div className="grid grid-rows-[0fr] transition-all duration-500 group-hover:grid-rows-[1fr]">
-        <div className="overflow-hidden">
-          <p className="mt-4 text-sm leading-relaxed text-white/85 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            {blog.desc}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
   const row1 = industries.slice(0, 5);
   const row2 = industries.slice(5);
   const scrollRef = useRef(null);
+  const {submitForm , loading, success, error} = useContact();
+  const[form , setForm] = useState({
+  firstName: "",
+  lastName: "",
+  phone: "",
+  email: "",
+  service: "",
+  message: "",
+
+  });
+
+  const handleChange = (e)=>{
+    const{name, value} = e.target
+   setForm((prev) =>({
+    ...prev,
+    [name]: value,
+   }));
+  }
+
+  const handleSubmit = async(e) =>{
+     e.preventDefault();
+      try {
+    await submitForm(form);
+
+    setForm({
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      service: "",
+      message: "",
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  }
+
+
   const scroll = (dir) => {
     if (!scrollRef.current) return;
 
@@ -111,16 +132,10 @@ export default function Hero() {
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/90 via-blue-700/95 to-emerald-600/20 mix-blend-color" />
         <div className="absolute inset-0 bg-[#000000]/5" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/15 to-[#020617]/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,transparent_30%,rgba(2,6,23,0.7)_100%)]" />
+        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-gray-900/90 via-gray-900/60 to-transparent z-[1]" />
         <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/25 blur-[130px] animate-[heroFloat_9s_ease-in-out_infinite]" />
-        <div className="pointer-events-none absolute top-32 right-1/4 h-[26rem] w-[26rem] rounded-full bg-blue-600/20 blur-[150px] animate-[heroFloat_11s_ease-in-out_infinite_reverse]" />
-        <div className="pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-emerald-500/20 blur-[130px] animate-[heroFloat_10s_ease-in-out_infinite]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-
+      
         <div className="relative z-10 flex min-h-[750px] items-center px-6 py-16 lg:px-12 lg:py-20">
           <div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="text-white">
@@ -208,28 +223,46 @@ export default function Hero() {
                     Response within 24 hours. No commitment required.
                   </p>
 
-                  <form className="mt-4 space-y-2.5">
+                  <form onSubmit={handleSubmit} className="mt-4 space-y-2.5">
                     <div className="grid grid-cols-2 gap-2.5">
-                      <input type="text" placeholder="First Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
-                      <input type="text" placeholder="Last Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                      <input type="text" placeholder="First Name"
+                      name="firstName"
+  value={form.firstName}
+  onChange={handleChange} className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                      <input type="text" name="lastName"
+  value={form.lastName}
+  onChange={handleChange} placeholder="Last Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                     </div>
 
-                    <input type="tel" placeholder="Phone Number" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
-                    <input type="email" placeholder="Email Address" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                    <input type="tel"
+                    name="phone"
+  value={form.phone}
+  onChange={handleChange}
+                     placeholder="Phone Number" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                    <input type="email"
+                       name="email"
+  value={form.email}
+  onChange={handleChange}
+                     placeholder="Email Address" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
 
-                    <select className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-600 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20">
-                      <option>Service of Interest</option>
-                      <option>CRM Development</option>
-                      <option>ERP Development</option>
-                      <option>Web Development</option>
-                      <option>Mobile App Development</option>
-                      <option>Marketing Automation</option>
-                      <option>Salesforce CRM</option>
-                      <option>Digital Transformation</option>
-                      <option>SEO &amp; Digital Marketing</option>
+                    <select name="service"
+  value={form.service}
+  onChange={handleChange}
+                     className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-600 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20">
+                       <option value="">Service of Interest</option>
+  <option value="CRM Development">CRM Development</option>
+  <option value="ERP Development">ERP Development</option>
+  <option value="Web Development">Web Development</option>
+  <option value="Mobile App Development">Mobile App Development</option>
+  <option value="Marketing Automation">Marketing Automation</option>
+  <option value="Salesforce CRM">Salesforce CRM</option>
+  <option value="Digital Transformation">Digital Transformation</option>
+  <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
                     </select>
 
-                    <textarea rows="2" placeholder="Tell us about your project..." className="w-full resize-none rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                    <textarea rows="2" name="message"
+  value={form.message}
+  onChange={handleChange} placeholder="Tell us about your project..." className="w-full resize-none rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
 
                     <button type="submit" className="group relative w-full rounded-lg bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-3 text-sm font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.75)]">
                       Get Free Consultation
@@ -487,14 +520,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-
-        <style>{`
-    @keyframes ringSpin {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 300% 50%; }
-    }
-  `}</style>
       </section>
 
 
@@ -563,7 +588,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#020617] py-18">
+      {/* <section className="relative overflow-hidden bg-[#020617] py-18">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
           <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
@@ -600,7 +625,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="relative overflow-hidden  bg-[#1A2343] ">
         <div
@@ -834,7 +859,7 @@ export default function Hero() {
             <div className="mt-8">
               <a
                 href="tel:+919900566466"
-                className="inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black font-semibold hover:bg-cyan-400 transition"
+                className="inline-block px-6 py-3 rounded-xl bg-cyan-500 text-black  font-semibold hover:bg-cyan-400 transition"
               >
                 Get Free Consultation
               </a>

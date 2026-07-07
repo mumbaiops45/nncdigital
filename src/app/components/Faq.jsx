@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Plus, X } from "lucide-react";
+import { Phone, Plus, X } from "lucide-react";
+import useContact from "@/hooks/useContact";
 
 const faq = [
     {
@@ -30,6 +31,41 @@ const faq = [
 
 const Faq = () => {
     const [active, setActive] = useState(null);
+    const { submitForm, loading, success, error } = useContact();
+    const [form, setForm] = useState({
+        fullname: "",
+        email: "",
+        phone: "",
+        service: "",
+        messaage: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setForm((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            await submitForm(form);
+
+            setForm({
+                fullname: "",
+                email: "",
+                phone: "",
+                service: "",
+                message: "",
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <>
@@ -178,7 +214,7 @@ const Faq = () => {
                             </div>
                         </div>
                         <div>
-                            <form className="space-y-6">
+                            {/* <form onSubmit={handleSubmit} className="space-y-6">
                                 <input
                                     type="text"
                                     placeholder="Full Name"
@@ -216,9 +252,95 @@ const Faq = () => {
                                     placeholder="Tell us about your project..."
                                     className="w-full border-b border-gray-600 bg-transparent py-4 text-white outline-none placeholder:text-gray-500 focus:border-emerald-400"
                                 />
-                                <button className="mt-6 rounded-full bg-emerald-400 px-10 py-4 font-semibold text-white transition hover:bg-emerald-400">
+                                <button type="submit" className="mt-6 rounded-full bg-emerald-400 px-10 py-4 font-semibold text-white transition hover:bg-emerald-400">
                                     Let's Build Together →
                                 </button>
+                            </form> */}
+                            <form onSubmit={handleSubmit} className="space-y-6">
+
+                                <input
+                                    type="text"
+                                    name="fullname"
+                                    value={form.fullname}
+                                    onChange={handleChange}
+                                    placeholder="Full Name"
+                                    className="w-full border-b border-gray-600 bg-transparent py-4 text-white outline-none placeholder:text-gray-500 focus:border-emerald-400"
+                                />
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    placeholder="Business Email"
+                                    className="w-full border-b border-gray-600 bg-transparent py-4 text-white outline-none placeholder:text-gray-500 focus:border-emerald-400"
+                                />
+
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                    placeholder="Phone Number"
+                                    className="w-full border-b border-gray-600 bg-transparent py-4 text-white outline-none placeholder:text-gray-500 focus:border-emerald-400"
+                                />
+
+                                <select
+                                    name="service"
+                                    value={form.service}
+                                    onChange={handleChange}
+                                    className="w-full border-b border-gray-600 bg-transparent py-4 text-white outline-none focus:border-emerald-400"
+                                >
+                                    <option value="" className="text-black">
+                                        Select Service
+                                    </option>
+
+                                    <option value="Web Development" className="text-black">
+                                        Web Development
+                                    </option>
+
+                                    <option value="Mobile App Development" className="text-black">
+                                        Mobile App Development
+                                    </option>
+
+                                    <option value="UI/UX Design" className="text-black">
+                                        UI/UX Design
+                                    </option>
+
+                                    <option value="AI Solutions" className="text-black">
+                                        AI Solutions
+                                    </option>
+                                </select>
+
+                                <textarea
+                                    rows={5}
+                                    name="message"
+                                    value={form.message}
+                                    onChange={handleChange}
+                                    placeholder="Tell us about your project..."
+                                    className="w-full border-b border-gray-600 bg-transparent py-4 text-white outline-none placeholder:text-gray-500 focus:border-emerald-400"
+                                />
+
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="mt-6 rounded-full bg-emerald-400 px-10 py-4 font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60"
+                                >
+                                    {loading ? "Submitting..." : "Let's Build Together →"}
+                                </button>
+
+                                {success && (
+                                    <p className="text-sm text-green-400">
+                                        Thank you! Your request has been submitted.
+                                    </p>
+                                )}
+
+                                {error && (
+                                    <p className="text-sm text-red-400">
+                                        {error}
+                                    </p>
+                                )}
+
                             </form>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import {
   Target, Users, Search, BarChart3, Link2, RefreshCw, Wrench,
   Check, Plus, ArrowRight, Send, Lock,
 } from "lucide-react";
+import useContact from "@/hooks/useContact";
 
 
 const engagements = [
@@ -118,10 +119,48 @@ export default function Page() {
 
   const [currency, setCurrency] = useState("usd");
   const [openFaq, setOpenFaq] = useState(0);
+  const { submitForm, loading, success, error } = useContact();
+  const [form, setform] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    projectType: "",
+    budgetRange: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setform((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await submitForm(form);
+
+      setform({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        projectType: "",
+        budgetRange: "",
+        message: "",
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="bg-[#1A2343] text-white">
-     
+
       <section ref={heroRef} className="relative flex min-h-[55vh] items-center overflow-hidden px-6 pt-32 pb-16">
         <motion.div style={{ y: orbY }} className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
@@ -145,7 +184,7 @@ export default function Page() {
         </motion.div>
       </section>
 
-    
+
       <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -159,11 +198,10 @@ export default function Page() {
                 <motion.div
                   key={e.title}
                   variants={fadeUp}
-                  className={`group relative flex flex-col overflow-hidden rounded-3xl border p-8 backdrop-blur-md transition-all duration-500 ${
-                    e.popular
-                      ? "border-cyan-400/50 bg-gradient-to-b from-cyan-500/10 via-white/[0.04] to-white/[0.04] shadow-[0_25px_70px_-20px_rgba(6,182,212,0.5)]"
-                      : "border-white/10 bg-white/[0.04] hover:-translate-y-1.5 hover:border-cyan-400/40"
-                  }`}
+                  className={`group relative flex flex-col overflow-hidden rounded-3xl border p-8 backdrop-blur-md transition-all duration-500 ${e.popular
+                    ? "border-cyan-400/50 bg-gradient-to-b from-cyan-500/10 via-white/[0.04] to-white/[0.04] shadow-[0_25px_70px_-20px_rgba(6,182,212,0.5)]"
+                    : "border-white/10 bg-white/[0.04] hover:-translate-y-1.5 hover:border-cyan-400/40"
+                    }`}
                 >
                   {e.popular && (
                     <>
@@ -192,7 +230,7 @@ export default function Page() {
         </div>
       </section>
 
-     
+
       <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-4xl">
@@ -209,11 +247,10 @@ export default function Page() {
                 <button
                   key={key}
                   onClick={() => setCurrency(key)}
-                  className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${
-                    currency === key
-                      ? "bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 text-white shadow-[0_4px_20px_-4px_rgba(6,182,212,0.6)]"
-                      : "text-slate-400 hover:text-white"
-                  }`}
+                  className={`rounded-full px-6 py-2 text-sm font-semibold transition-all duration-300 ${currency === key
+                    ? "bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 text-white shadow-[0_4px_20px_-4px_rgba(6,182,212,0.6)]"
+                    : "text-slate-400 hover:text-white"
+                    }`}
                 >
                   {label}
                 </button>
@@ -237,7 +274,7 @@ export default function Page() {
         </div>
       </section>
 
-     
+
       <section className="relative px-6 py-14">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
@@ -261,7 +298,7 @@ export default function Page() {
         </div>
       </section>
 
-      
+
       <section className="relative overflow-hidden px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
@@ -282,7 +319,7 @@ export default function Page() {
               </div>
             </motion.div>
 
-           
+
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <SectionLabel>Why Choose Us</SectionLabel>
               <h2 className="mt-5 text-3xl font-bold md:text-4xl">
@@ -307,7 +344,7 @@ export default function Page() {
         </div>
       </section>
 
-      
+
       <section className="relative px-6 py-14">
         <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
@@ -318,37 +355,37 @@ export default function Page() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mt-10">
             <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
-            <div className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
+            <form onSubmit={handleSubmit} className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
               <span className="absolute left-10 right-10 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <input type="text" placeholder="First Name *" className={inputClass} />
-                <input type="text" placeholder="Last Name" className={inputClass} />
+                <input type="text" name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name *" className={inputClass} />
+                <input type="text" name="lastName"  value={form.lastName} placeholder="Last Name" className={inputClass} />
               </div>
 
               <div className="mt-4 grid grid-cols-[110px_1fr] gap-3">
                 <select className={inputClass}>
                   {dialCodes.map((d) => <option key={d} className="bg-[#0a1228]">{d}</option>)}
                 </select>
-                <input type="tel" placeholder="Phone *" className={inputClass} />
+                <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Phone *" className={inputClass} />
               </div>
 
-              <input type="email" placeholder="Business Email *" className={`${inputClass} mt-4`} />
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Business Email *" className={`${inputClass} mt-4`} />
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <select className={inputClass} defaultValue="">
+                <select name="projectType" value={form.projectType} onChange={handleChange} className={inputClass} defaultValue="">
                   <option value="" disabled className="bg-[#0a1228]">Project Type *</option>
                   {projectTypes.map((t) => <option key={t} className="bg-[#0a1228]">{t}</option>)}
                 </select>
-                <select className={inputClass} defaultValue="">
+                <select name="budgetRange" value={form.budgetRange} onChange={handleChange} className={inputClass} defaultValue="">
                   <option value="" disabled className="bg-[#0a1228]">Budget Range</option>
                   {budgetRanges.map((b) => <option key={b} className="bg-[#0a1228]">{b}</option>)}
                 </select>
               </div>
 
-              <textarea rows="3" placeholder="Tell us about your project requirements..." className={`${inputClass} mt-4 resize-none`} />
+              <textarea rows="3" name="message" value={form.message} onChange={handleChange} placeholder="Tell us about your project requirements..." className={`${inputClass} mt-4 resize-none`} />
 
-              <button className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <button type="submit" className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 <Send className="h-4 w-4" /> Get Free Quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
@@ -356,12 +393,12 @@ export default function Page() {
               <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-xs text-slate-500">
                 <Lock className="h-3.5 w-3.5" /> Free consultation • No commitment required
               </p>
-            </div>
+            </form>
           </motion.div>
         </div>
       </section>
 
-    
+
       <section className="relative px-6 py-18">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">

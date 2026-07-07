@@ -129,7 +129,6 @@ export default function Choose() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
 
         <div className="relative mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-12 items-center gap-10">
-          {/* <div className="md:col-span-4 h-screen overflow-y-auto hide-scrollbar pr-4 space-y-4" > */}
           <div className="md:col-span-4 h-screen overflow-y-scroll hide-scrollbar pr-4 space-y-4">
             {tabs.map((item, i) => (
               <button
@@ -255,7 +254,6 @@ export default function Choose() {
               variants={item}
               className="mt-10 flex gap-5"
             >
-
               <motion.button
                 whileHover={{
                   scale: 1.05,
@@ -267,7 +265,6 @@ export default function Choose() {
               >
                 Get Started
               </motion.button>
-
               <motion.button
                 whileHover={{
                   backgroundColor: "rgba(255,255,255,.15)",
@@ -276,15 +273,12 @@ export default function Choose() {
               >
                 View Portfolio
               </motion.button>
-
             </motion.div>
             <motion.div
               variants={container}
               className="mt-20 grid grid-cols-2 gap-6 lg:grid-cols-4"
             >
-
               {stats.map((stat) => (
-
                 <motion.div
                   key={stat.title}
                   variants={item}
@@ -299,7 +293,7 @@ export default function Choose() {
                   className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-xl"
                 >
 
-                  <h2 className="text-4xl font-bold text-white">
+                  <h2 className="text-3xl font-bold text-white">
                     {stat.number}
                   </h2>
 

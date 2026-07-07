@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, Send, Plus, Clock, ShieldCheck } from "lucide-react";
+import useContact from "@/hooks/useContact";
 
 
 const phones = [
@@ -53,28 +54,6 @@ const faqs = [
 ];
 
 
-// const mapNodes = [
-//   { name: "Toronto", x: 175, y: 130 },
-//   { name: "New York", x: 200, y: 165 },
-//   { name: "London", x: 360, y: 120 },
-//   { name: "Bangalore", x: 560, y: 235, hub: true },
-//   { name: "Hyderabad", x: 545, y: 195 },
-//   { name: "Mumbai", x: 510, y: 205 },
-//   { name: "Mysore", x: 535, y: 255 },
-// ];
-
-// const mapArcs = [
-//   "M560,235 C400,70 280,80 175,130",
-//   "M560,235 C410,120 300,130 200,165",
-//   "M560,235 C510,90 440,90 360,120",
-// ];
-
-// const indiaLinks = [
-//   "M560,235 L545,195",
-//   "M560,235 L510,205",
-//   "M560,235 L535,255",
-// ];
-
 const mapNodes = [
   { name: "Toronto", x: 175, y: 130 },
   { name: "New York", x: 200, y: 165 },
@@ -90,7 +69,6 @@ const mapArcs = [
   "M548,245 C410,130 300,140 200,165", 
   "M548,245 C500,100 430,100 360,120", 
 ];
-
 
 const indiaLinks = [
   "M548,245 L530,210", 
@@ -296,12 +274,41 @@ function FaqItem({ item, isOpen, onClick }) {
 
 export default function Page() {
   const heroRef = useRef(null);
+  const {submitForm , loading, success, error} = useContact();
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
   const orbY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
   const [openFaq, setOpenFaq] = useState(0);
+  const [form , setform] = useState({
+    firstName:"",
+    lastName:"",
+    phone:"",
+    email:"",
+    company:"",
+    service:"",
+    description:"",
+    timeline:""
+  });
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+     
+    setform((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    // console.log("Form Data:", form);
+
+    await submitForm(form);
+
+  }
 
   return (
     <div className="bg-[#1A2343] text-white">
@@ -406,7 +413,7 @@ export default function Page() {
           >
             <div className="relative">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
-              <div className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
+              <form onSubmit={handleSubmit} className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
                 <span className="absolute left-10 right-10 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
 
                 <h3 className="text-2xl font-bold">
@@ -417,8 +424,8 @@ export default function Page() {
                 </h3>
 
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <input type="text" placeholder="First Name *" className={inputClass} />
-                  <input type="text" placeholder="Last Name" className={inputClass} />
+                  <input type="text" name="firstName" placeholder="First Name *" className={inputClass} value={form.firstName} onChange={handleChange} />
+                  <input type="text" name="lastName" placeholder="Last Name" value={form.lastName} className={inputClass} onChange={handleChange} />
                 </div>
 
                 <div className="mt-4 grid grid-cols-[110px_1fr] gap-3">
@@ -429,15 +436,15 @@ export default function Page() {
                       </option>
                     ))}
                   </select>
-                  <input type="tel" placeholder="Phone Number *" className={inputClass} />
+                  <input type="tel" name="phone" placeholder="Phone Number *" className={inputClass} value={form.phone} onChange={handleChange} />
                 </div>
 
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  <input type="email" placeholder="Business Email *" className={inputClass} />
-                  <input type="text" placeholder="Company Name" className={inputClass} />
+                  <input type="email" placeholder="Business Email *" name="email" value={form.email} className={inputClass} onChange={handleChange} />
+                  <input type="text" name="company" value={form.company} placeholder="Company Name" className={inputClass} onChange={handleChange} />
                 </div>
 
-                <select className={`${inputClass} mt-4`} defaultValue="">
+                <select name="service" value={form.service} onChange={handleChange} className={`${inputClass} mt-4`} defaultValue="">
                   <option value="" disabled className="bg-[#0a1228]">Service of Interest</option>
                   {services.map((s) => (
                     <option key={s} className="bg-[#0a1228]">{s}</option>
@@ -446,18 +453,21 @@ export default function Page() {
 
                 <textarea
                   rows="3"
+                  name="description"
                   placeholder="Project Description *"
                   className={`${inputClass} mt-4 resize-none`}
+                  value={form.description}
+                  onChange={handleChange}
                 />
 
-                <select className={`${inputClass} mt-4`} defaultValue="">
+                <select name="timeline" value={form.timeline}  className={`${inputClass} mt-4`} defaultValue="" onChange={handleChange}>
                   <option value="" disabled className="bg-[#0a1228]">Preferred Timeline</option>
                   {timelines.map((t) => (
                     <option key={t} className="bg-[#0a1228]">{t}</option>
                   ))}
                 </select>
 
-                <button className="group relative mt-6 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+                <button type="submit"  disabled={loading} className="group relative mt-6 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-al'l duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                   <Send className="h-4 w-4" />
                   Submit — Response within 24 hours
                 </button>
@@ -465,7 +475,7 @@ export default function Page() {
                 <p className="mt-4 text-center text-xs text-slate-500">
                   No commitment required · 100% secure
                 </p>
-              </div>
+              </form>
             </div>
           </motion.div>
         </div>

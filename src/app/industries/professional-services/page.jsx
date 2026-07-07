@@ -7,6 +7,7 @@ import {
   Building2, TrendingUp, Factory, Globe2, Zap, Smartphone, Phone,
   Send, Lock, Check, Plus, ArrowRight,
 } from "lucide-react";
+import useContact from "@/hooks/useContact";
 
 
 const caseStudies = [
@@ -162,6 +163,40 @@ export default function Page() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const orbY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
   const [openFaq, setOpenFaq] = useState(0);
+   const {submitForm , loading, success, error} = useContact();
+      const [form , setform] = useState({
+         fullname: "",
+         phone:"",
+         email: "",
+         service: "",
+         message: "",
+      });
+    
+      const handleChange = (e) =>{
+        const {name, value} = e.target;
+    
+        setform((prev) => ({
+          ...prev,
+          [name]: value,
+        }));
+      };
+    
+      const handleSubmit = async(e) => {
+        e.preventDefault();
+        try {
+          await submitForm(form);
+    
+          setform({
+            fullname: "",
+            phone:"",
+            email: "",
+            service:"",
+            message:""
+          })
+        } catch (error) {
+          console.log(error);
+        }
+      }
 
   return (
     <div className="bg-[#1A2343] text-white">
@@ -188,27 +223,28 @@ export default function Page() {
 
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative">
             <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
-            <div className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-7 backdrop-blur-xl md:p-8">
+            <form onSubmit={handleSubmit} className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-7 backdrop-blur-xl md:p-8">
               <span className="absolute left-8 right-8 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
               <h3 className="text-xl font-bold">Get a <span className={grad}>Free Consultation</span></h3>
-              <input type="text" placeholder="Full Name *" className={`${inputClass} mt-5`} />
+              <input type="text" name="fullname" onChange={handleChange} placeholder="Full Name *" className={`${inputClass} mt-5`} />
               <div className="mt-4 grid grid-cols-[110px_1fr] gap-3">
                 <select className={inputClass}>{dialCodes.map((d) => <option key={d} className="bg-[#0a1228]">{d}</option>)}</select>
-                <input type="tel" placeholder="Phone Number *" className={inputClass} />
+                <input type="tel" placeholder="Phone Number *" name="phone" value={form.phone} onChange={handleChange} className={inputClass} />
               </div>
-              <input type="email" placeholder="Business Email *" className={`${inputClass} mt-4`} />
-              <select className={`${inputClass} mt-4`} defaultValue="">
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Business Email *" className={`${inputClass} mt-4`} />
+               <select name="service" value={form.service}
+              onChange={handleChange} className={`${inputClass} mt-4`} defaultValue="">
                 <option value="" disabled className="bg-[#0a1228]">Service of Interest</option>
                 {services.map((s) => <option key={s} className="bg-[#0a1228]">{s}</option>)}
               </select>
-              <textarea rows="2" placeholder="Message *" className={`${inputClass} mt-4 resize-none`} />
-              <button className="group mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:bg-[position:100%_0]">
+              <textarea rows="2" name="message" value={form.message} onChange={handleChange} placeholder="Message *" className={`${inputClass} mt-4 resize-none`} />
+              <button type="submit" className="group mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:bg-[position:100%_0]">
                 Get Free Consultation <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
               <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-slate-500">
                 <Lock className="h-3.5 w-3.5" /> No spam. Ever.
               </p>
-            </div>
+            </form>
           </motion.div>
         </div>
       </section>
@@ -397,19 +433,24 @@ export default function Page() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mt-10 text-left">
             <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
-            <div className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
+            <form onSubmit={handleSubmit} className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
               <span className="absolute left-10 right-10 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
-              <input type="text" placeholder="Full Name *" className={inputClass} />
+              <input type="text" name="fullname" onChange={handleChange} value={form.fullname} placeholder="Full Name *" className={inputClass} />
               <div className="mt-4 grid grid-cols-[110px_1fr] gap-3">
                 <select className={inputClass}>{dialCodes.map((d) => <option key={d} className="bg-[#0a1228]">{d}</option>)}</select>
-                <input type="tel" placeholder="Phone *" className={inputClass} />
+                <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Phone *" className={inputClass} />
               </div>
-              <input type="email" placeholder="Business Email *" className={`${inputClass} mt-4`} />
-              <textarea rows="3" placeholder="Project Description *" className={`${inputClass} mt-4 resize-none`} />
-              <button className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <select name="service" value={form.service}
+              onChange={handleChange} className={`${inputClass} mt-4`} defaultValue="">
+                <option value="" disabled className="bg-[#0a1228]">Service of Interest</option>
+                {services.map((s) => <option key={s} className="bg-[#0a1228]">{s}</option>)}
+              </select>
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Business Email *" className={`${inputClass} mt-4`} />
+              <textarea rows="3" name="message" value={form.message} onChange={handleChange} placeholder="Project Description *" className={`${inputClass} mt-4 resize-none`} />
+              <button type="submit" className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-4 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 <Send className="h-4 w-4" /> Submit — Free Consultation
               </button>
-            </div>
+            </form>
           </motion.div>
         </div>
       </section>

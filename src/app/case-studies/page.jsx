@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef , useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import useContact from "@/hooks/useContact";
 
 
 const stats = [
@@ -234,13 +235,38 @@ function CaseCard({ study, index }) {
 
 export default function Page() {
     const heroRef = useRef(null);
+    const {submitForm , loading, success, error} = useContact();
+    const [form, setform] = useState({
+        fullname: "",
+        phone: "",
+        email:"",
+        description:"",
+    });
+
+    const handleChange= (e) =>{
+        const {name, value} = e.target;
+
+        setform((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+        try {
+            await submitForm(form);
+        } catch (error) {
+            console.log("API Error:", err);
+        }
+    }
+
     const { scrollYProgress } = useScroll({
         target: heroRef,
         offset: ["start start", "end start"],
     });
     const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-// bg-[#1A2343]   bg-[#020617]
     return (
         <div className=" bg-[#1A2343] text-white">
             <section
@@ -457,6 +483,7 @@ export default function Page() {
                             </div>
 
                         </motion.div>
+
                         <motion.div
                             variants={fadeUp}
                             initial="hidden"
@@ -470,33 +497,46 @@ export default function Page() {
                                     Let's Talk
                                 </h3>
 
-                                <div className="space-y-5">
+                                <form onSubmit={handleSubmit} className="space-y-5">
 
                                     <input
                                         type="text"
+                                        name="fullname"
+                                        onChange={handleChange}
+                                        value={form.fullname}
                                         placeholder="Full Name"
                                         className="w-full rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
                                     />
 
                                     <input
                                         type="tel"
+                                        name="phone"
+                                        value={form.phone}
+                                        onChange={handleChange}
                                         placeholder="Phone Number"
                                         className="w-full rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
                                     />
 
                                     <input
                                         type="email"
+                                        name="email"
+                                        value={form.email}
+                                        onChange={handleChange}
                                         placeholder="Business Email"
                                         className="w-full rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
                                     />
 
                                     <textarea
                                         rows={5}
+                                        name="description"
+                                        value={form.description}
+                                        onChange={handleChange}
                                         placeholder="Tell us about your project..."
                                         className="w-full resize-none rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
                                     />
 
-                                    <button className="w-full rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 py-4 text-lg font-semibold text-white transition duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(6,182,212,.35)]">
+                                    <button type="submit" 
+                                    disabled={loading} className="w-full rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 py-4 text-lg font-semibold text-white transition duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(6,182,212,.35)]">
                                         Schedule Free Consultation →
                                     </button>
 
@@ -504,7 +544,7 @@ export default function Page() {
                                         Your information is secure. We never share your data.
                                     </p>
 
-                                </div>
+                                </form>
 
                             </div>
 
