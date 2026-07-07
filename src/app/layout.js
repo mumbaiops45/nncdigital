@@ -5,7 +5,7 @@ import Footer from "./components/Footer"
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* <body
+      {/* <body   className="antialiased"
         cz-shortcut-listen="true"
         data-new-gr-c-s-check-loaded=""
         data-gr-ext-installed=""
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
       </body> */}
-      <body className="antialiased">
+      <body>
         <Navbar />
         {children}
         <Footer />
