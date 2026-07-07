@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   Clock, Briefcase, Calendar, UserCheck, Layers, Globe2, Zap, Brain, TrendingUp, Bot, BarChart3, Phone, Send,
-  Check, Plus, ArrowRight, } from "lucide-react";
+  Check,Lock , Plus, ArrowRight, } from "lucide-react";
   import useContact from "@/hooks/useContact";
 
 
@@ -74,6 +74,14 @@ const projectTypes = [
   "UI/UX Design",
   "AI Solutions",
   "Digital Transformation",
+];
+
+const budgetRanges = [
+  "$5,000 - $10,000",
+  "$10,000 - $25,000",
+  "$25,000 - $50,000",
+  "$50,000 - $100,000",
+  "$100,000+",
 ];
 
 
