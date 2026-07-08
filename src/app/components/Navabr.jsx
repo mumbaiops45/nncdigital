@@ -167,7 +167,7 @@ export default function Navbar() {
                       <p className="mt-2 text-xs text-gray-400">
                         Efficiency gain in 90 days for a mid-size manufacturer.
                       </p>
-                      <Link href="/case-studies/manufacturing-crm" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-300 hover:gap-2 transition-all">
+                      <Link href="/industries/manufacturing" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-300 hover:gap-2 transition-all">
                         Read More →
                       </Link>
                     </div>

@@ -580,9 +580,9 @@ export default function Hero() {
         >
           <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-green-500/10 blur-[180px]" />
-            <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" />
-            <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:50px_50px]" />
+            <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-500/60 blur-[180px]" />
+            {/* <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" /> */}
+            {/* <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:50px_50px]" /> */}
           </div>
           <div className="relative z-10 mt-5  px-10 text-left">
             <span className="inline-flex rounded-full border border-green-500/30 bg-green-500/10 px-5 py-2 text-sm font-medium text-[#00A883]">
