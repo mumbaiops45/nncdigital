@@ -53,14 +53,12 @@ export default function TechStack() {
                 <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
                   Our Tech Stack
                 </p>
-
                 <h2 className="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
                   Leading CRM Platform <br></br> Tools{" "}
                   <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                     That We Use
                   </span>
                 </h2>
-
                 <p className="mt-6 text-lg leading-relaxed text-slate-200 max-w-2xl">
                   Here is a closer look at the CRM technologies we leverage to build scalable,
                   efficient, and growth-focused customer relationship systems.
@@ -74,7 +72,6 @@ export default function TechStack() {
                 >
                   <FiArrowLeft size={20} className="text-white group-hover:text-cyan-300" />
                 </button>
-
                 <button
                   onClick={scrollRight}
                   aria-label="Scroll right"
@@ -83,76 +80,86 @@ export default function TechStack() {
                   <FiArrowRight size={20} className="text-white group-hover:text-cyan-300" />
                 </button>
               </div>
-
             </div>
-
           </div>
         </div>
-
-
-        <div className="relative">
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-[#020617] to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-[#020617] to-transparent" />
-
+        <div className="relative px-6">
           <div
             ref={sliderRef}
-            className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth my-4"
+            className=" no-scrollbar flex gap-6 overflow-x-auto scroll-smooth p-4 snap-x snap-mandatory"
           >
             {crmTools.map((tool, index) => {
               const Icon = tool.icon;
-              const hasImage = !!tool.image;
-
+              const hasImage = Boolean(tool.image);
               return (
                 <div
                   key={index}
-                  className={`group relative w-[320px] min-h-[280px] flex-shrink-0 overflow-hidden rounded-3xl border p-7 transition-all duration-500 hover:-translate-y-2 ${tool.featured
-                    ? "border-cyan-400/40 bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-blue-600/20 text-white hover:shadow-[0_25px_60px_-12px_rgba(6,182,212,0.5)]"
-                    : "border-white/10 bg-white/[0.04] backdrop-blur-md hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_25px_60px_-12px_rgba(6,182,212,0.35)]"
-                    }`}
+                  className={` group relative w-[320px] min-h-[280px] flex-shrink-0 snap-start overflow-hidden  rounded-3xl p-[1px] transition-all  duration-500 hover:-translate-y-3 hover:scale-[1.03] ${tool.featured
+                      ? "bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500"
+                      : "bg-gray-200 hover:bg-gradient-to-r hover:from-cyan-400/40 hover:via-blue-500/30 hover:to-purple-500/40"
+                    } `}
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  {tool.featured && (
-                    <span className="absolute top-0 left-8 right-8 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500" />
-                  )}
-
                   <div
-                    className={`relative z-10 mb-6 flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 ${tool.featured
-                      ? "bg-white/15 backdrop-blur-md"
-                      : `${tool.bg} group-hover:scale-110`
-                      }`}
-                  >
-                    {hasImage ? (
-                      <Image
-                        src={tool.image}
-                        alt={tool.name}
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    ) : (
-                      <Icon
-                        size={32}
-                        className={`transition-all duration-300 ${tool.featured ? "text-white" : tool.color
-                          }`}
-                      />
-                    )}
+                    className=" absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 " >
+                    <div
+                      className=" absolute -inset-[2px] rounded-3xl bg-[conic-gradient(from_0deg,transparent,#22d3ee,transparent)] animate-[spin_5s_linear_infinite] "/>
                   </div>
-
-                  <div className="relative z-10">
-                    <h3 className="mb-3 text-xl font-bold text-white">
-                      {tool.name}
-                    </h3>
-                    <p
-                      className={`text-sm leading-relaxed ${tool.featured ? "text-white/90" : "text-slate-200"
-                        }`}
-                    >
-                      {tool.desc}
-                    </p>
+                  <div
+                    className={` relative h-full overflow-hidden rounded-3xl p-7 backdrop-blur-xl ${tool.featured
+                        ? "bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-blue-600/20"
+                        : "bg-slate-950/80"
+                      } `}
+                  >
+                    <div
+                      className=" absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 "/>
+                    <div className=" pointer-events-none absolute inset-0 overflow-hidden rounded-3xl" >
+                      <div className=" absolute -left-full top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all  duration-1000 group-hover:left-[150%] " />
+                    </div>
                     {tool.featured && (
-                      <span className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#020617]">
-                        Fully Bespoke
-                      </span>
+                      <span  className=" absolute left-8 right-8 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_rgba(34,211,238,0.8)]" />
                     )}
+                    <div className={` relative z-10 mb-6  flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 ${tool.featured
+                          ? "bg-white/20 shadow-lg shadow-cyan-400/30"
+                          : `${tool.bg} group-hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]`
+                        } `}
+                    >
+                      {hasImage ? (
+                        <Image
+                          src={tool.image}
+                          alt={tool.name}
+                          width={40}
+                          height={40}
+                          className="object-contain"
+                        />
+                      ) : (
+                        <Icon
+                          size={32}
+                          className={` transition-all duration-300 ${tool.featured
+                              ? "text-white"
+                              : tool.color
+                            }`}
+                        />
+                      )}
+                    </div>
+                    <div className="relative z-10">
+                      <h3 className="  mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-cyan-300 " >
+                        {tool.name}
+                      </h3>
+                      <p className={` text-sm leading-7 transition-colors duration-300 ${tool.featured
+                            ? "text-white/90"
+                            : "text-slate-300 group-hover:text-white"
+                          } `}
+                      >
+                        {tool.desc}
+                      </p>
+                      {tool.featured && (
+                        <span
+                          className=" mt-5 inline-flex  rounded-full  bg-white px-4 py-2 text-xs  font-semibold  uppercase tracking-wider text-[#020617] shadow-lg transition-transform duration-300 group-hover:scale-105  "
+                        >
+                          Fully Bespoke
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -182,9 +189,9 @@ export default function TechStack() {
                   Hire CRM Developers
                 </p>
                 <h2 className="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
-                  CRM Solutions{" "} <br/>
+                  CRM Solutions{" "} <br />
                   <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                    Built For Every <br/>  Business
+                    Built For Every <br />  Business
                   </span>
                 </h2>
                 <p className="mt-5 text-lg text-slate-50">
@@ -244,10 +251,10 @@ export default function TechStack() {
 
       </section>
 
-    
 
 
-     
+
+
     </>
   );
 }

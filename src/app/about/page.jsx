@@ -390,7 +390,12 @@ export default function AboutPage() {
           </motion.div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" whileHover={{y: -10, scale: 1.03, transition: {duration: 0.35},ease: "easeOut"}} viewport={{ once: true }}
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/40 hover:shadow-[0_30px_90px_rgba(34,211,238,0.25)]"
+            >
+              <span className="pointer-events-none absolute left-[-120px] top-0 h-[2px] w-32 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-700 ease-linear group-hover:left-[calc(100%+120px)]" />
+
+            <div className="relative z-10">
               <h3 className="text-xl font-bold text-white">The Gap We Saw</h3>
               <p className="mt-4 text-sm leading-relaxed text-slate-300/90">
                 Businesses in Canada, the USA, and the UK face a common challenge:
@@ -400,9 +405,11 @@ export default function AboutPage() {
                 fail because they don't understand the regulatory environment,
                 commercial culture, or specific needs of Western businesses.
               </p>
+              </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-600/5 to-transparent p-8 backdrop-blur-md">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show"   whileHover={{y: -10, scale: 1.03, transition: {duration: 0.35, ease: "easeOut"},}} viewport={{ once: true}} className="group relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-600/5 to-transparent p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-300/50 hover:shadow-[0_30px_90px_rgba(96,182,212,0.25)] ">
+              <span className="pointer-events-none absolute left-[-120px] top-0 h-[2px] w-32 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-700 ease-linear group-hover:left-[calc(100%+120px)]" />
               <h3 className="text-xl font-bold text-white">The Solution We Built</h3>
               <ul className="mt-4 space-y-3">
                 {solutionPoints.map((p) => (
@@ -414,6 +421,7 @@ export default function AboutPage() {
               </ul>
             </motion.div>
           </div>
+
         </div>
       </section>
 
@@ -435,8 +443,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            // className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            className="mt-14 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4"
+            className="mt-14 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory p-4"
           >
             {values.map((v) => {
               const Icon = v.icon;
@@ -444,7 +451,6 @@ export default function AboutPage() {
                 <motion.div
                   key={v.title}
                   variants={fadeUp}
-                  // className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
                  className="group relative shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-3rem)/3)] snap-start overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
                >
                   <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

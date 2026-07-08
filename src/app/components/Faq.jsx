@@ -149,8 +149,8 @@ const Faq = () => {
 
 
 
-            <section className="bg-[#1A2343] py-14">
-                <div className="mx-auto max-w-7xl px-6">
+            <section className="bg-[#1A2343] sm:px-4 md:px-7 lg:px-8 py-14">
+                <div className="mx-auto max-w-7xl sm:px-4 md:px-7 lg:px-8">
                     <div className="grid items-center gap-20 lg:grid-cols-2">
                         <div>
                             <span className="inline-block rounded-full border border-emerald-400/30 bg-emerald-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-[3px] text-emerald-300">

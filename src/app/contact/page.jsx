@@ -303,11 +303,8 @@ export default function Page() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-
     // console.log("Form Data:", form);
-
     await submitForm(form);
-
   }
 
   return (
@@ -322,7 +319,6 @@ export default function Page() {
           <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-emerald-500/15 blur-[130px]" />
         </motion.div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
-
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative  max-w-4xl px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <SectionLabel>Let's Connect</SectionLabel>
@@ -340,7 +336,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
             className=" mt-6 max-w-2xl text-lg leading-relaxed text-slate-300/90"
           >
-            Whether you have a fully defined project or just a problem you're trying to solve — we'd love to talk. We respond within 24 business hours with honest, practical advice.
+            Whether you have a fully defined project or just a problem you're trying to solve we'd love to talk. We respond within 24 business hours with honest, practical advice.
           </motion.p>
         </motion.div>
       </section>

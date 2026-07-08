@@ -2,9 +2,9 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import CountUp from "react-countup";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { data, industries, blogs, successStories } from "../data/data";
+import { data, industries, successStories } from "../data/data";
 import "swiper/css";
 import Offers from "./Offers";
 import Choose from "./Choose";
@@ -58,65 +58,55 @@ export default function Hero() {
   const row1 = industries.slice(0, 5);
   const row2 = industries.slice(5);
   const scrollRef = useRef(null);
-  const {submitForm , loading, success, error} = useContact();
-  const[form , setForm] = useState({
-  firstName: "",
-  lastName: "",
-  phone: "",
-  email: "",
-  service: "",
-  message: "",
-
+  const { submitForm, loading, success, error } = useContact();
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    service: "",
+    message: "",
   });
 
-  const handleChange = (e)=>{
-    const{name, value} = e.target
-   setForm((prev) =>({
-    ...prev,
-    [name]: value,
-   }));
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   }
-
-  const handleSubmit = async(e) =>{
-     e.preventDefault();
-      try {
-    await submitForm(form);
-
-    setForm({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      service: "",
-      message: "",
-    });
-  } catch (err) {
-    console.error(err);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await submitForm(form);
+      setForm({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
-  }
-
-
   const scroll = (dir) => {
     if (!scrollRef.current) return;
-
     const width = 320;
     scrollRef.current.scrollBy({
       left: dir === "left" ? -width : width,
       behavior: "smooth",
     });
   };
-
-
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -135,7 +125,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[#000000]/5" />
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-gray-900/90 via-gray-900/60 to-transparent z-[1]" />
         <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/25 blur-[130px] animate-[heroFloat_9s_ease-in-out_infinite]" />
-      
         <div className="relative z-10 flex min-h-[750px] items-center px-6 py-16 lg:px-12 lg:py-20">
           <div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="text-white">
@@ -152,13 +141,11 @@ export default function Hero() {
                   Automate Everything.
                 </span>
               </h1>
-
               <p className="mt-6 max-w-xl lg:text-md  leading-relaxed text-slate-200 sm:text-md animate-[heroUp_0.7s_ease-out_0.2s_both]">
                 We design and develop custom CRM, ERP, Web, and Mobile applications
                 that automate operations and accelerate growth across Canada, USA,
                 and the UK.
               </p>
-
               <div className="mt-8 flex flex-wrap gap-4 animate-[heroUp_0.7s_ease-out_0.3s_both]">
                 <a
                   href="tel:+919900566466"
@@ -173,7 +160,6 @@ export default function Hero() {
                   Explore Solutions
                 </Link>
               </div>
-
               <div className="mt-8 flex flex-wrap gap-2.5 animate-[heroUp_0.7s_ease-out_0.4s_both]">
                 {[
                   "Google Partner",
@@ -190,7 +176,6 @@ export default function Hero() {
                   </span>
                 ))}
               </div>
-
               <div className="mt-10 grid max-w-xl grid-cols-3 gap-6 animate-[heroUp_0.7s_ease-out_0.5s_both]">
                 {[
                   { n: "250+", l: "Projects" },
@@ -209,10 +194,8 @@ export default function Hero() {
             <div className="flex justify-center lg:justify-end animate-[heroUp_0.8s_ease-out_0.25s_both]">
               <div className="relative w-full max-w-sm">
                 <div className="absolute -inset-[2px] rounded-3xl bg-[conic-gradient(from_0deg,#34d399,#22d3ee,#3b82f6,#22d3ee,#34d399)] bg-[length:300%_300%] opacity-60 blur-[6px] animate-[ringSpin_6s_linear_infinite]" />
-
                 <div className="relative rounded-3xl bg-white p-6 shadow-2xl sm:p-7">
                   <div className="absolute left-8 right-8 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
-
                   <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-cyan-600">
                     Free Strategy Consultation
                   </p>
@@ -222,48 +205,43 @@ export default function Hero() {
                   <p className="mt-1 text-xs text-slate-500">
                     Response within 24 hours. No commitment required.
                   </p>
-
                   <form onSubmit={handleSubmit} className="mt-4 space-y-2.5">
                     <div className="grid grid-cols-2 gap-2.5">
                       <input type="text" placeholder="First Name"
-                      name="firstName"
-  value={form.firstName}
-  onChange={handleChange} className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                        name="firstName"
+                        value={form.firstName}
+                        onChange={handleChange} className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                       <input type="text" name="lastName"
-  value={form.lastName}
-  onChange={handleChange} placeholder="Last Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                        value={form.lastName}
+                        onChange={handleChange} placeholder="Last Name" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                     </div>
-
                     <input type="tel"
-                    name="phone"
-  value={form.phone}
-  onChange={handleChange}
-                     placeholder="Phone Number" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="Phone Number" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                     <input type="email"
-                       name="email"
-  value={form.email}
-  onChange={handleChange}
-                     placeholder="Email Address" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
-
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="Email Address" className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                     <select name="service"
-  value={form.service}
-  onChange={handleChange}
-                     className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-600 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20">
-                       <option value="">Service of Interest</option>
-  <option value="CRM Development">CRM Development</option>
-  <option value="ERP Development">ERP Development</option>
-  <option value="Web Development">Web Development</option>
-  <option value="Mobile App Development">Mobile App Development</option>
-  <option value="Marketing Automation">Marketing Automation</option>
-  <option value="Salesforce CRM">Salesforce CRM</option>
-  <option value="Digital Transformation">Digital Transformation</option>
-  <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
+                      value={form.service}
+                      onChange={handleChange}
+                      className="w-full rounded-lg border border-slate-200 p-2.5 text-sm text-slate-600 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20">
+                      <option value="">Service of Interest</option>
+                      <option value="CRM Development">CRM Development</option>
+                      <option value="ERP Development">ERP Development</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Mobile App Development">Mobile App Development</option>
+                      <option value="Marketing Automation">Marketing Automation</option>
+                      <option value="Salesforce CRM">Salesforce CRM</option>
+                      <option value="Digital Transformation">Digital Transformation</option>
+                      <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
                     </select>
-
                     <textarea rows="2" name="message"
-  value={form.message}
-  onChange={handleChange} placeholder="Tell us about your project..." className="w-full resize-none rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
-
+                      value={form.message}
+                      onChange={handleChange} placeholder="Tell us about your project..." className="w-full resize-none rounded-lg border border-slate-200 p-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20" />
                     <button type="submit" className="group relative w-full rounded-lg bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] py-3 text-sm font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.5)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.75)]">
                       Get Free Consultation
                     </button>
@@ -271,11 +249,9 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
-
       <section
         ref={ref}
         className="relative overflow-hidden bg-[#1A2343] py-20 px-6"
@@ -310,7 +286,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
       <section className="relative  px-6 bg-[#1A2343] text-center overflow-hidden">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#00A884] blur-[120px] rounded-full " />
@@ -325,15 +300,10 @@ export default function Hero() {
           <p className="mt-6 text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">We offer a comprehensive lineup of CRM and digital solutions for clients across <span className="text-white font-medium">Canada</span> ,{" "} <span className="text-white font-medium">USA</span>  &{" "}
             <span className="text-white font-medium">UK</span>,
           </p>
-
         </div>
-
-
-
       </section>
       <Offers />
       <Choose />
-
       <section className="relative overflow-hidden bg-[#1A2343] px-6 py-8">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-[-200px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[140px]" />
@@ -365,21 +335,18 @@ export default function Hero() {
             >
               <FaChevronLeft />
             </button>
-
             <button
               onClick={() => scroll("right")}
               className="absolute -right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/30 backdrop-blur-md text-white hover:bg-white/10"
             >
               <FaChevronRight />
             </button>
-
             <div
               ref={scrollRef}
               className="flex gap-5 overflow-x-auto scroll-smooth px-2 py-4 scrollbar-hide"
             >
               {data.map((item, i) => {
-                const num = String(i + 1).padStart(2, "0");
-
+                // const num = String(i + 1).padStart(2, "0");
                 return (
                   <div
                     key={item.title}
@@ -399,15 +366,12 @@ export default function Hero() {
                         </span>
                         <div className="h-2 w-2 rounded-full bg-cyan-400" />
                       </div>
-
                       <h3 className="mt-4 text-lg font-semibold text-white">
                         {item.title}
                       </h3>
-
                       <p className="mt-2 text-sm text-slate-400 leading-relaxed">
                         {item.desc}
                       </p>
-
                       <div className="mt-4 h-1 w-full rounded-full bg-white/5 overflow-hidden">
                         <div className="h-full w-1/2 bg-gradient-to-r from-cyan-400 to-blue-500" />
                       </div>
@@ -425,20 +389,14 @@ export default function Hero() {
     }
   `}</style>
       </section>
-
-
       <section className="relative overflow-hidden bg-[#1A2343] py-28 px-6 text-white">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-[-200px] top-[100px] h-[400px] w-[400px] rounded-full bg-cyan-500/15 blur-[130px]" />
           <div className="absolute bottom-[-200px] right-[-100px] h-[400px] w-[400px] rounded-full bg-blue-600/15 blur-[140px]" />
           <div className="absolute left-1/2 top-1/3 h-72 w-72 rounded-full bg-emerald-500/10 blur-[130px]" />
         </div>
-
-
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2">
-
           <motion.div
             initial={{ opacity: 0, x: -60, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -446,9 +404,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
-
             <div className="absolute -inset-[2px] rounded-[26px] bg-[conic-gradient(from_0deg,#34d399,#22d3ee,#3b82f6,#22d3ee,#34d399)] bg-[length:300%_300%] opacity-50 blur-[8px] animate-[ringSpin_7s_linear_infinite]" />
-
             <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
               <img
                 src="/hero1.png"
@@ -458,11 +414,8 @@ export default function Hero() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-600/15 via-transparent to-blue-700/15 mix-blend-overlay" />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020617]/60 via-transparent to-transparent" />
             </div>
-
             <div className="pointer-events-none absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-cyan-500/25 blur-3xl" />
           </motion.div>
-
-
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -472,20 +425,18 @@ export default function Hero() {
             <p className="mb-4 text-sm uppercase tracking-[0.3em] text-cyan-400">
               Why Choose Us
             </p>
-
             <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
               Your Trusted CRM Software{" "}
               <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Development Agency
               </span>
             </h1>
-
             <p className="mt-6 text-base leading-relaxed text-slate-300/90">
               NNC Digital Solutions is backed by{" "}
               <strong className="text-cyan-300">
                 Nakshatra Namaha Creations Pvt. Ltd.
               </strong>{" "}
-              — one of Bangalore's most respected digital studios with{" "}
+               one of Bangalore's most respected digital studios with{" "}
               <span className="text-cyan-300">8+ years of experience</span> and{" "}
               <span className="text-cyan-300">565+ projects delivered</span> across
               India. To serve growing businesses in North America and the United
@@ -493,7 +444,6 @@ export default function Hero() {
               same proven technical expertise and client-first culture to the
               Canadian, US, and UK markets.
             </p>
-
             <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
               {[
                 ["1500+", "Web Projects"],
@@ -509,7 +459,6 @@ export default function Hero() {
                   viewport={{ once: true }}
                   className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]"
                 >
-
                   <span className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-8 rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 group-hover:w-2/3 transition-all duration-500" />
                   <b className="text-2xl font-bold bg-gradient-to-br from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                     {item[0]}
@@ -521,9 +470,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </section>
-
-
-
       <section className="relative overflow-hidden bg-[#1A2343] py-8">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-cyan-500/15 blur-[180px]" />
@@ -638,33 +584,27 @@ export default function Hero() {
             <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-emerald-400/10 blur-[180px]" />
             <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:50px_50px]" />
           </div>
-
           <div className="relative z-10 mt-5  px-10 text-left">
             <span className="inline-flex rounded-full border border-green-500/30 bg-green-500/10 px-5 py-2 text-sm font-medium text-[#00A883]">
               AI-Powered CRM
             </span>
-
             <h2 className="mt-6 text-4xl font-bold leading-tight text-white md:text-6xl">
               Leverage <span className="text-[#00A883]">AI-Powered <br /> CRM</span> Solutions
             </h2>
-
             <p className="mt-6 text-left max-w-2xl text-lg leading-relaxed text-gray-50">
               Our AI-driven CRM solutions streamline operations, automate repetitive tasks,
               and deliver actionable insights that help businesses increase productivity,
               improve customer engagement, and accelerate growth.
             </p>
-
             <div className="mt-10 flex flex-wrap justify-left gap-8">
               <div>
                 <h3 className="text-3xl font-bold text-[#00A883]">95%</h3>
                 <p className="mt-1 text-sm text-gray-50">Automation Accuracy</p>
               </div>
-
               <div>
                 <h3 className="text-3xl font-bold text-[#00A883]">24/7</h3>
                 <p className="mt-1 text-sm text-gray-50">AI Assistance</p>
               </div>
-
               <div>
                 <h3 className="text-3xl font-bold text-[#00A883]">3X</h3>
                 <p className="mt-1 text-sm text-gray-50">Faster Lead Conversion</p>
@@ -672,7 +612,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
         <div className="mt-16 grid gap-6 md:grid-cols-3 max-w-6xl pb-6 mx-auto">
           <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-green-500/40 hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]">
             <div className="flex items-start gap-4">
@@ -688,7 +627,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
           <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7  backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-green-500/40 hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]">
             <div className="flex items-start gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/15 text-2xl">
@@ -705,7 +643,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
           <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-green-500/40 hover:shadow-[0_0_40px_rgba(34,197,94,0.20)]">
             <div className="flex items-start gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/15 text-2xl">
@@ -722,13 +659,9 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
-
       <TechStack />
-
-
       <section className="relative overflow-hidden px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-12">
         <div
           className="absolute inset-0 scale-105 bg-cover bg-center"
@@ -775,10 +708,7 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-
       <Whatmatter />
-
       <section
         className="relative overflow-hidden py-14 px-6 lg:px-16 bg-cover bg-center"
         style={{ backgroundImage: "url('/success.png')" }}
@@ -791,11 +721,9 @@ export default function Hero() {
             <span className="inline-block px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 uppercase tracking-[4px] text-sm">
               Proven Results
             </span>
-
             <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Success <span className="bg-gradient-to-r  from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Stories</span>
             </h2>
-
             <p className="mt-6 text-lg text-slate-300 leading-8">
               Real results for real businesses across Canada, USA & UK.
             </p>
@@ -825,15 +753,13 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-
       <section
         className="relative bg-cover bg-center py-24 px-6 lg:px-16"
         style={{ backgroundImage: "url('/chose.png')" }}
       >
-        <div className="absolute inset-0 bg-slate-950/50" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="absolute top-10 left-10 h-72 w-72 bg-cyan-500/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-10 right-10 h-72 w-72 bg-blue-600/20 blur-[120px] rounded-full" />
+        {/* <div className="absolute bottom-10 right-10 h-72 w-72 bg-blue-600/20 blur-[120px] rounded-full" /> */}
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <span className="inline-block px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 uppercase tracking-[4px] text-sm">
@@ -866,7 +792,6 @@ export default function Hero() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6">
-
             {[
               { value: "1500+", label: "Web Projects" },
               { value: "500+", label: "Mobile Apps" },
@@ -877,9 +802,7 @@ export default function Hero() {
                 key={index}
                 className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 text-center transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-[0_20px_60px_rgba(6,182,212,.25)]"
               >
-
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-cyan-500/10 to-transparent" />
-
                 <div className="relative">
                   <h2 className="text-3xl font-bold text-white">
                     {item.value}
@@ -890,18 +813,14 @@ export default function Hero() {
                 </div>
               </div>
             ))}
-
           </div>
-
         </div>
       </section>
-
       <section className="py-24 px-6 lg:px-16 bg-[#1A2343] text-white overflow-hidden">
         <div className="text-center max-w-3xl mx-auto">
           <p className="uppercase tracking-[4px] bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text bg-clip-text text-transparent text-sm">
             Built for your world
           </p>
-
           <h2 className="mt-4 text-4xl md:text-5xl font-bold">
             Helping Businesses{" "}
             <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text bg-clip-text text-transparent">Across Industries</span>
@@ -922,14 +841,12 @@ export default function Hero() {
                   </div>
                 );
               })}
-
             </div>
           </div>
           <div className="overflow-hidden">
             <div className="flex w-max gap-6 animate-marquee-left">
               {[...industriess, ...industriess].map((item, index) => {
                 const Icon = item.icon;
-
                 return (
                   <div
                     key={index}
@@ -944,7 +861,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
       <Faq />
 
     </>
