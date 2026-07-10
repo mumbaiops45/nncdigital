@@ -33,20 +33,14 @@ export default function Whatmatter() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-[#020617] px-6 py-28">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
-        <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
-      </div>
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-
+    <section className="relative overflow-hidden bg-gray-100 text-black px-6 py-18">
       <div className="relative mx-auto max-w-7xl px-6">
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm uppercase tracking-[0.3em] text-cyan-300/80 backdrop-blur-md">
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+        <span className="inline-flex items-center gap-2 rounded-full border border border-white/10 bg-white/[0.06] backdrop-blur-xl bg-white/5 px-4 py-1.5 text-sm uppercase tracking-[0.3em] text-cyan-900 backdrop-blur-md">
+          <span className="h-1.5 w-1.5 rounded-full bg-cyan-900" />
           Why It Matters
         </span>
 
-        <h2 className="mt-6 text-4xl font-bold text-white md:text-5xl">
+        <h2 className="mt-6 text-4xl font-bold  md:text-5xl">
           Key Benefits of{" "}
           <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
             CRM Development
@@ -59,7 +53,6 @@ export default function Whatmatter() {
         <div className="flex flex-col gap-4 md:h-[460px] md:flex-row">
           {benefits.map((item, index) => {
             const isActive = active === index;
-
             return (
               <div
                 key={index}

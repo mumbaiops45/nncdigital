@@ -72,13 +72,9 @@ export default function Page() {
   });
 
   return (
-    <div className="bg-[#1A2343] text-white">
-      <section ref={heroRef} className="relative flex min-h-[60vh] items-center overflow-hidden px-6 pt-32 pb-20">
-        <motion.div style={{ y: orbY }} className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
-          <div className="absolute top-10 right-0 h-[26rem] w-[26rem] rounded-full bg-blue-600/15 blur-[150px]" />
-          <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-emerald-500/15 blur-[130px]" />
-        </motion.div>
+    <div className="bg-gray-50 text-black">
+      <section ref={heroRef} className="relative flex min-h-[60vh] items-center bg-[#1A2343] overflow-hidden px-6 pt-32 pb-20">
+        
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative mx-auto w-full max-w-6xl">
@@ -86,12 +82,12 @@ export default function Page() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <SectionLabel>Insights & Resources</SectionLabel>
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="mt-6 text-4xl font-bold text-white leading-tight md:text-6xl">
               Insights on{" "}
               <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Technology, Automation</span>{" "}
               & Digital Growth
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300/90">
+            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-50">
               Practical, experience-based articles on CRM, ERP, web development, automation, and digital strategy — written for business owners and operations leaders in{" "}
               <span className="font-semibold text-cyan-300">Canada, the USA, and the UK</span>. Backed by 10+ years of delivery expertise from Nakshatra Namaha Creations.
             </motion.p>
@@ -119,17 +115,17 @@ export default function Page() {
 
      
       <section className="relative overflow-hidden  px-6 py-18">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto max-w-3xl">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto bg-[#1A2343]  max-w-3xl">
           <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
           <div className="relative rounded-3xl border border-white/10  p-10 text-center backdrop-blur-xl md:p-14">
             <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
-              <Mail className="h-7 w-7 text-cyan-300" />
+              <Mail className="h-7 w-7 text-black" />
             </div>
             <SectionLabel>Stay Updated</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-6 text-3xl text-white font-bold md:text-4xl">
               Get Insights Delivered to Your <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">Inbox</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-slate-300/90">
+            <p className="mx-auto mt-4 max-w-lg text-slate-50">
               Monthly articles on CRM, ERP, automation, and digital growth for business leaders in Canada, the USA, and the UK.
             </p>
             <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
@@ -138,7 +134,7 @@ export default function Page() {
                 Subscribe
               </button>
             </div>
-            <p className="mt-4 text-xs text-slate-500">No spam, ever. Unsubscribe anytime.</p>
+            <p className="mt-4 text-xs text-slate-50">No spam, ever. Unsubscribe anytime.</p>
           </div>
         </motion.div>
       </section>

@@ -71,16 +71,6 @@ const tabs = [
     img: "/advanceduser.jpg",
   },
   {
-    title: "Data Quality Management",
-    desc: "Keep your customer database clean and accurate.",
-    img: "/DataQuality.jpg",
-  },
-  {
-    title: "Workflow Automation",
-    desc: "Automate approvals, notifications and daily tasks.",
-    img: "/automated.jpg",
-  },
-  {
     title: "Performance Optimization",
     desc: "Improve CRM speed and application performance.",
     img: "/improvecrm.jpg",
@@ -102,7 +92,7 @@ export default function Choose() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#1A2343] py-28 px-6 text-white">
+      <section className="relative overflow-hidden bg-[#1A2343] py-8 px-6 text-white">
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="text-left">
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-400">
@@ -250,65 +240,8 @@ export default function Choose() {
               We build scalable CRM platforms for businesses across Canada,
               the United States, and the United Kingdom.
             </motion.p>
-            <motion.div
-              variants={item}
-              className="mt-10 flex gap-5"
-            >
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                }}
-                whileTap={{
-                  scale: 0.97,
-                }}
-                className="rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-4 font-semibold text-white shadow-2xl transition-all hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_12px_40px_-8px_rgba(6,182,212,0.85)]"
-              >
-                Get Started
-              </motion.button>
-              <motion.button
-                whileHover={{
-                  backgroundColor: "rgba(255,255,255,.15)",
-                }}
-                className="rounded-xl border border-white/20 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-4 font-semibold text-white backdrop-blur-xl  hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_12px_40px_-8px_rgba(6,182,212,0.85)]"
-              >
-                View Portfolio
-              </motion.button>
-            </motion.div>
-            <motion.div
-              variants={container}
-              className="mt-20 grid grid-cols-2 gap-6 lg:grid-cols-4"
-            >
-              {stats.map((stat) => (
-                <motion.div
-                  key={stat.title}
-                  variants={item}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.04,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 250,
-                  }}
-                  className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-xl"
-                >
-
-                  <h2 className="text-3xl font-bold text-white">
-                    {stat.number}
-                  </h2>
-
-                  <p className="mt-3 text-sm uppercase tracking-wider text-gray-300">
-                    {stat.title}
-                  </p>
-
-                </motion.div>
-
-              ))}
-            </motion.div>
           </motion.div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent" />
-
       </section>
 
     </>

@@ -33,20 +33,15 @@ export default function TechStack() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#020617] ">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
-          <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
-        </div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+      <section className="relative overflow-hidden bg-gray-100 ">
+      
         <div className="relative w-full overflow-hidden py-14">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/strategycrm.png')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/40" />
-          <div className="absolute -top-40 left-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-emerald-500/20 blur-[140px]" />
+         
           <div className="relative mx-auto max-w-7xl px-6 py-8 lg:px-8">
             <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
@@ -83,10 +78,10 @@ export default function TechStack() {
             </div>
           </div>
         </div>
-        <div className="relative px-6">
+        <div className="relative overflow-hidden bg-gray-200 px-6 py-16">
           <div
             ref={sliderRef}
-            className=" no-scrollbar flex gap-6 overflow-x-auto scroll-smooth p-4 snap-x snap-mandatory"
+            className=" no-scrollbar flex gap-6  overflow-x-auto scroll-smooth p-4 snap-x snap-mandatory"
           >
             {crmTools.map((tool, index) => {
               const Icon = tool.icon;
@@ -94,68 +89,57 @@ export default function TechStack() {
               return (
                 <div
                   key={index}
-                  className={` group relative w-[320px] min-h-[280px] flex-shrink-0 snap-start overflow-hidden  rounded-3xl p-[1px] transition-all  duration-500 hover:-translate-y-3 hover:scale-[1.03] ${tool.featured
-                      ? "bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500"
-                      : "bg-gray-200 hover:bg-gradient-to-r hover:from-cyan-400/40 hover:via-blue-500/30 hover:to-purple-500/40"
-                    } `}
+                  className={`group relative w-[320px] h-[210px] flex-shrink-0 snap-start overflow-hidden rounded-3xl p-[1px] transition-all duration-500  hover:scale-[1.03] `}
                 >
+                 
                   <div
-                    className=" absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 " >
-                    <div
-                      className=" absolute -inset-[2px] rounded-3xl bg-[conic-gradient(from_0deg,transparent,#22d3ee,transparent)] animate-[spin_5s_linear_infinite] "/>
-                  </div>
-                  <div
-                    className={` relative h-full overflow-hidden rounded-3xl p-7 backdrop-blur-xl ${tool.featured
-                        ? "bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-blue-600/20"
-                        : "bg-slate-950/80"
-                      } `}
+                    className={`relative flex h-full flex-col overflow-hidden rounded-3xl p-5 backdrop-blur-xl ${tool.featured
+                        ? "bg-gray-100"
+                        : "bg-gray-100"
+                      }`}
                   >
-                    <div
-                      className=" absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 "/>
-                    <div className=" pointer-events-none absolute inset-0 overflow-hidden rounded-3xl" >
-                      <div className=" absolute -left-full top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all  duration-1000 group-hover:left-[150%] " />
-                    </div>
                     {tool.featured && (
-                      <span  className=" absolute left-8 right-8 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_rgba(34,211,238,0.8)]" />
+                      <span className="absolute left-6 right-6 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_rgba(34,211,238,0.8)]" />
                     )}
-                    <div className={` relative z-10 mb-6  flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 ${tool.featured
-                          ? "bg-white/20 shadow-lg shadow-cyan-400/30"
-                          : `${tool.bg} group-hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]`
-                        } `}
+                    <div
+                      className={`relative z-10 mb-3 flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-110 ${tool.featured
+                        ? "bg-white/20 shadow-lg shadow-cyan-400/30"
+                        : `${tool.bg} group-hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]`
+                        }`}
                     >
                       {hasImage ? (
                         <Image
                           src={tool.image}
                           alt={tool.name}
-                          width={40}
-                          height={40}
+                          width={34}
+                          height={34}
                           className="object-contain"
                         />
                       ) : (
                         <Icon
-                          size={32}
-                          className={` transition-all duration-300 ${tool.featured
-                              ? "text-white"
-                              : tool.color
+                          size={28}
+                          className={`transition-all duration-300 ${tool.featured ? "text-white" : tool.color
                             }`}
                         />
                       )}
                     </div>
-                    <div className="relative z-10">
-                      <h3 className="  mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-cyan-300 " >
+
+                    <div className="relative z-10 flex flex-1 flex-col">
+                      <h3 className="mb-2 text-lg font-bold text-black transition-colors duration-300 group-hover:text-cyan-300">
                         {tool.name}
                       </h3>
-                      <p className={` text-sm leading-7 transition-colors duration-300 ${tool.featured
-                            ? "text-white/90"
-                            : "text-slate-300 group-hover:text-white"
-                          } `}
+
+                      <p
+                        className={`line-clamp-3 text-sm leading-6 transition-colors duration-300 ${tool.featured
+                          ? "text-black"
+                          : "text-slate-900 group-hover:text-slate-900"
+                          }`}
                       >
                         {tool.desc}
                       </p>
+
                       {tool.featured && (
-                        <span
-                          className=" mt-5 inline-flex  rounded-full  bg-white px-4 py-2 text-xs  font-semibold  uppercase tracking-wider text-[#020617] shadow-lg transition-transform duration-300 group-hover:scale-105  "
-                        >
+                        <span className="mt-auto inline-flex w-fit rounded-full bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#020617] shadow-lg transition-transform duration-300 group-hover:scale-105">
                           Fully Bespoke
                         </span>
                       )}
@@ -179,11 +163,8 @@ export default function TechStack() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/40" />
           <div className="absolute -top-40 left-1/4 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-emerald-500/20 blur-[140px]" />
-
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-
-
               <div className="max-w-3xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
                   Hire CRM Developers
@@ -222,14 +203,14 @@ export default function TechStack() {
 
         <div
           ref={sliderRef2}
-          className="no-scrollbar flex gap-7 overflow-x-auto scroll-smooth pb-8"
+          className="no-scrollbar flex gap-7 overflow-x-auto bg-gray-100 scroll-smooth p-4"
         >
           {businessCards.map((card, index) => (
             <div
               key={index}
-              className="group relative min-w-[330px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/40 hover:shadow-[0_25px_70px_-12px_rgba(6,182,212,0.4)] md:min-w-[360px]"
+              className="group relative min-w-[330px] overflow-hidden rounded-3xl border border-white/10 bg-gray-800 backdrop-blur-md transition-all duration-500  hover:border-cyan-400/40 hover:shadow-[0_25px_70px_-12px_rgba(6,182,212,0.4)] md:min-w-[300px]"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-46 overflow-hidden">
                 <Image
                   src={card.image}
                   alt={card.title}

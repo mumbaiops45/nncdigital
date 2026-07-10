@@ -92,7 +92,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className={`fixed top-0 bg-black inset-x-0 z-50 transition-all duration-300 `}
+      className={`fixed top-0 bg-[#0D1024] inset-x-0 z-50 transition-all duration-300 `}
       // className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
       //   scrolled
       //     ? "bg-[#020617]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)]"
@@ -113,7 +113,7 @@ export default function Navbar() {
                 <img
                   src="/nnclogo.webp"
                   alt="NNC Digital"
-                  className={`w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.6)] ${
+                  className={`w-auto transition-all duration-300 ${
                     scrolled ? "h-10" : "h-12"
                   }`}
                 />

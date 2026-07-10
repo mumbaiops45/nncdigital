@@ -203,7 +203,7 @@ function OfficeCard({ o }) {
   return (
     <motion.div
       variants={fadeUp}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
+      className="group overflow-hidden rounded-2xl border border-white/10 bg-gray-100 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
     >
       <div className="relative h-36 overflow-hidden">
         <img
@@ -242,14 +242,14 @@ function OfficeCard({ o }) {
 
 function FaqItem({ item, isOpen, onClick }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md transition hover:border-cyan-400/30">
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white backdrop-blur-md transition hover:border-cyan-400/30">
       <button
         onClick={onClick}
         className="flex w-full items-center justify-between gap-4 p-5 text-left"
       >
-        <span className="font-semibold text-white">{item.q}</span>
+        <span className="font-semibold text-black">{item.q}</span>
         <span
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 transition-transform duration-300 ${isOpen ? "rotate-45" : ""
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black bg-cyan-400/10 text-black transition-transform duration-300 ${isOpen ? "rotate-45" : ""
             }`}
         >
           <Plus className="h-4 w-4" />
@@ -308,7 +308,7 @@ export default function Page() {
   }
 
   return (
-    <div className="bg-[#1A2343] text-white">
+    <div className="bg-gray-100 text-black">
       <section
         ref={heroRef}
         className="relative flex min-h-[55vh] items-center overflow-hidden px-6 pt-32 pb-16"
@@ -318,14 +318,14 @@ export default function Page() {
           <div className="absolute top-10 right-0 h-[26rem] w-[26rem] rounded-full bg-blue-600/15 blur-[150px]" />
           <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-emerald-500/15 blur-[130px]" />
         </motion.div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
+        <div className="absolute inset-0 bg-[#1A2343]" />
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative  max-w-4xl px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <SectionLabel>Let's Connect</SectionLabel>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 text-4xl font-bold leading-tight md:text-6xl"
+            className="mt-6 text-4xl text-white font-bold leading-tight md:text-6xl"
           >
             Let's Build Something{" "}
             <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
@@ -341,7 +341,7 @@ export default function Page() {
         </motion.div>
       </section>
 
-      <section className="relative px-6 py-16">
+      <section className="relative px-6  py-16">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-5">
           <motion.div
             variants={stagger}
@@ -360,31 +360,32 @@ export default function Page() {
               </h2>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
-              <div className="flex items-center gap-2 text-sm font-semibold text-white">
+            <motion.div variants={fadeUp} className="rounded-2xl border border-white/10 bg-white p-6 backdrop-blur-md">
+              <div className="flex items-center gap-2 text-sm font-semibold ">
                 <Phone className="h-4 w-4 text-cyan-400" /> Call Us
               </div>
               <div className="mt-4 space-y-3">
                 {phones.map((p) => (
                   <div key={p.label} className="flex items-center justify-between text-sm">
-                    <span className="flex items-center gap-2 text-slate-300">
+                    <span className="flex items-center gap-2 text-slate-800">
                       <span className="text-lg">{p.flag}</span> {p.label}
                     </span>
-                    <span className="text-slate-400">{p.number}</span>
+                    <span className="text-slate-800">{p.number}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
+            <motion.div variants={fadeUp} className="rounded-2xl border border-white/10 bg-white p-6 backdrop-blur-md">
               <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                <Mail className="h-4 w-4 text-cyan-400" /> Email Us
+                {/* <Mail className="h-4 w-4 text-cyan-400" /> */}
+                 Email Us
               </div>
               <div className="mt-4 space-y-3">
                 {emails.map((e) => (
                   <div key={e.email}>
                     <p className="font-semibold text-cyan-300">{e.email}</p>
-                    <p className="text-xs text-slate-500">{e.label}</p>
+                    <p className="text-xs text-slate-700">{e.label}</p>
                   </div>
                 ))}
               </div>
@@ -412,7 +413,7 @@ export default function Page() {
               <form onSubmit={handleSubmit} className="relative rounded-3xl border border-white/10 bg-[#0a1228]/90 p-8 backdrop-blur-xl md:p-10">
                 <span className="absolute left-10 right-10 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-blue-600" />
 
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl text-white font-bold">
                   Share Your{" "}
                   <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                     Project Idea
@@ -477,12 +478,12 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden px-6 py-14">
+      <section className="relative overflow-hidden bg-[#1A2343] px-6 py-14">
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-[50rem] -translate-x-1/2 rounded-full bg-blue-600/8 blur-[150px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Our Reach</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-6 text-3xl font-bold text-white md:text-4xl">
               Global{" "}
               <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Presence
@@ -501,7 +502,7 @@ export default function Page() {
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">India</h3>
             <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs text-cyan-300">4 Locations</span>
           </div>
-          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-5 grid gap-5  sm:grid-cols-2 lg:grid-cols-4">
             {indiaOffices.map((o) => <OfficeCard key={o.city} o={o} />)}
           </motion.div>
 
@@ -512,15 +513,17 @@ export default function Page() {
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-5 grid gap-5 sm:grid-cols-3">
             {intlOffices.map((o) => <OfficeCard key={o.city} o={o} />)}
           </motion.div>
+         
         </div>
+        
       </section>
 
-      <section className="relative px-6 py-14">
+      <section className="relative bg-gray-100 text-black px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-[140px]" />
         <div className="relative mx-auto max-w-3xl">
           <div className="text-center">
             <SectionLabel>Before You Reach Out</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-6 text-3xl  font-bold md:text-4xl">
               Common{" "}
               <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Questions

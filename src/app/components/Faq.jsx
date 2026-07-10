@@ -69,17 +69,13 @@ const Faq = () => {
 
     return (
         <>
-            <section className="relative overflow-hidden bg-[#1A2343] px-6 py-28 text-white">
-                <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute left-1/4 top-0 h-80 w-80 rounded-full bg-cyan-500/12 blur-[140px]" />
-                    <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
-                </div>
+            <section className="relative overflow-hidden bg-gray-100 px-6 py-18 text-black">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
 
                 <div className="relative mx-auto max-w-7xl">
                     <div className="mb-16 text-center">
                         <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm uppercase tracking-[0.3em] text-cyan-300/80 backdrop-blur-md">
-                            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                            <span className="h-1.5 w-1.5 rounded-full bg-cyan-700" />
                             Common Questions
                         </span>
 
@@ -90,21 +86,16 @@ const Faq = () => {
                             </span>
                         </h2>
                     </div>
-                    <div className="flex gap-5 overflow-x-auto pb-4 no-scrollbar">
+                    <div className="flex gap-5 overflow-x-auto p-4 no-scrollbar">
                         {faq.map((item, index) => {
-                            const num = String(index + 1).padStart(2, "0");
                             return (
                                 <div
                                     key={index}
-                                    className="group relative flex min-h-[230px] w-[280px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_25px_60px_-15px_rgba(6,182,212,0.45)]"
+                                    className="group relative flex min-h-[230px] w-[280px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_25px_60px_-15px_rgba(6,182,212,0.45)]"
                                 >
-                                    <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                                     <span className="absolute left-7 top-0 h-1 w-10 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-2/3" />
                                     <div className="relative">
-                                        <span className="text-sm font-bold bg-gradient-to-br from-emerald-300 to-cyan-400 bg-clip-text text-transparent">
-                                            {num}
-                                        </span>
-                                        <h3 className="mt-3 text-lg font-semibold leading-snug text-white">
+                                        <h3 className="mt-3 text-lg font-semibold leading-snug t">
                                             {item.q}
                                         </h3>
                                     </div>
@@ -127,20 +118,20 @@ const Faq = () => {
                     >
                         <div
                             onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-3xl rounded-3xl border border-cyan-400/30 bg-[#0a1228] p-10 shadow-[0_0_80px_rgba(34,211,238,0.25)] animate-[modalUp_0.3s_ease-out]"
+                            className="relative w-full max-w-3xl rounded-3xl border border-cyan-400/30 bg-gray-100 p-10 shadow-[0_0_80px_rgba(34,211,238,0.25)] animate-[modalUp_0.3s_ease-out]"
                         >
                             <span className="absolute left-10 right-10 top-0 h-1 rounded-b-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500" />
                             <button
                                 onClick={() => setActive(null)}
                                 aria-label="Close"
-                                className="absolute right-6 top-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition hover:border-white/30 hover:text-white"
+                                className="absolute right-6 top-6 flex h-9 w-9 items-center justify-center cursor-pointer rounded-full border border-white/10 text-black transition hover:border-white/30 hover:text-black"
                             >
                                 <X size={20} />
                             </button>
-                            <h3 className="mb-6 max-w-[90%] text-2xl font-bold text-cyan-300 md:text-3xl">
+                            <h3 className="mb-6 max-w-[90%] text-2xl font-bold text-black md:text-3xl">
                                 {active.q}
                             </h3>
-                            <p className="text-lg leading-8 text-slate-300/90">{active.a}</p>
+                            <p className="text-lg leading-8 text-slate-700">{active.a}</p>
                         </div>
                     </div>
                 )}
@@ -347,13 +338,13 @@ const Faq = () => {
                 </div>
             </section>
 
-            <section className="bg-[#1A2343] py-14 px-6">
+            <section className="bg-gray-100 py-14 px-6">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="mb-16 text-center">
                         <p className="text-sm font-semibold uppercase tracking-[4px] text-emerald-400">
                             From the Blog
                         </p>
-                        <h1 className="mt-6 text-4xl font-bold text-white lg:text-5xl">
+                        <h1 className="mt-6 text-4xl font-bold text-black lg:text-5xl">
                             Insights on Technology,{" "}
                             <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text bg-clip-text text-transparent">
                                 Automation & Digital Growth
@@ -361,14 +352,14 @@ const Faq = () => {
                         </h1>
                     </div>
                     <div className="grid gap-8 md:grid-cols-3">
-                        <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-400/40">
+                        <div className="group rounded-2xl border border-white/10 bg-white p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-400/40">
                             <p className="text-sm text-gray-400">
                                 March 5, 2026 • 5 min read
                             </p>
-                            <h2 className="mt-4 text-xl font-semibold leading-snug text-white group-hover:text-emerald-300">
+                            <h2 className="mt-4 text-xl font-semibold leading-snug text-black group-hover:text-emerald-300">
                                 Why Off-the-Shelf CRMs Fail Growing Businesses (And What to Do Instead)
                             </h2>
-                            <p className="mt-4 text-sm leading-6 text-gray-300">
+                            <p className="mt-4 text-sm leading-6 text-gray-400">
                                 Salesforce and HubSpot work until they don't. Here's why scaling businesses hit a wall with generic CRM tools and how custom-built systems eliminate friction.
                             </p>
                             <img
@@ -377,14 +368,14 @@ const Faq = () => {
                                 className="mt-6 h-48 w-full rounded-xl object-cover"
                             />
                         </div>
-                        <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-400/40">
+                        <div className="group rounded-2xl border border-white/10 bg-white p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-400/40">
                             <p className="text-sm text-gray-400">
                                 February 8, 2026 • 7 min read
                             </p>
-                            <h2 className="mt-4 text-xl font-semibold leading-snug text-white group-hover:text-emerald-300">
+                            <h2 className="mt-4 text-xl font-semibold leading-snug text-black group-hover:text-emerald-300">
                                 GDPR, PIPEDA & CCPA: How to Build Software That's Compliant From Day One
                             </h2>
-                            <p className="mt-4 text-sm leading-6 text-gray-300">
+                            <p className="mt-4 text-sm leading-6 text-gray-400">
                                 Compliance retrofitted after launch is expensive and fragile. Learn how to architect data privacy into systems from the ground up.
                             </p>
                             <img
@@ -393,14 +384,14 @@ const Faq = () => {
                                 className="mt-6 h-48 w-full rounded-xl object-cover"
                             />
                         </div>
-                        <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-400/40">
+                        <div className="group rounded-2xl border border-white/10 bg-white p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-emerald-400/40">
                             <p className="text-sm text-gray-400">
                                 February 20, 2026 • 6 min read
                             </p>
-                            <h2 className="mt-4 text-xl font-semibold leading-snug text-white group-hover:text-emerald-300">
+                            <h2 className="mt-4 text-xl font-semibold leading-snug text-black group-hover:text-emerald-300">
                                 The 7 Business Processes You Should Automate Before Hiring Your Next Employee
                             </h2>
-                            <p className="mt-4 text-sm leading-6 text-gray-300">
+                            <p className="mt-4 text-sm leading-6 text-gray-400">
                                 Before expanding headcount, smart operators automate. We break down workflows where automation delivers the fastest ROI.
                             </p>
                             <img
