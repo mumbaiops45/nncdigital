@@ -3,7 +3,8 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Calendar, Rocket, Users, Globe2, MapPin, Code2, Smartphone, Megaphone, Palette, Film, Video, Briefcase,Search, Target, ShieldCheck, Eye,  HeartHandshake, Clock, Star, Mail, Link2,} from "lucide-react";
+import { Calendar, Rocket, Users, Globe2, MapPin, Code2, Smartphone, Megaphone, Palette, Film, Video, Briefcase, Search, Target, ShieldCheck, Eye, HeartHandshake, Clock, Star, Mail, Link2, SearchX, Lightbulb, Check } from "lucide-react";
+
 
 const heroStats = [
   { icon: Calendar, value: "8+", label: "Years of Excellence" },
@@ -96,18 +97,14 @@ export default function AboutPage() {
     offset: ["start end", "end start"],
   });
   const storyImgY = useTransform(storyProgress, [0, 1], ["-12%", "12%"]);
-// bg-[#1A2343]
+  // bg-[#1A2343]
   return (
-    <div className="bg-[#1A2343] text-white">
+    <div>
       <section
         ref={heroRef}
-        className="relative flex min-h-[90vh]  overflow-hidden px-6 pt-32 pb-20"
+        className="relative flex min-h-[70vh] bg-[#1A2343] overflow-hidden px-6 pt-32 pb-20"
       >
-        <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
-        <div className="pointer-events-none absolute top-20 right-0 h-[26rem] w-[26rem] rounded-full bg-blue-600/15 blur-[150px]" />
-        <div className="pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-emerald-500/15 blur-[130px]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
-
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="relative  max-w-5xl text-left px-6"
@@ -115,12 +112,11 @@ export default function AboutPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <SectionLabel>About NNC Digital Solutions</SectionLabel>
           </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 text-4xl font-bold leading-tight md:text-6xl"
+            className="mt-4 text-4xl font-bold text-white leading-tight md:text-5xl"
           >
             Built on{" "}
             <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
@@ -152,18 +148,18 @@ export default function AboutPage() {
             className="mt-9 flex flex-wrap  gap-4"
           >
             <a
-             href="tel:+919900566466"
-            className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)]">
+              href="tel:+919900566466"
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0] hover:shadow-[0_14px_44px_-6px_rgba(6,182,212,0.85)]">
               Book a Free Consultation
             </a>
             <Link
-            href="/blog"
-             className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+              href="/blog"
+              className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
               View Our Work
             </Link>
           </motion.div>
 
-      
+
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -190,17 +186,17 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <section ref={storyRef} className="relative px-6 py-24">
+      <section ref={storyRef} className="relative bg-gray-100 px-6 py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <SectionLabel>Our Story</SectionLabel>
             <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
-              From Bangalore to Canada —{" "}
+              From Bangalore to Canada {" "}
               <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 The NNC Digital Story
               </span>
             </h2>
-            <div className="mt-6 space-y-4 text-slate-300/90 leading-relaxed">
+            <div className="mt-6 space-y-4 text-slate-900 leading-relaxed">
               <p>
                 Nakshatra Namaha Creations Pvt. Ltd. was founded in Bangalore — a
                 city synonymous with world-class software engineering. Over 8+
@@ -252,73 +248,131 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative px-6 py-6">
+
+      <section className="relative overflow-hidden bg-[#08111F] px-6 py-14">
         <div className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-blue-600/12 blur-[140px]" />
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>The Foundation</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">Our Parent Company</h2>
+            <h2 className="mt-6 text-3xl text-white font-bold md:text-4xl">Our Parent Company</h2>
             <p className="mt-3 text-lg text-slate-400">Nakshatra Namaha Creations Pvt. Ltd.</p>
           </div>
-
-
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">8+ Years of Digital Excellence</h3>
-                <span className="rounded-full bg-cyan-400/15 px-3 py-1 text-xs font-semibold text-cyan-300">
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.3 },
+              }}
+              className=" group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 p-8 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-[#14C8B8]/50 hover:shadow-[0_20px_70px_rgba(20,200,184,0.18)]">
+              <div className="absolute -top-16 -right-16 h-44 w-44 rounded-full bg-[#14C8B8]/10 blur-3xl group-hover:bg-[#14C8B8]/20 transition-all duration-500" />
+
+              <div className="relative flex items-center justify-between">
+                <h3 className="text-2xl font-bold text-white">
+                  8+
+                  <span className="ml-2 text-[#14C8B8]">
+                    Years of Digital Excellence
+                  </span>
+                </h3>
+                <span
+                  className="  rounded-full  border  border-[#14C8B8]/30  bg-[#14C8B8]/10  px-4  py-2  text-xs  font-semibold  text-[#7FF8E8]  ">
                   Since 2016
                 </span>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300/90">
-                Headquartered in <span className="font-semibold text-white">Bengaluru, Karnataka</span> —
-                India's Silicon Valley — with strategic offices in Mysore, Mumbai, and Hyderabad.
+
+              <p className="relative mt-5 text-[15px] leading-7 text-slate-300">
+                Headquartered in{" "}
+                <span className="font-semibold text-white">
+                  Bengaluru, Karnataka
+                </span>{" "}
+                — India's Silicon Valley, with strategic offices across Mysore,
+                Mumbai, and Hyderabad.
               </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {["Bengaluru HQ", "Mysore", "Mumbai", "Hyderabad"].map((c) => (
-                  <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
-                    <MapPin className="h-3 w-3 text-cyan-400" />
-                    {c}
+
+              <div className="relative mt-7 flex flex-wrap gap-3">
+                {[
+                  "Bengaluru HQ",
+                  "Mysore",
+                  "Mumbai",
+                  "Hyderabad",
+                ].map((city) => (
+                  <span
+                    key={city}
+                    className="  inline-flex  items-center  gap-2  rounded-full  border  border-[#14C8B8]/30  bg-[#14C8B8]/10  px-4  py-2  text-xs  font-medium  text-[#7FF8E8]  transition-all  duration-300  hover:bg-[#14C8B8] hover:text-slate-900  hover:scale-105  " >
+                    <MapPin className="h-3.5 w-3.5" />
+                    {city}
                   </span>
                 ))}
               </div>
-              <a href="https://www.nakshatranamahacreations.com" className="mt-5 inline-block text-sm font-semibold text-cyan-300 hover:underline">
-                www.nakshatranamahacreations.com
+
+              <a
+                href="https://www.nakshatranamahacreations.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="  relative  mt-7  inline-flex  items-center  gap-2  text-sm  font-semibold text-[#14C8B8] transition-all duration-300  hover:text-white" >
+                Visit Website →
               </a>
             </motion.div>
+
 
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md"
-            >
-              <h3 className="text-xl font-bold text-white">565+ Projects Delivered</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300/90">
-                From corporate websites and mobile apps to 2D animation, B2B
-                marketing, and video production — every digital discipline a
-                modern business could need.
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.3 },
+              }}
+              className=" group relative overflow-hidden  rounded-3xl  border  border-white/10  bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 p-8 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.35)]  transition-all  duration-500  hover:border-[#14C8B8]/50  hover:shadow-[0_20px_70px_rgba(20,200,184,0.18)] " >
+              <div className="absolute -top-16 -right-16 h-44 w-44 rounded-full bg-[#14C8B8]/10 blur-3xl group-hover:bg-[#14C8B8]/20 transition-all duration-500" />
+
+              <h3 className="relative text-2xl font-bold text-white">
+                565+
+                <span className="ml-2 text-[#14C8B8]">
+                  Projects Delivered
+                </span>
+              </h3>
+
+              <p className="relative mt-5 text-[15px] leading-7 text-slate-300">
+                From corporate websites and mobile apps to 2D animation,
+                B2B marketing, branding, SEO, and video production —
+                delivering every digital solution a modern business needs.
               </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {["Web", "Mobile", "Marketing", "Animation", "Video", "B2B", "SEO", "Design"].map((c) => (
-                  <span key={c} className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1.5 text-xs text-cyan-200">
-                    {c}
+
+              <div className="relative mt-7 flex flex-wrap gap-3">
+                {[
+                  "Web",
+                  "Mobile",
+                  "Marketing",
+                  "Animation",
+                  "Video",
+                  "B2B",
+                  "SEO",
+                  "Design",
+                ].map((item) => (
+
+                  <span
+                    key={item}
+                    className="  rounded-full  border  border-[#14C8B8]/30  bg-[#14C8B8]/10  px-4  py-2  text-xs  font-medium  tracking-wide  text-[#7FF8E8]  transition-all  duration-300  hover:bg-[#14C8B8]  hover:text-slate-900  hover:scale-105 " >
+                    {item}
                   </span>
+
                 ))}
+
               </div>
+
             </motion.div>
           </div>
 
 
           <div className="mt-20 text-center">
-            <h3 className="text-2xl font-bold md:text-3xl">Services That Power NNC Digital</h3>
+            <h3 className="text-2xl font-bold text-white md:text-3xl">Services That Power NNC Digital</h3>
             <p className="mt-3 text-slate-400">Full-spectrum capabilities from India's most trusted digital studio</p>
           </div>
           <motion.div
@@ -326,7 +380,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4"
+            className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4"
           >
             {services.map((s) => {
               const Icon = s.icon;
@@ -334,13 +388,20 @@ export default function AboutPage() {
                 <motion.div
                   key={s.name}
                   variants={fadeUp}
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-gray-200 p-6 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-gray-300 hover:shadow-[0_15px_40px_-12px_rgba(6,182,212,0.4)]"
-                >
-                  {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 transition group-hover:scale-110"> */}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl transition group-hover:scale-110">
-                    <Icon className="h-6 w-6 text-black" />
+                  whileHover={{
+                    y: -8,
+                    scale: 1.03,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="  group  relative  overflow-hidden  rounded-3xl  border  border-white/30  bg-white/95  p-7  text-center shadow-xl backdrop-blur-md  transition-all duration-300  hover:border-cyan-400  hover:shadow-[0_20px_45px_rgba(6,182,212,0.25)] " >
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-cyan-100 opacity-70 transition-all duration-300 group-hover:bg-cyan-200" />
+                  <div className=" relative  mx-auto  flex  h-16 w-16 items-center  justify-center rounded-2xl  bg-gradient-to-br from-cyan-500  to-blue-600 shadow-lg  transition-all duration-300 group-hover:scale-110   group-hover:rotate-6 "  >
+                    <Icon className="h-8 w-8 text-white" />
                   </div>
-                  <p className="text-sm font-medium text-slate-900">{s.name}</p>
+                  <h4 className="relative mt-5 text-base font-semibold text-slate-800">
+                    {s.name}
+                  </h4>
+                  <div className="mx-auto mt-4 h-1 w-10 rounded-full bg-cyan-500 transition-all duration-300 group-hover:w-16" />
                 </motion.div>
               );
             })}
@@ -377,103 +438,186 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative px-6 py-6">
-        <div className="mx-auto max-w-5xl">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center">
-            <SectionLabel>Our Purpose</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">
-              Why We Launched NNC Digital for the{" "}
-              <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                North American & UK Market
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#08111F] via-[#111C38] to-[#08111F] px-6 py-14">
+        <div className="absolute -left-40 top-0 h-[450px] w-[450px] rounded-full bg-cyan-500/10 blur-[140px]" />
+        <div className="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-emerald-400/10 blur-[140px]" />
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <SectionLabel>
+              Our Purpose
+            </SectionLabel>
+            <h2 className="  mt-6  text-4xl  font-bold leading-tight  text-white  md:text-5xl ">
+              Why We Launched
+              <span className="  block  bg-gradient-to-r  from-[#14C8B8] via-cyan-300   to-blue-400  bg-clip-text  text-transparent ">
+                NNC Digital
               </span>
+              for North American & UK Market
             </h2>
+            <p className="   mx-auto mt-6   max-w-3xl  text-lg leading-8 text-slate-300">
+              Delivering world-class digital solutions by combining global
+              standards with efficient technology execution.
+            </p>
           </motion.div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" whileHover={{y: -10, scale: 1.03, transition: {duration: 0.35},ease: "easeOut"}} viewport={{ once: true }}
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/40 hover:shadow-[0_30px_90px_rgba(34,211,238,0.25)]"
-            >
-              <span className="pointer-events-none absolute left-[-120px] top-0 h-[2px] w-32 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-700 ease-linear group-hover:left-[calc(100%+120px)]" />
-
-            <div className="relative z-10">
-              <h3 className="text-xl font-bold text-white">The Gap We Saw</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300/90">
-                Businesses in Canada, the USA, and the UK face a common challenge:
-                local agencies charge premium prices for work that can be
-                delivered at a fraction of the cost — without any quality
-                reduction — by the right offshore partner. Most offshore agencies
-                fail because they don't understand the regulatory environment,
-                commercial culture, or specific needs of Western businesses.
-              </p>
+          <div className=" mt-14 grid  gap-8 md:grid-cols-2">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              whileHover={{
+                y: -12,
+                scale: 1.02
+              }}
+              className="  group  relative  overflow-hidden  rounded-[32px]   border  border-white/10   bg-white/[0.05]  p-8  backdrop-blur-2xl  transition-all  duration-500   hover:border-cyan-400/40  hover:shadow-[0_30px_80px_rgba(20,200,184,.20)]">
+              <div className=" absolute left-0 top-0  h-1  w-0  bg-gradient-to-r  from-cyan-400  to-blue-500  transition-all  duration-700  group-hover:w-full  " />
+              <div className="  absolute  -right-20   -top-20 h-40 w-40 rounded-full    bg-cyan-400/10   blur-3xl transition duration-500 group-hover:scale-125" />
+              <div className="relative">
+                <div className=" flex  h-16 w-16 items-center justify-center rounded-2xl border  border-cyan-400/20 bg-cyan-400/10">
+                  <SearchX className="h-8 w-8 text-cyan-400" />
+                </div>
+                <h3 className=" mt-6 text-2xl font-bold  text-white">
+                  The Gap We Saw
+                </h3>
+                <p className=" mt-5 text-sm leading-7 text-slate-300">
+                  Businesses in Canada, the USA, and the UK face a common challenge:
+                  premium local agency pricing while searching for reliable offshore
+                  partners who understand quality, culture, compliance, and business goals.
+                </p>
               </div>
             </motion.div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              whileHover={{
+                y: -12,
+                scale: 1.02
+              }}
 
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show"   whileHover={{y: -10, scale: 1.03, transition: {duration: 0.35, ease: "easeOut"},}} viewport={{ once: true}} className="group relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-600/5 to-transparent p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-300/50 hover:shadow-[0_30px_90px_rgba(96,182,212,0.25)] ">
-              <span className="pointer-events-none absolute left-[-120px] top-0 h-[2px] w-32 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-700 ease-linear group-hover:left-[calc(100%+120px)]" />
-              <h3 className="text-xl font-bold text-white">The Solution We Built</h3>
-              <ul className="mt-4 space-y-3">
+              className=" group  relative  overflow-hidden    rounded-[32px] border  border-emerald-400/20 bg-gradient-to-br from-emerald-400/10 via-cyan-400/10  to-transparent  p-8 backdrop-blur-2xl  transition-all  duration-500   hover:border-emerald-300/50 hover:shadow-[0_30px_80px_rgba(52,211,153,.20)] ">
+              <div className=" absolute left-0  top-0  h-1  w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-700  group-hover:w-full " />
+              <div className=" flex h-16  w-16  items-center  justify-center  rounded-2xl  border border-emerald-400/20  bg-emerald-400/10 ">
+                <Lightbulb className="h-8 w-8 text-emerald-400" />
+              </div>
+              <h3 className=" mt-6 text-2xl font-bold text-white ">
+                The Solution We Built
+              </h3>
+              <ul className=" mt-6 space-y-4">
                 {solutionPoints.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-sm text-slate-200">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+                  <li
+                    key={p}
+                    className="  flex items-start  gap-3  text-sm leading-6  text-slate-200">
+                    <span className=" mt-1 flex h-5  w-5  items-center justify-center rounded-full bg-emerald-400/20">
+                      <Check className="h-3 w-3 text-emerald-300" />
+                    </span>
                     {p}
                   </li>
                 ))}
               </ul>
             </motion.div>
           </div>
-
         </div>
       </section>
 
-      <section className="relative px-6 py-6">
-        <div className="pointer-events-none absolute left-1/4 top-0 h-80 w-80 rounded-full bg-emerald-500/10 blur-[140px]" />
+
+      <section
+        className=" relative overflow-hidden bg-gradient-to-br from-[#060B18] via-[#111C38]  to-[#08111F] px-6  py-24 ">
+        <div className="  absolute  -left-40  top-20  h-[420px]  w-[420px] rounded-full bg-[#14C8B8]/15 blur-[150px] " />
+        <div className=" absolute -right-40  bottom-0  h-[400px]  w-[400px] rounded-full  bg-blue-500/10 blur-[150px] " />
         <div className="relative mx-auto max-w-7xl">
-          <div className="text-center">
-            <SectionLabel>Our Values</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <SectionLabel>
+              Our Values
+            </SectionLabel>
+            <h2 className="   mt-6 text-4xl font-bold  text-white  md:text-5xl " >
               What We{" "}
-              <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              <span className=" bg-gradient-to-r from-[#14C8B8]  via-cyan-300  to-blue-400 bg-clip-text  text-transparent " >
                 Stand For
               </span>
             </h2>
-          </div>
-
+            <p className="  mx-auto mt-5 max-w-2xl  text-slate-300 " >
+              The principles that guide our creativity, technology,
+              and partnerships.
+            </p>
+          </motion.div>
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="mt-14 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory p-4"
-          >
+            className="  mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 " >
             {values.map((v) => {
               const Icon = v.icon;
               return (
                 <motion.div
                   key={v.title}
                   variants={fadeUp}
-                 className="group relative shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-3rem)/3)] snap-start overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-15px_rgba(6,182,212,0.4)]"
-               >
-                  <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
-                    <Icon className="h-6 w-6 text-cyan-300" />
-                  </div>
-                  <h3 className="relative mt-5 text-lg font-bold text-white">{v.title}</h3>
-                  <p className="relative mt-2 text-sm text-slate-400">{v.desc}</p>
+                  whileHover={{
+                    y: -15,
+                    scale: 1.04
+                  }}
+                  transition={{
+                    duration: .35,
+                    ease: "easeOut"
+                  }}
+                  className="  group relative  overflow-hidden  rounded-[32px]  border  border-white/10 bg-gradient-to-br  from-[#111827]  via-[#16243D]  to-[#0F172A] p-8 shadow-[0_20px_60px_rgba(0,0,0,.35)]  transition-all duration-500 hover:border-[#14C8B8]/60 hover:shadow-[0_30px_90px_rgba(20,200,184,.25)] " >
+                  <div className=" absolute  -right-20 -top-20   h-48  w-48  rounded-full  bg-[#14C8B8]/20    blur-3xl opacity-0  transition-all  duration-500 group-hover:opacity-100  group-hover:scale-125  " />
+                  <div className=" absolute  left-0  top-0   h-[2px]  w-0  bg-gradient-to-r  from-transparent  via-[#14C8B8] to-transparent transition-all  duration-700 group-hover:w-full " />
+                  <motion.div
+                    whileHover={{
+                      rotate: 10,
+                      scale: 1.15
+                    }}
+                    transition={{
+                      duration: .3
+                    }}
+                    className=" relative  flex  h-16 w-16 items-center  justify-center  rounded-2xl  border  border-[#14C8B8]/30  bg-gradient-to-br from-[#14C8B8]/20  via-cyan-400/10   to-blue-500/20  shadow-inner  shadow-cyan-400/20 " >
+                    <Icon className="  h-8  w-8  text-[#7FF8E8] " />
+                  </motion.div>
+                  <h3 className="  mt-7  text-xl  font-bold  text-white  transition-all  duration-300  group-hover:text-[#14C8B8] " >
+                    {v.title}
+                  </h3>
+                  <p
+                    className=" mt-3 text-sm leading-7  text-slate-300 " >
+                    {v.desc}
+                  </p>
+                  <div className="  mt-6  h-1 w-10 rounded-full  bg-gradient-to-r  from-[#14C8B8]  to-blue-400 transition-all  duration-500  group-hover:w-24 " />
                 </motion.div>
-              );
+              )
             })}
           </motion.div>
         </div>
       </section>
 
-      <section className="relative px-6 py-6">
+      {/* <section className="relative px-6 py-6">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <SectionLabel>Global Offices</SectionLabel>
             <h2 className="mt-6 text-3xl font-bold md:text-4xl">Where We Operate</h2>
           </div>
 
-    
+
           <h3 className="mt-12 mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
             International Offices
           </h3>
@@ -494,7 +638,7 @@ export default function AboutPage() {
             ))}
           </div>
 
- 
+
           <h3 className="mt-12 mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
             India Offices — Nakshatra Namaha Creations
           </h3>
@@ -519,6 +663,354 @@ export default function AboutPage() {
             <Mail className="h-4 w-4" />
             info@nakshatranamahacreations.com
           </div>
+        </div>
+      </section> */}
+
+      <section
+        className="
+    relative
+    overflow-hidden
+    bg-gradient-to-br
+    from-[#060B18]
+    via-[#111C38]
+    to-[#08111F]
+    px-6
+    py-24
+  "
+      >
+
+        {/* Background Glow */}
+
+        <div
+          className="
+      absolute
+      left-0
+      top-20
+      h-[420px]
+      w-[420px]
+      rounded-full
+      bg-[#14C8B8]/10
+      blur-[150px]
+    "
+        />
+
+        <div
+          className="
+      absolute
+      right-0
+      bottom-0
+      h-[400px]
+      w-[400px]
+      rounded-full
+      bg-blue-500/10
+      blur-[150px]
+    "
+        />
+
+
+        <div className="relative mx-auto max-w-7xl">
+
+
+          {/* Heading */}
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="text-center"
+          >
+
+            <SectionLabel>
+              Global Offices
+            </SectionLabel>
+
+
+            <h2
+              className="
+          mt-6
+          text-4xl
+          font-bold
+          text-white
+          md:text-5xl
+        "
+            >
+
+              Where We{" "}
+
+              <span
+                className="
+          bg-gradient-to-r
+          from-[#14C8B8]
+          via-cyan-300
+          to-blue-400
+          bg-clip-text
+          text-transparent
+          "
+              >
+                Operate
+              </span>
+
+            </h2>
+
+
+            <p
+              className="
+        mx-auto
+        mt-5
+        max-w-2xl
+        text-slate-300
+        "
+            >
+              Connecting businesses globally with strategic digital
+              solutions across multiple regions.
+            </p>
+
+
+          </motion.div>
+
+
+
+
+
+          {/* International */}
+
+          <div className="mt-16">
+
+
+            <h3
+              className="
+          mb-6
+          flex
+          items-center
+          gap-3
+          text-sm
+          font-semibold
+          uppercase
+          tracking-[0.25em]
+          text-cyan-300
+        "
+            >
+
+              <span className="
+          h-px
+          w-10
+          bg-cyan-400
+        "/>
+
+              International Offices
+
+            </h3>
+
+
+
+            <div className="
+        grid
+        gap-7
+        sm:grid-cols-3
+      ">
+
+
+              {intlOffices.map((o) => (
+
+                <motion.div
+
+                  key={o.city}
+
+                  variants={fadeUp}
+
+                  initial="hidden"
+
+                  whileInView="show"
+
+                  viewport={{ once: true }}
+
+                  whileHover={{
+                    y: -10,
+                    scale: 1.03
+                  }}
+
+                  transition={{
+                    duration: .35
+                  }}
+
+
+                  className="
+              group
+              relative
+              overflow-hidden
+              rounded-[28px]
+              border
+              border-white/10
+
+              bg-gradient-to-br
+              from-[#111827]
+              via-[#16243D]
+              to-[#0F172A]
+
+              p-7
+
+              shadow-[0_20px_60px_rgba(0,0,0,.3)]
+
+              transition-all
+
+              hover:border-[#14C8B8]/50
+
+              hover:shadow-[0_30px_80px_rgba(20,200,184,.18)]
+            "
+                >
+
+
+                  {/* Glow */}
+
+                  <div
+                    className="
+                absolute
+                -right-20
+                -top-20
+                h-40
+                w-40
+                rounded-full
+                bg-cyan-400/20
+                blur-3xl
+                opacity-0
+                transition
+                duration-500
+                group-hover:opacity-100
+              "
+                  />
+
+
+
+                  {/* Flag */}
+
+                  <div
+                    className="
+                relative
+                flex
+                h-16
+                w-16
+                items-center
+                justify-center
+                rounded-2xl
+                bg-white/10
+                text-4xl
+                shadow-inner
+                transition
+                duration-500
+                group-hover:scale-110
+              "
+                  >
+                    {o.flag}
+                  </div>
+
+
+
+                  <h4
+                    className="
+              mt-6
+              text-xl
+              font-bold
+              text-white
+              "
+                  >
+                    {o.city}
+                  </h4>
+
+
+
+                  <p
+                    className="
+              mt-2
+              text-sm
+              text-slate-400
+              "
+                  >
+                    {o.phone}
+                  </p>
+
+
+
+                  <div
+                    className="
+              mt-5
+              h-1
+              w-10
+              rounded-full
+              bg-cyan-400/50
+              transition-all
+              duration-500
+              group-hover:w-20
+              "
+                  />
+
+
+                </motion.div>
+
+              ))}
+
+
+            </div>
+
+          </div>
+
+
+
+
+
+
+          {/* India Offices */}
+
+          <div className="mt-16">
+
+
+            <h3 className=" mb-6 flex items-center  gap-3  text-sm font-semibold  uppercase  tracking-[0.25em] text-emerald-300">
+              <span className=" h-px  w-10 bg-emerald-400" />
+              India Offices — Nakshatra Namaha Creations
+            </h3>
+            <div className=" grid  gap-7  sm:grid-cols-2 lg:grid-cols-4">
+              {indiaOffices.map((o) => (
+                <motion.div
+                  key={o.city}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  whileHover={{
+                    y: -10
+                  }}
+                  className=" group  rounded-[28px] border  border-white/10  bg-gradient-to-br  from-[#111827] to-[#16243D]   p-6 transition-all duration-500 hover:border-emerald-400/50  hover:shadow-[0_25px_70px_rgba(52,211,153,.18)] ">
+                  <div className="  flex h-14 w-14 items-center  justify-center  rounded-xl  bg-emerald-400/10 text-3xl " >
+                    {o.flag}
+                  </div>
+                  <h4 className="  mt-5 font-bold  text-white " >
+                    {o.city}
+                  </h4>
+                  <p className=" mt-2 text-sm text-slate-400">
+                    {o.phone}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0
+            }}
+            viewport={{
+              once: true
+            }}
+            className=" mt-14 flex justify-center ">
+            <div className="  flex items-center  gap-3  rounded-full  border border-cyan-400/20 bg-cyan-400/10  px-6 py-3  text-sm text-cyan-200 ">
+              <Mail className="h-5 w-5" />
+              info@nakshatranamahacreations.com
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -548,14 +1040,14 @@ export default function AboutPage() {
               with honest, practical advice.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a 
-              href="tel:+919900566466"
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
+              <a
+                href="tel:+919900566466"
+                className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-[length:200%_100%] px-8 py-3.5 font-semibold text-white shadow-[0_8px_30px_-6px_rgba(6,182,212,0.6)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-[position:100%_0]">
                 Book a Free Consultation
               </a>
               <Link
-              href="/blog"
-               className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
+                href="/blog"
+                className="rounded-xl border border-white/15 bg-white/5 px-8 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/10">
                 View Our Work →
               </Link>
             </div>

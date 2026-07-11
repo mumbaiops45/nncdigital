@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef , useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import useContact from "@/hooks/useContact";
 
@@ -133,98 +133,100 @@ const stagger = {
 };
 
 
+
+
 function CaseCard({ study, index }) {
+
     const ref = useRef(null);
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start end", "end start"],
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+
+    const y = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["-8%", "8%"]
+    );
+
+
     const reversed = index % 2 === 1;
 
+
     return (
+
         <motion.div
             ref={ref}
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] backdrop-blur-md transition-all duration-500 hover:border-cyan-400/40 hover:shadow-[0_30px_80px_-20px_rgba(6,182,212,0.4)]"
+            viewport={{
+                once: true,
+                margin: "-50px"
+            }}
+            transition={{
+                duration: .35
+            }}
+            className=" group relative overflow-hidden rounded-3xl border border-white/10  bg-gradient-to-br from-[#111827] via-[#0F172A] to-[#172554] shadow-[0_20px_50px_rgba(0,0,0,.35)] transition-all duration-500  hover:border-cyan-400/40 hover:shadow-[0_30px_70px_rgba(34,211,238,.20)] "
         >
-            <div className={`grid lg:grid-cols-2 ${reversed ? "lg:[direction:rtl]" : ""}`}>
-                <div className="relative h-72 overflow-hidden lg:h-auto [direction:ltr]">
+            <div className="  absolute -right-20 -top-20 h-40 w-40 rounded-full bg-cyan-400/20  blur-3xl  opacity-0  transition  duration-500 group-hover:opacity-100 " />
+            <div className={`  grid lg:grid-cols-2 ${reversed ? "lg:[direction:rtl]" : ""}`} >
+                <div className=" relative h-66 overflow-hidden lg:h-[350px] [direction:ltr]">
                     <motion.img
                         src={study.image}
                         alt={study.title}
-                        style={{ y }}
-                        className="absolute inset-0 h-[124%] w-full object-cover"
+                        style={{
+                            y
+                        }}
+                        className=" absolute inset-0 h-[115%] w-full object-cover transition duration-700 group-hover:scale-110 "
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/30 to-transparent lg:bg-gradient-to-r" />
-
-                    <div className="absolute bottom-6 left-6">
-                        <div className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-5xl font-bold text-transparent">
+                    <div className=" absolute inset-0 bg-gradient-to-t  from-[#020617] via-[#020617]/40 to-transparent" />
+                    <div className=" absolute bottom-5  left-6 " >
+                        <h4 className=" text-5xl font-black bg-gradient-to-r from-cyan-300  to-blue-400 bg-clip-text text-transparent">
                             {study.metric}
-                        </div>
-                        <p className="mt-1 text-sm text-slate-300">{study.metricLabel}</p>
+                        </h4>
+                        <p className=" text-xs text-slate-300">
+                            {study.metricLabel}
+                        </p>
                     </div>
                 </div>
-
-                <div className="relative p-8 lg:p-10 [direction:ltr]">
-                    <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full border border-cyan-400/30 bg-cyan-400/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-200">
-                            {study.tag}
+                <div className="  p-6 lg:p-7 [direction:ltr]">
+                    <div className=" flex gap-2 flex-wrap">
+                        <span className=" rounded-full bg-cyan-400/10 border border-cyan-400/20 px-3   py-1 text-[11px] font-semibold uppercase tracking-wide text-cyan-300"> {study.tag}
                         </span>
-                        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
+                        <span className=" rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[11px] text-slate-300">
                             {study.sector}
                         </span>
                     </div>
-
-                    <h3 className="mt-5 text-2xl font-bold leading-snug text-white">
-                        {study.title}
+                    <h3 className=" mt-4 text-xl font-bold leading-snug text-white "> {study.title}
                     </h3>
-
-                    <div className="mt-6 space-y-5">
-                        <div>
-                            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                                The Challenge
-                            </p>
-                            <p className="mt-1.5 text-sm leading-relaxed text-slate-300/90">
-                                {study.challenge}
-                            </p>
-                        </div>
-                        <div>
-                            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                                The Solution
-                            </p>
-                            <p className="mt-1.5 text-sm leading-relaxed text-slate-300/90">
-                                {study.solution}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="mt-6 border-t border-white/10 pt-5">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                            The Results
+                    <div className=" mt-4  space-y-3">
+                        <p className=" text-sm leading-6 text-slate-300 line-clamp-3 ">
+                            {study.solution}
                         </p>
-                        <motion.ul
-                            variants={stagger}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true }}
-                            className="mt-3 space-y-2"
-                        >
-                            {study.results.map((r) => (
-                                <motion.li
-                                    key={r}
-                                    variants={fadeUp}
-                                    className="flex items-start gap-2.5 text-sm text-slate-200"
-                                >
-                                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
-                                    {r}
-                                </motion.li>
-                            ))}
-                        </motion.ul>
+                    </div>
+                    <div className="  mt-5 border-t border-white/10 pt-4 ">
+                        <div className=" flex items-center  gap-2 text-xs font-semibold uppercase tracking-wider  text-emerald-300 ">
+                            <span className=" h-2 w-2 rounded-full bg-emerald-400 "
+                            />
+                            Results
+                        </div>
+                        <ul className="  mt-3 space-y-2 ">
+                            {
+                                study.results
+                                    .slice(0, 3)
+                                    .map((r) => (
+                                        <li
+                                            key={r} className=" flex  gap-2  text-sm text-slate-300 ">
+                                            <span className="  mt-2 h-1.5 w-1.5 rounded-full  bg-cyan-400  "
+                                            />
+                                            {r}
+                                        </li>
+                                    ))
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -235,16 +237,16 @@ function CaseCard({ study, index }) {
 
 export default function Page() {
     const heroRef = useRef(null);
-    const {submitForm , loading, success, error} = useContact();
+    const { submitForm, loading, success, error } = useContact();
     const [form, setform] = useState({
         fullname: "",
         phone: "",
-        email:"",
-        description:"",
+        email: "",
+        description: "",
     });
 
-    const handleChange= (e) =>{
-        const {name, value} = e.target;
+    const handleChange = (e) => {
+        const { name, value } = e.target;
 
         setform((prev) => ({
             ...prev,
@@ -252,7 +254,7 @@ export default function Page() {
         }));
     };
 
-    const handleSubmit = async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await submitForm(form);
@@ -268,10 +270,10 @@ export default function Page() {
     const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
     return (
-        <div className=" bg-[#1A2343] text-white">
+        <div >
             <section
                 ref={heroRef}
-                className="relative flex min-h-[85vh]  overflow-hidden px-6 pt-32 pb-20"
+                className="relative flex min-h-[85vh] bg-[#1A2343] overflow-hidden px-6 pt-32 pb-20"
             >
                 <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-[140px]" />
                 <div className="pointer-events-none absolute top-20 right-0 h-[26rem] w-[26rem] rounded-full bg-blue-600/15 blur-[150px]" />
@@ -297,7 +299,7 @@ export default function Page() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.1 }}
-                        className="mt-6 text-4xl font-bold leading-tight md:text-6xl"
+                        className="mt-6 text-4xl font-bold text-white leading-tight md:text-6xl"
                     >
                         Real Systems.{" "}
                         <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
@@ -339,7 +341,7 @@ export default function Page() {
                 </motion.div>
             </section>
 
-            <section className="relative px-6 py-20">
+            <section className="relative  bg-gradient-to-br from-[#F8FAFC] via-[#E2E8F0] to-[#F1F5F9] px-6 py-20">
                 <div className=" max-w-6xl">
                     <motion.h2
                         variants={fadeUp}
@@ -361,199 +363,190 @@ export default function Page() {
                     </div>
                 </div>
             </section>
-
-          
-
-            <section className="relative overflow-hidden py-18 px-10 ">
-                <div className="absolute top-0 left-20 h-80 w-80 rounded-full bg-cyan-500/10 blur-[150px]" />
-                <div className="absolute bottom-0 right-20 h-80 w-80 rounded-full bg-emerald-500/10 blur-[150px]" />
-
-                <div className="relative mx-auto max-w-7xl">
-
-                    <div className="grid items-center gap-20 lg:grid-cols-2">
+            <section
+                className="relative overflow-hidden bg-gradient-to-br from-[#F8FAFC] via-[#E2E8F0] to-[#F1F5F9] px-6 py-14">
+                <div className="absolute left-0 top-20 h-[400px] w-[400px] rounded-full bg-cyan-400/20 blur-[150px]"/>
+                <div
+                    className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-emerald-400/20 blur-[150px]"/>
+                <div
+                    className="relative mx-auto max-w-7xl">
+                    <div
+                        className="grid items-center gap-16 lg:grid-cols-2">
                         <motion.div
                             variants={fadeUp}
                             initial="hidden"
                             whileInView="show"
-                            viewport={{ once: true }}
+                            viewport={{
+                                once: true
+                            }}
                         >
-                            <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300">
+                            <span
+                                className="inline-flex rounded-full border border-cyan-200 bg-white/80 px-5 py-2 text-sm font-semibold text-cyan-700 shadow-sm">
                                 Work With Us
                             </span>
-
-                            <h2 className="mt-6 text-5xl font-bold leading-tight text-white">
+                            <h2
+                                className="mt-0 text-4xl font-black leading-tight text-slate-900 md:text-5xl">
                                 Ready to Build Your
-                                <span className="block bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                                <span
+                                    className="block bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
                                     Next Digital Success?
                                 </span>
                             </h2>
-
-                            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
-                                Tell us about your project and our experts will connect with you
-                                within 24 hours. We provide honest advice, transparent pricing and
-                                scalable digital solutions.
+                            <p
+                                className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                                Tell us about your project and our experts will connect
+                                within 24 hours with the right strategy, transparent pricing,
+                                and scalable digital solutions.
                             </p>
+                            <div
+                                className="mt-5 space-y-5">
+                                {[
+                                    {
+                                        title: "Free Consultation",
+                                        desc: "Strategy session with our digital experts.",
+                                        color: "bg-emerald-500"
+                                    },
+                                    {
+                                        title: "Response Within 24 Hours",
+                                        desc: "Fast communication and project planning.",
+                                        color: "bg-cyan-500"
+                                    },
+                                    {
+                                        title: "NDA Available",
+                                        desc: "Complete confidentiality for your project.",
+                                        color: "bg-blue-500"
+                                    }
 
-                            <div className="mt-10 space-y-5">
-
-                                <div className="flex items-center gap-4">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20 text-xl">
-                                        ✓
+                                ].map((item) => (
+                                    <div
+                                        key={item.title}
+                                        className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                                        
+                                        <div>
+                                            <h4
+                                                className="font-bold text-slate-900"
+                                            >
+                                                {item.title}
+                                            </h4>
+                                            <p
+                                                className="mt-1 text-sm text-slate-500"
+                                            >
+                                                {item.desc}
+                                            </p>
+                                        </div>
                                     </div>
-
-                                    <div>
-                                        <h4 className="font-semibold text-white">
-                                            Free Consultation
-                                        </h4>
-
-                                        <p className="text-slate-400">
-                                            Strategy session with our experts.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center gap-4">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500/20 text-xl">
-                                        ✓
-                                    </div>
-
-                                    <div>
-                                        <h4 className="font-semibold text-white">
-                                            Response Within 24 Hours
-                                        </h4>
-
-                                        <p className="text-slate-400">
-                                            Fast communication and project planning.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center gap-4">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/20 text-xl">
-                                        ✓
-                                    </div>
-
-                                    <div>
-                                        <h4 className="font-semibold text-white">
-                                            NDA Available
-                                        </h4>
-
-                                        <p className="text-slate-400">
-                                            Your project stays completely confidential.
-                                        </p>
-                                    </div>
-                                </div>
-
+                                ))}
                             </div>
-
-                            <div className="mt-12 border-t border-white/10 pt-8">
-
-                                <div className="flex flex-wrap gap-8 text-slate-300">
-
-                                    <div>
-                                        <p className="text-sm text-slate-500">
-                                            Canada
-                                        </p>
-
-                                        <p>+91 99005 66466</p>
-                                    </div>
-
-                                    <div>
-                                        <p className="text-sm text-slate-500">
-                                            USA
-                                        </p>
-
-                                        <p>+91 99005 66466</p>
-                                    </div>
-
-                                    <div>
-                                        <p className="text-sm text-slate-500">
-                                            UK
-                                        </p>
-
-                                        <p>+91 99005 66466</p>
-                                    </div>
-
+                            <div
+                                className="mt-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                            >
+                                <div
+                                    className="grid gap-5 sm:grid-cols-3"
+                                >
+                                    {[
+                                        ["Canada", "+91 99005 66466"],
+                                        ["USA", "+91 99005 66466"],
+                                        ["UK", "+91 99005 66466"]
+                                    ].map(([country, phone]) => (
+                                        <div key={country}>
+                                            <p
+                                                className="text-sm text-slate-400"
+                                            >
+                                                {country}
+                                            </p>
+                                            <p
+                                                className="mt-1 font-semibold text-slate-800"
+                                            >
+                                                {phone}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
-
-                                <p className="mt-6 text-cyan-300">
+                                <p
+                                    className="mt-5 font-semibold text-cyan-600"
+                                >
                                     nnc@nncdigital.com
                                 </p>
-
                             </div>
-
                         </motion.div>
-
                         <motion.div
                             variants={fadeUp}
                             initial="hidden"
                             whileInView="show"
-                            viewport={{ once: true }}
+                            viewport={{
+                                once: true
+                            }}
+
                         >
-
-                            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-
-                                <h3 className="mb-8 text-3xl font-semibold text-white">
+                            <div className="relative rounded-[32px] border border-slate-200 bg-white  p-8 shadow-[0_25px_80px_rgba(15,23,42,.12)] md:p-10"
+                            >
+                                <div
+                                    className="absolute left-1/2 top-0 h-1 w-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500"
+                                />
+                                <h3
+                                    className="text-3xl font-bold text-slate-900"
+                                >
                                     Let's Talk
                                 </h3>
-
-                                <form onSubmit={handleSubmit} className="space-y-5">
-
-                                    <input
-                                        type="text"
-                                        name="fullname"
-                                        onChange={handleChange}
-                                        value={form.fullname}
-                                        placeholder="Full Name"
-                                        className="w-full rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
-                                    />
-
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        value={form.phone}
-                                        onChange={handleChange}
-                                        placeholder="Phone Number"
-                                        className="w-full rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
-                                    />
-
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={form.email}
-                                        onChange={handleChange}
-                                        placeholder="Business Email"
-                                        className="w-full rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
-                                    />
-
+                                <p
+                                    className="mt-2 text-slate-500"
+                                >
+                                    Start your project journey today.
+                                </p>
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="mt-8 space-y-5"
+                                >
+                                    {[
+                                        {
+                                            name: "fullname",
+                                            type: "text",
+                                            placeholder: "Full Name"
+                                        },
+                                        {
+                                            name: "phone",
+                                            type: "tel",
+                                            placeholder: "Phone Number"
+                                        },
+                                        {
+                                            name: "email",
+                                            type: "email",
+                                            placeholder: "Business Email"
+                                        }
+                                    ].map((input) => (
+                                        <input
+                                            key={input.name}
+                                            type={input.type}
+                                            name={input.name}
+                                            value={form[input.name]}
+                                            onChange={handleChange}
+                                            placeholder={input.placeholder}
+                                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white focus:ring-4 focus:ring-cyan-100"
+                                        />
+                                    ))}
                                     <textarea
-                                        rows={5}
+                                        rows={4}
                                         name="description"
                                         value={form.description}
                                         onChange={handleChange}
                                         placeholder="Tell us about your project..."
-                                        className="w-full resize-none rounded-xl border border-white/10 bg-transparent px-5 py-4 text-white outline-none transition focus:border-cyan-400"
-                                    />
+                                        className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white focus:ring-4 focus:ring-cyan-100
+                                    "/>
 
-                                    <button type="submit" 
-                                    disabled={loading} className="w-full rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 py-4 text-lg font-semibold text-white transition duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(6,182,212,.35)]">
+                                    <button
+                                        type="submit"
+                                        disabled={loading}
+                                        className="w-full rounded-xl bg-gradient-to-r from-emerald-500 via-cyan-500to-blue-600 py-4 text-lg font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(6,182,212,.35)]">
                                         Schedule Free Consultation →
                                     </button>
-
-                                    <p className="text-center text-sm text-slate-500">
+                                    <p className="text-center text-sm text-slate-400">
                                         Your information is secure. We never share your data.
                                     </p>
-
                                 </form>
-
                             </div>
-
                         </motion.div>
-
                     </div>
-
                 </div>
-
             </section>
         </div>
     );

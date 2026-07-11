@@ -114,10 +114,10 @@ export default function Page() {
       </section>
 
      
-      <section className="relative overflow-hidden  px-6 py-18">
+      <section className="relative overflow-hidden   px-6 py-18">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative mx-auto bg-[#1A2343]  max-w-3xl">
           <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-emerald-400/30 via-cyan-400/20 to-blue-500/30 blur-sm" />
-          <div className="relative rounded-3xl border border-white/10  p-10 text-center backdrop-blur-xl md:p-14">
+          <div className="relative  border border-white/10  p-10 text-center backdrop-blur-xl md:p-14">
             <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20">
               <Mail className="h-7 w-7 text-black" />
             </div>

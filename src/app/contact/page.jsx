@@ -99,8 +99,8 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 
 function SectionLabel({ children }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm uppercase tracking-[0.3em] text-cyan-300/80 backdrop-blur-md">
-      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 px-4 py-1.5 text-sm uppercase tracking-[0.3em] text-black backdrop-blur-md ">
+      <span className="h-1.5 w-1.5 rounded-full bg-black" />
       {children}
     </span>
   );

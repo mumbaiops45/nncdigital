@@ -57,9 +57,8 @@ export default function Offers() {
       className="relative min-h-screen overflow-hidden bg-gray-100 py-8 "
     >
       <div className="relative mx-auto mb-6 max-w-6xl px-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-cyan-400" />
-          <span className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300/80">
+        <div className="inline-flex items-center gap-2  rounded-full  border bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 px-5 py-2  text-sm  backdrop-blur-xl ">
+          <span className="text-md font-semibold uppercase tracking-[0.35em] ">
             What We Build
           </span>
         </div>
@@ -97,9 +96,6 @@ export default function Offers() {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/20 via-[#020617]/40 to-[#020617]/70" />
 
                 <div className={`absolute ${position} z-10 max-w-lg text-white transition-all duration-700`}>
-                  {/* <span className="text-lg font-bold tracking-widest text-cyan-300">
-                    {String(i + 1).padStart(2, "0")}
-                  </span> */}
                   <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
                     {item.title}
                   </h2>
@@ -125,11 +121,6 @@ export default function Offers() {
           />
         ))}
       </div>
-
-      {/* <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style> */}
     </section>
   )
 }
