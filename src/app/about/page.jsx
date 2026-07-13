@@ -610,109 +610,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* <section className="relative px-6 py-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <SectionLabel>Global Offices</SectionLabel>
-            <h2 className="mt-6 text-3xl font-bold md:text-4xl">Where We Operate</h2>
-          </div>
+     
 
-
-          <h3 className="mt-12 mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
-            International Offices
-          </h3>
-          <div className="grid gap-5 sm:grid-cols-3">
-            {intlOffices.map((o) => (
-              <motion.div
-                key={o.city}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:-translate-y-1 hover:border-cyan-400/40"
-              >
-                <div className="text-3xl">{o.flag}</div>
-                <p className="mt-3 font-semibold text-white">{o.city}</p>
-                <p className="mt-1 text-sm text-slate-400">{o.phone}</p>
-              </motion.div>
-            ))}
-          </div>
-
-
-          <h3 className="mt-12 mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-            India Offices — Nakshatra Namaha Creations
-          </h3>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {indiaOffices.map((o) => (
-              <motion.div
-                key={o.city}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:-translate-y-1 hover:border-cyan-400/40"
-              >
-                <div className="text-3xl">{o.flag}</div>
-                <p className="mt-3 font-semibold text-white">{o.city}</p>
-                <p className="mt-1 text-sm text-slate-400">{o.phone}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-cyan-300">
-            <Mail className="h-4 w-4" />
-            info@nakshatranamahacreations.com
-          </div>
-        </div>
-      </section> */}
-
-      <section
-        className="
-    relative
-    overflow-hidden
-    bg-gradient-to-br
-    from-[#060B18]
-    via-[#111C38]
-    to-[#08111F]
-    px-6
-    py-24
-  "
-      >
-
-        {/* Background Glow */}
-
-        <div
-          className="
-      absolute
-      left-0
-      top-20
-      h-[420px]
-      w-[420px]
-      rounded-full
-      bg-[#14C8B8]/10
-      blur-[150px]
-    "
-        />
-
-        <div
-          className="
-      absolute
-      right-0
-      bottom-0
-      h-[400px]
-      w-[400px]
-      rounded-full
-      bg-blue-500/10
-      blur-[150px]
-    "
-        />
-
-
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#060B18] via-[#111C38]to-[#08111F] px-6 py-24">
+        <div className="absolute left-0 top-20 h-[420px] w-[420px] rounded-full bg-[#14C8B8]/10 blur-[150px]"/>
+        <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-blue-500/10 blur-[150px]"/>
         <div className="relative mx-auto max-w-7xl">
-
-
-          {/* Heading */}
-
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -720,250 +623,57 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center"
           >
-
             <SectionLabel>
               Global Offices
             </SectionLabel>
-
-
-            <h2
-              className="
-          mt-6
-          text-4xl
-          font-bold
-          text-white
-          md:text-5xl
-        "
-            >
-
+            <h2 className="mt-6 text-4xl font-bold text-white md:text-5xl">
               Where We{" "}
-
-              <span
-                className="
-          bg-gradient-to-r
-          from-[#14C8B8]
-          via-cyan-300
-          to-blue-400
-          bg-clip-text
-          text-transparent
-          "
-              >
+              <span className="bg-gradient-to-r from-[#14C8B8] via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Operate
               </span>
-
             </h2>
-
-
-            <p
-              className="
-        mx-auto
-        mt-5
-        max-w-2xl
-        text-slate-300
-        "
-            >
+            <p className="mx-auto mt-5 max-w-2xl text-slate-300">
               Connecting businesses globally with strategic digital
               solutions across multiple regions.
             </p>
-
-
           </motion.div>
-
-
-
-
-
-          {/* International */}
-
           <div className="mt-16">
-
-
-            <h3
-              className="
-          mb-6
-          flex
-          items-center
-          gap-3
-          text-sm
-          font-semibold
-          uppercase
-          tracking-[0.25em]
-          text-cyan-300
-        "
-            >
-
-              <span className="
-          h-px
-          w-10
-          bg-cyan-400
-        "/>
-
+            <h3 className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.25em]text-cyan-300">
+              <span className="h-px w-10 bg-cyan-400"/>
               International Offices
-
             </h3>
-
-
-
-            <div className="
-        grid
-        gap-7
-        sm:grid-cols-3
-      ">
-
-
+            <div className="grid gap-7 sm:grid-cols-3">
               {intlOffices.map((o) => (
-
                 <motion.div
-
                   key={o.city}
-
                   variants={fadeUp}
-
                   initial="hidden"
-
                   whileInView="show"
-
                   viewport={{ once: true }}
-
                   whileHover={{
                     y: -10,
                     scale: 1.03
                   }}
-
                   transition={{
                     duration: .35
                   }}
-
-
-                  className="
-              group
-              relative
-              overflow-hidden
-              rounded-[28px]
-              border
-              border-white/10
-
-              bg-gradient-to-br
-              from-[#111827]
-              via-[#16243D]
-              to-[#0F172A]
-
-              p-7
-
-              shadow-[0_20px_60px_rgba(0,0,0,.3)]
-
-              transition-all
-
-              hover:border-[#14C8B8]/50
-
-              hover:shadow-[0_30px_80px_rgba(20,200,184,.18)]
-            "
-                >
-
-
-                  {/* Glow */}
-
-                  <div
-                    className="
-                absolute
-                -right-20
-                -top-20
-                h-40
-                w-40
-                rounded-full
-                bg-cyan-400/20
-                blur-3xl
-                opacity-0
-                transition
-                duration-500
-                group-hover:opacity-100
-              "
-                  />
-
-
-
-                  {/* Flag */}
-
-                  <div
-                    className="
-                relative
-                flex
-                h-16
-                w-16
-                items-center
-                justify-center
-                rounded-2xl
-                bg-white/10
-                text-4xl
-                shadow-inner
-                transition
-                duration-500
-                group-hover:scale-110
-              "
-                  >
+                  className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#111827] via-[#16243D] to-[#0F172A] p-7 shadow-[0_20px_60px_rgba(0,0,0,.3)] transition-all hover:border-[#14C8B8]/50 hover:shadow-[0_30px_80px_rgba(20,200,184,.18)]">
+                  <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100"/>
+                  <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-4xl shadow-inner transition duration-500 group-hover:scale-110">
                     {o.flag}
                   </div>
-
-
-
-                  <h4
-                    className="
-              mt-6
-              text-xl
-              font-bold
-              text-white
-              "
-                  >
+                  <h4 className="mt-6text-xl font-bold text-white">
                     {o.city}
                   </h4>
-
-
-
-                  <p
-                    className="
-              mt-2
-              text-sm
-              text-slate-400
-              "
-                  >
+                  <p className="mt-2 text-sm text-slate-400">
                     {o.phone}
                   </p>
-
-
-
-                  <div
-                    className="
-              mt-5
-              h-1
-              w-10
-              rounded-full
-              bg-cyan-400/50
-              transition-all
-              duration-500
-              group-hover:w-20
-              "
-                  />
-
-
+                  <div className="mt-5 h-1 w-10 rounded-full bg-cyan-400/50 transition-all duration-500 group-hover:w-20"/>
                 </motion.div>
-
               ))}
-
-
             </div>
-
           </div>
-
-
-
-
-
-
-          {/* India Offices */}
-
           <div className="mt-16">
-
-
             <h3 className=" mb-6 flex items-center  gap-3  text-sm font-semibold  uppercase  tracking-[0.25em] text-emerald-300">
               <span className=" h-px  w-10 bg-emerald-400" />
               India Offices — Nakshatra Namaha Creations
@@ -979,14 +689,14 @@ export default function AboutPage() {
                   whileHover={{
                     y: -10
                   }}
-                  className=" group  rounded-[28px] border  border-white/10  bg-gradient-to-br  from-[#111827] to-[#16243D]   p-6 transition-all duration-500 hover:border-emerald-400/50  hover:shadow-[0_25px_70px_rgba(52,211,153,.18)] ">
-                  <div className="  flex h-14 w-14 items-center  justify-center  rounded-xl  bg-emerald-400/10 text-3xl " >
+                  className="group rounded-[28px] border border-white/10 bg-gradient-to-br from-[#111827]to-[#16243D] p-6 transition-all duration-500 hover:border-emerald-400/50 hover:shadow-[0_25px_70px_rgba(52,211,153,.18)]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-400/10 text-3xl">
                     {o.flag}
                   </div>
-                  <h4 className="  mt-5 font-bold  text-white " >
+                  <h4 className="mt-5 font-bold text-white">
                     {o.city}
                   </h4>
-                  <p className=" mt-2 text-sm text-slate-400">
+                  <p className="mt-2 text-sm text-slate-400">
                     {o.phone}
                   </p>
                 </motion.div>
@@ -1005,9 +715,9 @@ export default function AboutPage() {
             viewport={{
               once: true
             }}
-            className=" mt-14 flex justify-center ">
-            <div className="  flex items-center  gap-3  rounded-full  border border-cyan-400/20 bg-cyan-400/10  px-6 py-3  text-sm text-cyan-200 ">
-              <Mail className="h-5 w-5" />
+            className="mt-14 flex justify-center">
+            <div className="flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-6 py-3 text-sm text-cyan-200">
+              <Mail className="h-5 w-5"/>
               info@nakshatranamahacreations.com
             </div>
           </motion.div>
@@ -1055,12 +765,6 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <style jsx global>{`
-        @keyframes ringSpin {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 300% 50%; }
-        }
-      `}</style>
     </div>
   );
 }
